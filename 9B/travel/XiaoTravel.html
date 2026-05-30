@@ -1,0 +1,1009 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xiao Travel</title>
+    <style>
+      body {
+        overflow-x: hidden;
+        margin: 0;
+
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+        background-image: url(https://media.istockphoto.com/id/1030748518/vector/tartan-seamless-vector-pattern-checkered-plaid-texture-geometrical-square-background-for.jpg?s=612x612&w=0&k=20&c=dL7GRzXQUbpnyMrS6vtrJhrl9BNI-dCfyT14LGvDW1M=);
+        background-color: rgba(255, 255, 255, 0.85);
+        background-blend-mode: lighten;
+        background-repeat: repeat;
+
+        animation: slide 20s linear infinite;
+      }
+
+      h1 {
+        margin: 0;
+      }
+
+      h2 {
+        margin: 0;
+
+        color: #999;
+
+        font-size: 1.8vh;
+      }
+
+      h3 {
+        margin: 0;
+
+        font-size: 1.3vh;
+
+        font-weight: 500;
+      }
+
+      h4 {
+        margin: 0;
+
+        font-size: 6vh;
+
+        font-weight: 500;
+      }
+
+      h5 {
+        margin: 0;
+
+        color: #999;
+
+        font-size: 2.3vh;
+
+        font-weight: 100;
+      }
+
+      h6 {
+        margin: 0;
+
+        color: black;
+
+        font-size: 1.5vh;
+      }
+
+      h7 {
+        margin: 0;
+
+        color: black;
+
+        font-size: 1.5vh;
+        font-weight: 100;
+
+        white-space: pre-wrap;
+      }
+
+      h8 {
+        margin: 0;
+
+        font-size: 1.2vh;
+
+        color: #50b5ad;
+      }
+
+      h9 {
+        margin: 0;
+
+        font-size: 1.7vh;
+        font-weight: 800;
+
+        color: black;
+
+        padding-bottom: 4vh;
+      }
+
+      .topbar {
+        position: fixed;
+
+        width: 100%;
+        height: 5vh;
+
+        background-color: #fff;
+
+        border-bottom: #ccc 1px solid;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        z-index: 2;
+      }
+
+      .topsidebar {
+        padding: 0 1vh;
+
+        width: auto;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 1vh;
+      }
+
+      .specialbutton {
+        border: 0;
+
+        height: 3vh;
+        width: auto;
+
+        background-color: #60d8ce;
+
+        color: #fff;
+
+        border-radius: 0.25vh;
+
+        padding: 0 0.5vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 0.5vh;
+      }
+
+      .specialbutton img {
+        height: 2vh;
+        width: 2vh;
+      }
+
+      .specialbutton:hover {
+        background-color: #50b5ad;
+      }
+
+      .button {
+        border: 0;
+
+        height: 3vh;
+        width: auto;
+
+        background-color: #fff;
+
+        border-radius: 0.25vh;
+
+        padding: 0 0.5vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 0.5vh;
+      }
+
+      .button img {
+        height: 2vh;
+        width: 2vh;
+      }
+
+      .button:hover {
+        background-color: #ccc;
+      }
+
+      .searchwrapper {
+        position: relative;
+
+        height: 2.75vh;
+        width: calc(25vh + 2px);
+
+        display: flex;
+        align-items: center;
+      }
+
+      .search {
+        position: absolute;
+
+        right: 0;
+
+        height: 2.75vh;
+        width: 24.5vh;
+
+        font-size: 1.3vh;
+
+        padding-left: 0.5vh;
+
+        background-color: #fff;
+
+        border: #ccc 1px solid;
+        border-radius: 0.25vh;
+
+        color: black;
+      }
+
+      .search::placeholder {
+        color: #ccc;
+      }
+
+      .search:focus {
+        outline: none;
+      }
+
+      .searchbutton {
+        position: absolute;
+
+        right: calc(0.1vh + 2px);
+
+        border: 0;
+
+        height: 2.55vh;
+        width: 2.55vh;
+
+        background-color: #60d8ce;
+
+        color: #fff;
+
+        border-radius: 0.25vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 0.5vh;
+      }
+
+      .searchbutton img {
+        height: 2vh;
+        width: 2vh;
+      }
+
+      .searchbutton:hover {
+        background-color: #50b5ad;
+      }
+
+      .mainpage {
+        position: absolute;
+
+        top: 5vh;
+
+        width: 100%;
+        height: 200%;
+      }
+
+      @keyframes slide {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: 612px 612px;
+        }
+      }
+
+      .countryblock {
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        view-timeline-name: --revealing-element;
+        view-timeline-axis: block;
+
+        animation-name: slide-in;
+        animation-timing-function: ease-in-out;
+        animation-timeline: --revealing-element;
+
+        animation-range: entry 0% cover 25%;
+      }
+
+      @keyframes slide-in {
+        from {
+          translate: 0 100%;
+          opacity: 0;
+          scale: 100% 1;
+        }
+
+        to {
+          translate: 0 0;
+          opacity: 1;
+          scale: 100% 1;
+        }
+      }
+
+      .countrysquare {
+        width: 100vh;
+        height: auto;
+
+        padding: 6vh 0;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 3vh;
+      }
+
+      .countryimage {
+        width: 100%;
+        height: 40vh;
+
+        z-index: 1;
+
+        background-position: center;
+        background-size: cover;
+      }
+
+      .countryrating {
+        width: 100vh;
+        height: auto;
+
+        display: flex;
+        align-items: center;
+
+        gap: 5vh;
+      }
+
+      .aligntextboth {
+        display: flex;
+      }
+
+      .stars {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 1vh;
+      }
+
+      .stars img {
+        width: 2vh;
+        height: 2vh;
+
+        filter: sepia(100%) saturate(2000%) hue-rotate(-15deg);
+      }
+
+      .readmorebutton {
+        border: 0;
+
+        height: 3vh;
+        width: auto;
+
+        background-color: #60d8ce;
+
+        text-decoration: none;
+
+        color: white;
+
+        border-radius: 100ch;
+
+        padding: 0.25vh 1vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 0.5vh;
+      }
+
+      .readmorebutton:hover {
+        background: #50b5ad;
+      }
+
+      .chiikawaimage {
+        height: 5vh;
+        width: 5vh;
+      }
+
+      .footnote {
+        width: 100vw;
+        height: auto;
+
+        background-color: #60d8ce;
+
+        display: flex;
+        justify-content: center;
+      }
+
+      .footnotesquare {
+        width: 100vh;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        gap: 1vh;
+      }
+
+      .emptyfoot {
+        height: 14vh;
+        width: 80vh;
+      }
+
+      .midline {
+        height: 1px;
+        width: calc(100vw - 10vh);
+
+        background-color: #50b5ad;
+      }
+
+      .rewards {
+        width: 80vh;
+        height: 8vh;
+
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      .rewards img {
+        height: 8vh;
+      }
+
+      .copyright {
+        width: 50vh;
+        height: 8vh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .registermain {
+        width: 100vw;
+        height: 100vh;
+
+        z-index: 67;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        position: fixed;
+
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .registerpage {
+        height: 60vh;
+        width: 50vh;
+
+        border-radius: 0.25vh;
+
+        background-color: white;
+
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .registerclose {
+        height: 3vh;
+        width: 3vh;
+
+        background-color: white;
+
+        border: 0;
+        border-radius: 0.25vh;
+
+        position: absolute;
+
+        right: 0.25vh;
+        top: 0.25vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .registercontent {
+        width: 50vh;
+        height: 50vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+
+        gap: 1vh;
+      }
+
+      .registerclose:hover {
+        background-color: #ccc;
+      }
+
+      .registerclose img {
+        height: 2vh;
+        width: 2vh;
+      }
+
+      .inputstyle {
+        width: 40vh;
+        height: 6vh;
+
+        padding: 0;
+        margin: 0;
+
+        font-size: 1.7vh;
+        font-weight: 1000;
+
+        color: black;
+        background-color: white;
+        border: #eee 1px solid;
+        border-radius: 0.25vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 0.25vh;
+      }
+
+      .inputstyle img {
+        border-radius: 100ch;
+
+        background-color: white;
+
+        height: 1.7vh;
+        width: 1.7vh;
+      }
+
+      .inputgmail {
+        width: 36vh;
+        height: 6vh;
+
+        padding: 0 2vh;
+        margin: 0;
+
+        font-size: 1.7vh;
+        font-weight: 500;
+
+        color: black;
+        background-color: white;
+        border: #eee 1px solid;
+        border-radius: 0.25vh;
+      }
+
+      #inputgmailid:not(:placeholder-shown) + .inputstyle {
+        background-color: #60d8ce !important;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="registerid" class="registermain">
+      <div class="registerpage">
+        <button
+          onclick="document.getElementById('registerid').style.display = 'none'"
+          class="registerclose"
+        >
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS14LWljb24gbHVjaWRlLXgiPjxwYXRoIGQ9Ik0xOCA2IDYgMTgiLz48cGF0aCBkPSJtNiA2IDEyIDEyIi8+PC9zdmc+"
+          />
+        </button>
+
+        <div class="registercontent">
+          <h9>Sign in/register</h9>
+          <input
+            id="inputgmailid"
+            class="inputgmail"
+            placeholder="Please enter an email address"
+          />
+          <button
+            style="background-color: #eee; color: white"
+            class="inputstyle"
+          >
+            Continue with email
+          </button>
+          <div style="padding: 1vh">or</div>
+          <button
+            style="
+              background-color: #60d8ce;
+              border-color: #60d8ce;
+              color: white;
+            "
+            class="inputstyle"
+          >
+            <img
+              src="https://www.pngarts.com/files/11/Google-Logo-Icon-Free-PNG-Image.png"
+              alt="loginimg"
+            />
+
+            Continue with Google
+          </button>
+          <button class="inputstyle">
+            <img
+              src="https://cdn.creazilla.com/icons/3204955/logo-apple-icon-lg.png"
+              alt="loginimg"
+            />
+
+            Continue with Apple
+          </button>
+          <button class="inputstyle">
+            <img
+              src="https://freepngimg.com/save/141246-logo-circle-facebook-picture-free-transparent-image-hd/1000x1000"
+              alt="loginimg"
+            />
+
+            Continue with Facebook
+          </button>
+          <button class="inputstyle">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/023/986/633/non_2x/wechat-logo-wechat-logo-transparent-wechat-icon-transparent-free-free-png.png"
+              alt="loginimg"
+            />
+
+            Continue with Wechat
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="mainpage">
+      <div class="countryblock">
+        <div class="countrysquare">
+          <h2>Tenuunbileg</h2>
+          <h4>Tokyo</h4>
+          <h5>Japan's capital and largest city</h5>
+
+          <div class="countryrating">
+            <div class="stars">
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0YXItaWNvbiBsdWNpZGUtc3RhciI+PHBhdGggZD0iTTExLjUyNSAyLjI5NWEuNTMuNTMgMCAwIDEgLjk1IDBsMi4zMSA0LjY3OWEyLjEyMyAyLjEyMyAwIDAgMCAxLjU5NSAxLjE2bDUuMTY2Ljc1NmEuNTMuNTMgMCAwIDEgLjI5NC45MDRsLTMuNzM2IDMuNjM4YTIuMTIzIDIuMTIzIDAgMCAwLS42MTEgMS44NzhsLjg4MiA1LjE0YS41My41MyAwIDAgMS0uNzcxLjU2bC00LjYxOC0yLjQyOGEyLjEyMiAyLjEyMiAwIDAgMC0xLjk3MyAwTDYuMzk2IDIxLjAxYS41My41MyAwIDAgMS0uNzctLjU2bC44ODEtNS4xMzlhMi4xMjIgMi4xMjIgMCAwIDAtLjYxMS0xLjg3OUwyLjE2IDkuNzk1YS41My41MyAwIDAgMSAuMjk0LS45MDZsNS4xNjUtLjc1NWEyLjEyMiAyLjEyMiAwIDAgMCAxLjU5Ny0xLjE2eiIvPjwvc3ZnPg=="
+                alt="star"
+              />
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0YXItaWNvbiBsdWNpZGUtc3RhciI+PHBhdGggZD0iTTExLjUyNSAyLjI5NWEuNTMuNTMgMCAwIDEgLjk1IDBsMi4zMSA0LjY3OWEyLjEyMyAyLjEyMyAwIDAgMCAxLjU5NSAxLjE2bDUuMTY2Ljc1NmEuNTMuNTMgMCAwIDEgLjI5NC45MDRsLTMuNzM2IDMuNjM4YTIuMTIzIDIuMTIzIDAgMCAwLS42MTEgMS44NzhsLjg4MiA1LjE0YS41My41MyAwIDAgMS0uNzcxLjU2bC00LjYxOC0yLjQyOGEyLjEyMiAyLjEyMiAwIDAgMC0xLjk3MyAwTDYuMzk2IDIxLjAxYS41My41MyAwIDAgMS0uNzctLjU2bC44ODEtNS4xMzlhMi4xMjIgMi4xMjIgMCAwIDAtLjYxMS0xLjg3OUwyLjE2IDkuNzk1YS41My41MyAwIDAgMSAuMjk0LS45MDZsNS4xNjUtLjc1NWEyLjEyMiAyLjEyMiAwIDAgMCAxLjU5Ny0xLjE2eiIvPjwvc3ZnPg=="
+                alt="star"
+              />
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0YXItaWNvbiBsdWNpZGUtc3RhciI+PHBhdGggZD0iTTExLjUyNSAyLjI5NWEuNTMuNTMgMCAwIDEgLjk1IDBsMi4zMSA0LjY3OWEyLjEyMyAyLjEyMyAwIDAgMCAxLjU5NSAxLjE2bDUuMTY2Ljc1NmEuNTMuNTMgMCAwIDEgLjI5NC45MDRsLTMuNzM2IDMuNjM4YTIuMTIzIDIuMTIzIDAgMCAwLS42MTEgMS44NzhsLjg4MiA1LjE0YS41My41MyAwIDAgMS0uNzcxLjU2bC00LjYxOC0yLjQyOGEyLjEyMiAyLjEyMiAwIDAgMC0xLjk3MyAwTDYuMzk2IDIxLjAxYS41My41MyAwIDAgMS0uNzctLjU2bC44ODEtNS4xMzlhMi4xMjIgMi4xMjIgMCAwIDAtLjYxMS0xLjg3OUwyLjE2IDkuNzk1YS41My41MyAwIDAgMSAuMjk0LS45MDZsNS4xNjUtLjc1NWEyLjEyMiAyLjEyMiAwIDAgMCAxLjU5Ny0xLjE2eiIvPjwvc3ZnPg=="
+                alt="star"
+              />
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0YXItaWNvbiBsdWNpZGUtc3RhciI+PHBhdGggZD0iTTExLjUyNSAyLjI5NWEuNTMuNTMgMCAwIDEgLjk1IDBsMi4zMSA0LjY3OWEyLjEyMyAyLjEyMyAwIDAgMCAxLjU5NSAxLjE2bDUuMTY2Ljc1NmEuNTMuNTMgMCAwIDEgLjI5NC45MDRsLTMuNzM2IDMuNjM4YTIuMTIzIDIuMTIzIDAgMCAwLS42MTEgMS44NzhsLjg4MiA1LjE0YS41My41MyAwIDAgMS0uNzcxLjU2bC00LjYxOC0yLjQyOGEyLjEyMiAyLjEyMiAwIDAgMC0xLjk3MyAwTDYuMzk2IDIxLjAxYS41My41MyAwIDAgMS0uNzctLjU2bC44ODEtNS4xMzlhMi4xMjIgMi4xMjIgMCAwIDAtLjYxMS0xLjg3OUwyLjE2IDkuNzk1YS41My41MyAwIDAgMSAuMjk0LS45MDZsNS4xNjUtLjc1NWEyLjEyMiAyLjEyMiAwIDAgMCAxLjU5Ny0xLjE2eiIvPjwvc3ZnPg=="
+                alt="star"
+              />
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0YXItaWNvbiBsdWNpZGUtc3RhciI+PHBhdGggZD0iTTExLjUyNSAyLjI5NWEuNTMuNTMgMCAwIDEgLjk1IDBsMi4zMSA0LjY3OWEyLjEyMyAyLjEyMyAwIDAgMCAxLjU5NSAxLjE2bDUuMTY2Ljc1NmEuNTMuNTMgMCAwIDEgLjI5NC45MDRsLTMuNzM2IDMuNjM4YTIuMTIzIDIuMTIzIDAgMCAwLS42MTEgMS44NzhsLjg4MiA1LjE0YS41My41MyAwIDAgMS0uNzcxLjU2bC00LjYxOC0yLjQyOGEyLjEyMiAyLjEyMiAwIDAgMC0xLjk3MyAwTDYuMzk2IDIxLjAxYS41My41MyAwIDAgMS0uNzctLjU2bC44ODEtNS4xMzlhMi4xMjIgMi4xMjIgMCAwIDAtLjYxMS0xLjg3OUwyLjE2IDkuNzk1YS41My41MyAwIDAgMSAuMjk0LS45MDZsNS4xNjUtLjc1NWEyLjEyMiAyLjEyMiAwIDAgMCAxLjU5Ny0xLjE2eiIvPjwvc3ZnPg=="
+                alt="star"
+              />
+            </div>
+
+            <div class="aligntextboth">
+              <h6>5.0</h6>
+              <h7> (6,998,657)</h7>
+            </div>
+
+            <div class="aligntextboth">
+              <h6>#1</h6>
+              <h7> of 209 most visited in Japan</h7>
+            </div>
+
+            <a href="Kevin.html" class="readmorebutton">Read more...</a>
+          </div>
+        </div>
+
+        <img
+          style="
+            position: absolute;
+            right: calc((100vw - 100vh) / 2 - ((100vw - 100vh) / 2) / 1.5);
+            bottom: calc(50% - (100vw - 100vh) / 16 / 1.5);
+            height: calc((100vw - 100vh) / 2 / 1.5);
+            width: calc((100vw - 100vh) / 2 / 1.5);
+          "
+          src="https://cdn2.cdnstep.com/pDPMjXB4j4UgGxfpUC65/0-1.png"
+          alt="chiikawa"
+        />
+
+        <div
+          class="countryimage"
+          style="
+            background-image: url(https://res.klook.com/image/upload/fl_lossy.progressive,q_60/Mobile/City/lgra7vcg7b2g3zcts3sl.jpg);
+          "
+        ></div>
+      </div>
+
+      <div class="countryblock">
+        <div class="countrysquare">
+          <h2>Unu-ujin</h2>
+          <h4>Seoul</h4>
+          <h5>Popular hotspot for K-Drama and K-Pop</h5>
+
+          <div class="countryrating">
+            <div class="stars">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png"
+                alt="nostar"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png"
+                alt="nostar"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png"
+                alt="nostar"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png"
+                alt="nostar"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png"
+                alt="nostar"
+              />
+            </div>
+
+            <div class="aligntextboth">
+              <h6>0.0</h6>
+              <h7> (6,878,482,057)</h7>
+            </div>
+
+            <div class="aligntextboth">
+              <h6>#1</h6>
+              <h7> K-Pop glazers live here</h7>
+            </div>
+
+            <a href="Unu-Ujin.html" class="readmorebutton">Read more...</a>
+          </div>
+        </div>
+
+        <img
+          style="
+            position: absolute;
+            left: calc((100vw - 100vh) / 2 - ((100vw - 100vh) / 2) / 1.3);
+            bottom: calc(50% - (100vw - 100vh) / 16 / 1.3);
+            height: calc((100vw - 100vh) / 2 / 1.3);
+            width: calc((100vw - 100vh) / 2 / 1.3);
+            transform: scaleX(-1);
+          "
+          src="https://cdn2.cdnstep.com/hyOQ4HsUpWFKebtaC5SO/13-1.webp"
+          alt="chiikawa"
+        />
+
+        <div
+          class="countryimage"
+          style="
+            background-image: url(https://media.architecturaldigest.com/photos/5c0ed0538d2a442e241057b1/16:9/w_2560%2Cc_limit/GettyImages-771579891.jpg);
+          "
+        ></div>
+      </div>
+
+      <div class="countryblock">
+        <div class="countrysquare">
+          <h2>Lkham</h2>
+          <h4>Singapore</h4>
+          <h5>Very boring I personally do not recommend</h5>
+
+          <div class="countryrating">
+            <div class="stars">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png"
+                alt="nostar"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png"
+                alt="nostar"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png"
+                alt="nostar"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png"
+                alt="nostar"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png"
+                alt="nostar"
+              />
+            </div>
+
+            <div class="aligntextboth">
+              <h6>0.0</h6>
+              <h7> (2,857,581)</h7>
+            </div>
+
+            <div class="aligntextboth">
+              <h6>#1</h6>
+              <h7> Most boring city ever</h7>
+            </div>
+
+            <a href="Lhkam.html" class="readmorebutton">Read more...</a>
+          </div>
+        </div>
+
+        <img
+          style="
+            position: absolute;
+            right: calc((100vw - 100vh) / 2 - ((100vw - 100vh) / 2) / 1.5);
+            bottom: calc(50% - (100vw - 100vh) / 8 / 1.5);
+            height: calc((100vw - 100vh) / 2 / 1.5);
+            width: calc((100vw - 100vh) / 2 / 1.5);
+          "
+          src="https://stickershop.line-scdn.net/stickershop/v1/product/29118925/LINEStorePC/main.png?v=1"
+          alt="chiikawa"
+        />
+
+        <div
+          class="countryimage"
+          style="
+            background-image: url(https://images.trvl-media.com/place/6047873/15d3ae30-ef33-406e-971f-9520c03f1089.jpg);
+          "
+        ></div>
+      </div>
+
+      <div class="countryblock">
+        <div class="countrysquare">
+          <h2>Enkh-gerel</h2>
+          <h4>Phú Quốc</h4>
+          <h5>You can find the dead bodies of U.S soldiers here</h5>
+
+          <div class="countryrating">
+            <div class="stars">
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0YXItaWNvbiBsdWNpZGUtc3RhciI+PHBhdGggZD0iTTExLjUyNSAyLjI5NWEuNTMuNTMgMCAwIDEgLjk1IDBsMi4zMSA0LjY3OWEyLjEyMyAyLjEyMyAwIDAgMCAxLjU5NSAxLjE2bDUuMTY2Ljc1NmEuNTMuNTMgMCAwIDEgLjI5NC45MDRsLTMuNzM2IDMuNjM4YTIuMTIzIDIuMTIzIDAgMCAwLS42MTEgMS44NzhsLjg4MiA1LjE0YS41My41MyAwIDAgMS0uNzcxLjU2bC00LjYxOC0yLjQyOGEyLjEyMiAyLjEyMiAwIDAgMC0xLjk3MyAwTDYuMzk2IDIxLjAxYS41My41MyAwIDAgMS0uNzctLjU2bC44ODEtNS4xMzlhMi4xMjIgMi4xMjIgMCAwIDAtLjYxMS0xLjg3OUwyLjE2IDkuNzk1YS41My41MyAwIDAgMSAuMjk0LS45MDZsNS4xNjUtLjc1NWEyLjEyMiAyLjEyMiAwIDAgMCAxLjU5Ny0xLjE2eiIvPjwvc3ZnPg=="
+                alt="star"
+              />
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0YXItaWNvbiBsdWNpZGUtc3RhciI+PHBhdGggZD0iTTExLjUyNSAyLjI5NWEuNTMuNTMgMCAwIDEgLjk1IDBsMi4zMSA0LjY3OWEyLjEyMyAyLjEyMyAwIDAgMCAxLjU5NSAxLjE2bDUuMTY2Ljc1NmEuNTMuNTMgMCAwIDEgLjI5NC45MDRsLTMuNzM2IDMuNjM4YTIuMTIzIDIuMTIzIDAgMCAwLS42MTEgMS44NzhsLjg4MiA1LjE0YS41My41MyAwIDAgMS0uNzcxLjU2bC00LjYxOC0yLjQyOGEyLjEyMiAyLjEyMiAwIDAgMC0xLjk3MyAwTDYuMzk2IDIxLjAxYS41My41MyAwIDAgMS0uNzctLjU2bC44ODEtNS4xMzlhMi4xMjIgMi4xMjIgMCAwIDAtLjYxMS0xLjg3OUwyLjE2IDkuNzk1YS41My41MyAwIDAgMSAuMjk0LS45MDZsNS4xNjUtLjc1NWEyLjEyMiAyLjEyMiAwIDAgMCAxLjU5Ny0xLjE2eiIvPjwvc3ZnPg=="
+                alt="star"
+              />
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0YXItaWNvbiBsdWNpZGUtc3RhciI+PHBhdGggZD0iTTExLjUyNSAyLjI5NWEuNTMuNTMgMCAwIDEgLjk1IDBsMi4zMSA0LjY3OWEyLjEyMyAyLjEyMyAwIDAgMCAxLjU5NSAxLjE2bDUuMTY2Ljc1NmEuNTMuNTMgMCAwIDEgLjI5NC45MDRsLTMuNzM2IDMuNjM4YTIuMTIzIDIuMTIzIDAgMCAwLS42MTEgMS44NzhsLjg4MiA1LjE0YS41My41MyAwIDAgMS0uNzcxLjU2bC00LjYxOC0yLjQyOGEyLjEyMiAyLjEyMiAwIDAgMC0xLjk3MyAwTDYuMzk2IDIxLjAxYS41My41MyAwIDAgMS0uNzctLjU2bC44ODEtNS4xMzlhMi4xMjIgMi4xMjIgMCAwIDAtLjYxMS0xLjg3OUwyLjE2IDkuNzk1YS41My41MyAwIDAgMSAuMjk0LS45MDZsNS4xNjUtLjc1NWEyLjEyMiAyLjEyMiAwIDAgMCAxLjU5Ny0xLjE2eiIvPjwvc3ZnPg=="
+                alt="star"
+              />
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0YXItaWNvbiBsdWNpZGUtc3RhciI+PHBhdGggZD0iTTExLjUyNSAyLjI5NWEuNTMuNTMgMCAwIDEgLjk1IDBsMi4zMSA0LjY3OWEyLjEyMyAyLjEyMyAwIDAgMCAxLjU5NSAxLjE2bDUuMTY2Ljc1NmEuNTMuNTMgMCAwIDEgLjI5NC45MDRsLTMuNzM2IDMuNjM4YTIuMTIzIDIuMTIzIDAgMCAwLS42MTEgMS44NzhsLjg4MiA1LjE0YS41My41MyAwIDAgMS0uNzcxLjU2bC00LjYxOC0yLjQyOGEyLjEyMiAyLjEyMiAwIDAgMC0xLjk3MyAwTDYuMzk2IDIxLjAxYS41My41MyAwIDAgMS0uNzctLjU2bC44ODEtNS4xMzlhMi4xMjIgMi4xMjIgMCAwIDAtLjYxMS0xLjg3OUwyLjE2IDkuNzk1YS41My41MyAwIDAgMSAuMjk0LS45MDZsNS4xNjUtLjc1NWEyLjEyMiAyLjEyMiAwIDAgMCAxLjU5Ny0xLjE2eiIvPjwvc3ZnPg=="
+                alt="star"
+              />
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0YXItaGFsZi1pY29uIGx1Y2lkZS1zdGFyLWhhbGYiPjxwYXRoIGQ9Ik0xMiAxOC4zMzhhMi4xIDIuMSAwIDAgMC0uOTg3LjI0NEw2LjM5NiAyMS4wMWEuNTMuNTMgMCAwIDEtLjc3LS41NmwuODgxLTUuMTM5YTIuMTIgMi4xMiAwIDAgMC0uNjExLTEuODc5TDIuMTYgOS43OTVhLjUzLjUzIDAgMCAxIC4yOTQtLjkwNmw1LjE2NS0uNzU1YTIuMTIgMi4xMiAwIDAgMCAxLjU5Ny0xLjE2bDIuMzA5LTQuNjc5QS41My41MyAwIDAgMSAxMiAyIi8+PC9zdmc+"
+                alt="star"
+              />
+            </div>
+
+            <div class="aligntextboth">
+              <h6>4.5</h6>
+              <h7> (9,221,141)</h7>
+            </div>
+
+            <div class="aligntextboth">
+              <h6>#1</h6>
+              <h7> U.S's enemy</h7>
+            </div>
+
+            <a href="Enkh-Gerel.html" class="readmorebutton">Read more...</a>
+          </div>
+        </div>
+
+        <img
+          style="
+            position: absolute;
+            left: calc((100vw - 100vh) / 2 - ((100vw - 100vh) / 2) / 1.1);
+            bottom: calc(50% - (100vw - 100vh) / 8 / 1.1);
+            height: calc((100vw - 100vh) / 2 / 1.1);
+            width: calc((100vw - 100vh) / 2 / 1.1);
+            transform: scaleX(-1);
+          "
+          src="https://static.wikia.nocookie.net/chiikawa/images/6/63/FightOnRakko.png/revision/latest?cb=20240709071629"
+          alt="chiikawa"
+        />
+
+        <div
+          class="countryimage"
+          style="
+            background-image: url(https://lillagreen.com/wp-content/uploads/2025/02/The-Best-Hidden-Gem-in-Southeast-Asia-You-Need-to-Visit.jpg);
+          "
+        ></div>
+      </div>
+
+      <div class="footnote">
+        <div class="footnotesquare">
+          <div class="emptyfoot"></div>
+
+          <div class="midline"></div>
+
+          <div class="rewards">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/017/443/382/non_2x/trophy-world-cup-football-free-png.png"
+            />
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/571c1bb09f7266bb8a414278/1463260468337-8V5GL1JRTOQ6KTBDU160/68114-G.png?format=750w"
+            />
+            <img
+              src="https://png.pngtree.com/png-clipart/20250425/original/pngtree-prestigious-oscar-statue-for-outstanding-achievement-in-film-png-image_20873915.png"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/e/ed/Nobel_Prize.png"
+            />
+            <img
+              src="https://www.pngmart.com/files/23/Grammy-PNG-Isolated-File.png"
+            />
+            <img
+              src="https://samedaydiplomas.com/cdn/shop/products/phd-doctor-of-philosophy-degree-diploma-2578895.jpg?v=1767323891&width=1080"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Victoria_Cross_Medal_without_Bar.png"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/55/1980_Summer_Olympics_bronze_medal_Transparent.png"
+            />
+          </div>
+
+          <div class="midline"></div>
+
+          <div class="copyright">
+            <h8
+              >Copyright © 2026 XiaoTravel.com Travel China Pte. Ltd. All rights
+              reserved</h8
+            >
+            <h8>Site Operator: XiaoTravel.com Travel China Pte. Ltd.</h8>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="topbar">
+      <div class="topsidebar">
+        <button class="button">
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLW1lbnUtaWNvbiBsdWNpZGUtbWVudSI+PHBhdGggZD0iTTQgNWgxNiIvPjxwYXRoIGQ9Ik00IDEyaDE2Ii8+PHBhdGggZD0iTTQgMTloMTYiLz48L3N2Zz4="
+            alt="menuimg"
+          />
+        </button>
+        <h1>小旅行</h1>
+        <div class="searchwrapper">
+          <input
+            class="search"
+            placeholder="Destination, attraction, hotel, etc"
+          />
+          <button class="searchbutton">
+            <img
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNlYXJjaC1pY29uIGx1Y2lkZS1zZWFyY2giPjxwYXRoIGQ9Im0yMSAyMS00LjM0LTQuMzQiLz48Y2lyY2xlIGN4PSIxMSIgY3k9IjExIiByPSI4Ii8+PC9zdmc+"
+            />
+          </button>
+        </div>
+
+        <img
+          class="chiikawaimage"
+          src="https://images.seeklogo.com/logo-png/64/2/chiikawa-logo-png_seeklogo-640152.png"
+          alt="chiikawa"
+        />
+      </div>
+      <div class="topsidebar">
+        <button class="button">
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNtYXJ0cGhvbmUtaWNvbiBsdWNpZGUtc21hcnRwaG9uZSI+PHJlY3Qgd2lkdGg9IjE0IiBoZWlnaHQ9IjIwIiB4PSI1IiB5PSIyIiByeD0iMiIgcnk9IjIiLz48cGF0aCBkPSJNMTIgMThoLjAxIi8+PC9zdmc+"
+            alt="phoneimg"
+          />
+          <h3>App</h3>
+        </button>
+
+        <button class="button">
+          <h3>List Your Property</h3>
+        </button>
+
+        <button class="button">
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWdsb2JlLWljb24gbHVjaWRlLWdsb2JlIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik0xMiAyYTE0LjUgMTQuNSAwIDAgMCAwIDIwIDE0LjUgMTQuNSAwIDAgMCAwLTIwIi8+PHBhdGggZD0iTTIgMTJoMjAiLz48L3N2Zz4="
+            alt="worldimg"
+          />
+          <h3>USD</h3>
+        </button>
+
+        <button class="button">
+          <h3>Customer Support</h3>
+        </button>
+
+        <button class="button">
+          <h3>Find Bookings</h3>
+        </button>
+
+        <button
+          onclick="document.getElementById('registerid').style.display = 'flex'"
+          class="specialbutton"
+        >
+          <h3>Sign in/register</h3>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

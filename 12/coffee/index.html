@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shifty Shack Coffee | Home</title>
+    <style>
+      body {
+        background-color: #cfe6f0;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .header {
+        text-align: center;
+        background-color: #b9cfdd;
+        padding: 20px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        border: 3px solid #a57142;
+      }
+
+      h1 {
+        color: #5c3a22;
+        font-size: 48px;
+        margin: 0;
+        font-family: "Courier New", monospace;
+        background-color: #f9e5b3;
+        display: inline-block;
+        padding: 5px 20px;
+        border-radius: 50px;
+        border: 2px solid #b87c4a;
+      }
+
+      .slogan {
+        background-color: #e2d4bd;
+        padding: 8px;
+        border-radius: 30px;
+        margin-top: 12px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #4f6b78;
+        font-family: "Courier New", monospace;
+        display: inline-block;
+      }
+
+      .nav-menu {
+        background-color: #8bb5c4;
+        padding: 12px;
+        border-radius: 50px;
+        margin-bottom: 25px;
+        text-align: center;
+        border: 3px solid #b87c4a;
+      }
+
+      .nav-menu a {
+        background-color: #fff0db;
+        color: #5a3a22;
+        padding: 8px 18px;
+        margin: 0 5px;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        border: 2px solid #b87c4a;
+        display: inline-block;
+        font-size: 14px;
+        transition: 0.2s;
+      }
+
+      .nav-menu a:hover {
+        background-color: #ffe1ad;
+        transform: translateY(-2px);
+      }
+
+      .main-home {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .big-box {
+        flex: 2;
+        background: linear-gradient(to right, #fff6e7, #fff1d7);
+        border: 3px solid #d4ab73;
+        border-radius: 40px;
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .big-box h2 {
+        font-size: 58px;
+        line-height: 0.95;
+        color: #5a3a22;
+        margin-bottom: 15px;
+        font-family: "Courier New", monospace;
+      }
+
+      .big-box p {
+        font-size: 18px;
+        line-height: 1.7;
+        color: #75563a;
+        width: 75%;
+      }
+
+      .big-box button {
+        background-color: #c28a54;
+        color: white;
+        border: none;
+        padding: 14px 30px;
+        border-radius: 50px;
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 15px;
+        cursor: pointer;
+        font-family: "Courier New", monospace;
+        box-shadow: 5px 5px 0 #5a3a22;
+        transition: 0.2s;
+      }
+
+      .big-box button:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0 #5a3a22;
+      }
+
+      .coffee-circle {
+        width: 320px;
+        height: 320px;
+        background: #dcb98b;
+        border-radius: 50%;
+        position: absolute;
+        right: -80px;
+        bottom: -80px;
+        opacity: 0.3;
+      }
+
+      .bean1 {
+        position: absolute;
+        right: 50px;
+        top: 30px;
+        font-size: 160px;
+        opacity: 0.1;
+      }
+
+      .side-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .small-box {
+        background-color: #fff8ef;
+        border: 3px solid #d4ab73;
+        border-radius: 30px;
+        padding: 25px;
+        box-shadow: 4px 4px 0 #ead1ae;
+      }
+
+      .small-box h3 {
+        margin-top: 0;
+        color: #5a3a22;
+        font-size: 30px;
+      }
+
+      .small-box p {
+        color: #75563a;
+        line-height: 1.7;
+        font-size: 16px;
+      }
+
+      .favorites {
+        background-color: #fff7ec;
+        border: 3px solid #d4ab73;
+        border-radius: 35px;
+        padding: 25px;
+        margin-bottom: 30px;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 38px;
+        color: #5a3a22;
+        font-family: "Courier New", monospace;
+        margin-bottom: 25px;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .drink-card {
+        background-color: #fffdf8;
+        border: 2px solid #d6ae78;
+        border-radius: 30px;
+        overflow: hidden;
+        transition: 0.2s;
+        box-shadow: 4px 4px 0 #ead1ae;
+      }
+
+      .drink-card:hover {
+        transform: rotate(-1deg) translateY(-5px);
+      }
+
+      .drink-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+
+      .card-info {
+        padding: 18px;
+      }
+
+      .card-info h3 {
+        margin-top: 0;
+        color: #5a3a22;
+        font-size: 24px;
+      }
+
+      .card-info p {
+        color: #7a5a3e;
+        line-height: 1.6;
+        font-size: 14px;
+      }
+
+      .price {
+        font-size: 24px;
+        font-weight: bold;
+        color: #c28a54;
+      }
+
+      .review-section {
+        background-color: #d9e8ef;
+        border: 3px solid #b87c4a;
+        border-radius: 35px;
+        padding: 25px;
+        margin-bottom: 30px;
+      }
+
+      .review {
+        background-color: #fff8ef;
+        padding: 18px;
+        border-radius: 20px;
+        margin-top: 15px;
+        border-left: 7px solid #c28a54;
+      }
+
+      .review p {
+        margin: 0;
+        font-size: 18px;
+        color: #5a3a22;
+        line-height: 1.6;
+      }
+
+      .review span {
+        font-size: 13px;
+        color: #8b694a;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 25px;
+        padding: 15px;
+        background-color: #e2cfb0;
+        border-radius: 20px;
+        font-size: 12px;
+        color: #6b4e32;
+      }
+
+      @media screen and (max-width: 850px) {
+        .main-home {
+          flex-direction: column;
+        }
+
+        .big-box p {
+          width: 100%;
+        }
+
+        .big-box h2 {
+          font-size: 42px;
+        }
+
+        .bean1 {
+          display: none;
+        }
+
+        .coffee-circle {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="coffee-shop">
+      <div class="header">
+        <h1>~ SHIFTY SHACK ~</h1>
+
+        <div class="slogan">
+          "Shift happens, we make it better" — with coffee!
+        </div>
+
+        <p style="margin-top: 10px; color: #6b4e32">
+          ~ Espresso ~ Pastry ~ Good Vibes ~
+        </p>
+      </div>
+
+      <div class="nav-menu">
+        <a href="index.html"> HOME</a>
+        <a href="menu.html"> MENU</a>
+        <a href="location.html"> LOCATION</a>
+        <a href="contact.html"> CONTACT</a>
+        <a href="history.html"> HISTORY</a>
+      </div>
+
+      <div class="main-home">
+        <div class="big-box">
+          <div class="bean1"></div>
+
+          <h2>
+            coffee first.<br />
+            everything else later.
+          </h2>
+
+          <p>
+            Welcome to Shifty Shack — the cozy coffee place where students
+            survive deadlines, adults survive meetings, and everyone survives
+            because of caffeine.
+          </p>
+
+          <button>ORDER ONLINE</button>
+
+          <div class="coffee-circle"></div>
+        </div>
+
+        <div class="side-column">
+          <div class="small-box">
+            <h3>Today's Special</h3>
+
+            <p>
+              Buy 2 iced drinks and get a free brownie because life is hard
+              enough already.
+            </p>
+          </div>
+
+          <div class="small-box">
+            <h3>Cozy Corner</h3>
+
+            <p>
+              Free wifi, soft music, comfy seats, and at least 3 people
+              pretending to study.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="favorites">
+        <div class="section-title">customer favorites</div>
+
+        <div class="card-grid">
+          <div class="drink-card">
+            <img
+              src="https://media.timeout.com/images/105526208/750/422/image.jpg"
+            />
+
+            <div class="card-info">
+              <h3>Penguin Latte</h3>
+
+              <p>
+                Tiny penguins floating in a latte because normal latte art was
+                simply not enough.
+              </p>
+
+              <div class="price">$6.50</div>
+            </div>
+          </div>
+
+          <div class="drink-card">
+            <img
+              src="https://summermooncoffee.com/cdn/shop/files/Fireside.png?v=1760935821&width=713"
+            />
+
+            <div class="card-info">
+              <h3>Caramel Macchiato</h3>
+
+              <p>
+                Sweet caramel, creamy milk, and rich espresso layered together
+                perfectly.
+              </p>
+
+              <div class="price">$5.20</div>
+            </div>
+          </div>
+
+          <div class="drink-card">
+            <img
+              src="https://summermooncoffee.com/cdn/shop/files/Glowing_Ember.png?v=1760935822&width=713"
+            />
+
+            <div class="card-info">
+              <h3>Matcha Latte</h3>
+
+              <p>Calm peaceful matcha energy before reality hits again.</p>
+
+              <div class="price">$5.00</div>
+            </div>
+          </div>
+
+          <div class="drink-card">
+            <img
+              src="https://summermooncoffee.com/cdn/shop/files/Inferno.png?v=1760935821&width=713"
+            />
+
+            <div class="card-info">
+              <h3>Chocolate Brownie</h3>
+
+              <p>
+                Fudgy brownie with emotional support built directly into the
+                recipe.
+              </p>
+
+              <div class="price">$4.00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-section">
+        <div class="section-title">customer reviews</div>
+
+        <div class="review">
+          <p>“I came for coffee but stayed for the funny founder.”</p>
+
+          <span> - tired Hobby student </span>
+        </div>
+
+        <div class="review">
+          <p>“The shake healed something inside me.”</p>
+
+          <span> - Unukhishig </span>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>Open daily 6am - 7pm</p>
+
+        <p>(+976) 99190655 | undug2008@gmail.com</p>
+
+        <p>"Shift happens, we make it better" — since 2008</p>
+
+        <p style="font-size: 10px">made with shift and shack</p>
+      </div>
+    </div>
+  </body>
+</html>

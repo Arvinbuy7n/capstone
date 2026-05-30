@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capstone Dashboard</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #ffffff;
+        --surface: #f7f7f8;
+        --surface-2: #efeff2;
+        --border: #e5e5e8;
+        --border-strong: #d0d0d4;
+        --text: #0a0a0a;
+        --text-dim: #6b6b72;
+        --text-faint: #9a9aa3;
+        --accent: #0a0a0a;
+        --accent-2: #333333;
+        --accent-soft: rgba(0, 0, 0, 0.06);
+        --success: #16a34a;
+        --warning: #d97706;
+
+        /* Sidebar (light) specific tokens */
+        --sidebar: #f4f4f5;
+        --side-text: #0a0a0a;
+        --side-text-dim: #6b6b72;
+        --side-text-faint: #9a9aa3;
+        --side-surface: #ffffff;
+        --side-surface-2: #e8e8eb;
+        --side-border: #dcdce0;
+      }
+
+      html,
+      body {
+        height: 100%;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .app {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        min-height: 100vh;
+      }
+
+      /* Sidebar (dark) */
+      .sidebar {
+        background: var(--sidebar);
+        color: var(--side-text);
+        border-right: 1px solid var(--side-border);
+        padding: 26px 18px 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+      }
+      .sidebar::-webkit-scrollbar { width: 6px; }
+      .sidebar::-webkit-scrollbar-thumb { background: var(--side-border); border-radius: 3px; }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 4px 8px 22px;
+        border-bottom: 1px solid var(--side-border);
+        margin-bottom: 20px;
+      }
+      .brand-logo {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: black;
+        display: grid;
+        place-items: center;
+        color: white;
+        font-weight: 700;
+        font-size: 18px;
+      }
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+      }
+      .brand-text .title {
+        font-weight: 700;
+        font-size: 16px;
+        letter-spacing: -0.2px;
+        color: var(--side-text);
+      }
+      .brand-text .subtitle {
+        font-size: 10px;
+        color: var(--side-text-dim);
+        margin-top: 3px;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      .sidebar-label {
+        padding: 4px 10px 10px;
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--side-text-faint);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .class-btn {
+        display: inline-flex;
+        width: 100%;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 10px;
+        border: 1px solid transparent;
+        background: transparent;
+        color: var(--side-text);
+        text-align: left;
+        font-size: 14px;
+        border-radius: 10px;
+        cursor: pointer;
+        position: relative;
+        transition: background 0.2s, color 0.2s, border-color 0.2s;
+        font-family: inherit;
+        margin-bottom: 2px;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      .class-btn:hover {
+        background: var(--side-surface);
+      }
+      .class-btn.active {
+        background: black;
+        color: white;
+      }
+      .class-btn.active::before {
+        content: "";
+        position: absolute;
+        left: -18px;
+        top: 22%;
+        bottom: 22%;
+        width: 3px;
+        background: black;
+        border-radius: 0 3px 3px 0;
+      }
+
+      .class-chip {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        font-size: 10.5px;
+        color: white;
+        flex-shrink: 0;
+        letter-spacing: 0.3px;
+        background: var(--side-surface-2);
+        border: 1px solid var(--side-border);
+        transition: transform 0.2s;
+      }
+      .class-btn.active .class-chip {
+        border-color: transparent;
+      }
+
+      .class-meta {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+      }
+      .class-meta .class-name {
+        font-weight: 600;
+        font-size: 13.5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .class-btn .count {
+        font-size: 11px;
+        color: var(--side-text-dim);
+        background: var(--side-surface-2);
+        padding: 2px 8px;
+        border-radius: 999px;
+        font-weight: 600;
+        min-width: 24px;
+        text-align: center;
+        flex-shrink: 0;
+      }
+      .class-btn.active .count {
+        background: white;
+        color: black;
+      }
+
+      .sidebar-stats {
+        margin-top: auto;
+        padding-top: 18px;
+        border-top: 1px solid var(--side-border);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+      }
+      .stat-cell {
+        background: var(--side-surface);
+        border: 1px solid var(--side-border);
+        border-radius: 9px;
+        padding: 10px 8px;
+        text-align: center;
+        transition: border-color 0.2s, transform 0.15s;
+      }
+      .stat-cell:hover {
+        border-color: #bcbcc2;
+        transform: translateY(-1px);
+      }
+      .stat-cell .stat-num {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--side-text);
+        line-height: 1.1;
+        letter-spacing: -0.3px;
+      }
+      .stat-cell .stat-label {
+        font-size: 9px;
+        color: var(--side-text-faint);
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        font-weight: 600;
+        margin-top: 4px;
+      }
+
+      /* Main */
+      .main {
+        padding: 40px 48px 60px;
+        overflow-y: auto;
+      }
+
+      .header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 28px;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .header h1 {
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+      }
+      .header .meta {
+        color: var(--text-dim);
+        font-size: 13px;
+        margin-top: 6px;
+      }
+      .header .badge {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--text-dim);
+        padding: 7px 14px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .toolbar {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 26px;
+      }
+      .search-wrap {
+        position: relative;
+        flex: 1;
+        max-width: 420px;
+      }
+      .search-wrap::before {
+        content: "⌕";
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-faint);
+        font-size: 16px;
+        pointer-events: none;
+      }
+      .search {
+        width: 100%;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--text);
+        padding: 11px 16px 11px 38px;
+        border-radius: 10px;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s, background 0.2s;
+        font-family: inherit;
+      }
+      .search:focus {
+        border-color: var(--accent);
+        background: var(--surface-2);
+      }
+      .search::placeholder { color: var(--text-faint); }
+
+      /* Project grid */
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 16px;
+      }
+
+      .project-card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+      .project-card:hover {
+        transform: translateY(-3px);
+        border-color: black;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+      .project-card.disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+      .project-card.disabled:hover {
+        transform: none;
+        border-color: var(--border);
+        box-shadow: none;
+      }
+
+      .project-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        font-size: 16px;
+        color: white;
+        flex-shrink: 0;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+      .project-body {
+        flex: 1;
+        min-width: 0;
+      }
+      .project-title {
+        font-size: 15px;
+        font-weight: 600;
+        text-transform: capitalize;
+        letter-spacing: -0.2px;
+      }
+      .project-sub {
+        font-size: 12px;
+        color: var(--text-dim);
+        margin-top: 4px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .project-sub .dot {
+        width: 3px;
+        height: 3px;
+        background: var(--text-faint);
+        border-radius: 50%;
+      }
+      .project-arrow {
+        color: var(--text-faint);
+        font-size: 18px;
+        flex-shrink: 0;
+        transition: color 0.2s, transform 0.2s;
+      }
+      .project-card:hover .project-arrow {
+        color: black;
+        transform: translateX(3px);
+      }
+
+      .empty-state {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 60px 20px;
+        color: var(--text-dim);
+        font-size: 14px;
+      }
+      .empty-state .emoji {
+        font-size: 32px;
+        margin-bottom: 12px;
+        opacity: 0.5;
+      }
+
+      /* Demo project banner */
+      .demo-banner {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        padding: 24px 28px;
+        margin-bottom: 28px;
+        background: black;
+        color: white;
+        border-radius: 16px;
+        text-decoration: none;
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .demo-banner::after {
+        content: "";
+        position: absolute;
+        right: -80px;
+        top: -80px;
+        width: 260px;
+        height: 260px;
+        background: radial-gradient(circle, var(--demo-glow, rgba(124,154,255,0.5)) 0%, transparent 70%);
+        opacity: 0.55;
+        pointer-events: none;
+      }
+      .demo-banner:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
+      }
+      .demo-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        font-size: 18px;
+        color: white;
+        flex-shrink: 0;
+        letter-spacing: 0.5px;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+        position: relative;
+        z-index: 1;
+      }
+      .demo-body {
+        flex: 1;
+        min-width: 0;
+        position: relative;
+        z-index: 1;
+      }
+      .demo-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .demo-label::before {
+        content: "★";
+        color: #fbbf24;
+      }
+      .demo-title {
+        font-size: 22px;
+        font-weight: 700;
+        margin-top: 6px;
+        letter-spacing: -0.3px;
+        text-transform: capitalize;
+      }
+      .demo-sub {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.65);
+        margin-top: 4px;
+      }
+      .demo-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        background: white;
+        color: black;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 600;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1;
+        transition: transform 0.2s;
+      }
+      .demo-banner:hover .demo-cta {
+        transform: translateX(3px);
+      }
+
+      /* Custom scrollbars */
+      .main::-webkit-scrollbar {
+        width: 8px;
+      }
+      .main::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 4px;
+      }
+
+      @media (max-width: 720px) {
+        .app {
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          position: sticky;
+          top: 0;
+          z-index: 10;
+          flex-direction: row;
+          overflow-x: auto;
+          padding: 14px;
+        }
+        .brand,
+        .sidebar-label {
+          display: none;
+        }
+        .class-btn {
+          flex-shrink: 0;
+        }
+        .main {
+          padding: 24px 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-logo">C</div>
+          <div class="brand-text">
+            <span class="title">Hobby Students</span>
+            <span class="subtitle">Project</span>
+          </div>
+        </div>
+        <div class="sidebar-label">Classes</div>
+        <nav id="class-nav"></nav>
+        <div class="sidebar-stats">
+          <div class="stat-cell">
+            <div class="stat-num" id="stat-classes">0</div>
+            <div class="stat-label">Classes</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num" id="stat-projects">0</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num" id="stat-files">0</div>
+            <div class="stat-label">Files</div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="header">
+          <div>
+            <h1 id="class-title">Class 9A</h1>
+            <div class="meta" id="class-meta">
+              Select a class to view team projects
+            </div>
+          </div>
+          <div class="badge" id="project-count">0 projects</div>
+        </div>
+        <div class="toolbar">
+          <div class="search-wrap">
+            <input id="search" class="search" type="text" placeholder="Search projects..." autocomplete="off" />
+          </div>
+        </div>
+        <div class="projects" id="projects"></div>
+      </main>
+    </div>
+
+    <script>
+      // Catalog of classes -> projects -> HTML files inside each project folder.
+      const catalog = {
+        "9A": {
+          movie: [
+            "amina.html",
+            "ankhi.html",
+            "baymax-niggers.html",
+            "baymax.html",
+            "cinema.html",
+            "index14.html",
+            "information.html",
+            "khanji.html",
+            "soko.html",
+            "sondornigger.html",
+            "specialevents.html",
+            "theatres.html",
+          ],
+          "pizza-hut": [
+            "index11.html",
+            "index12.html",
+            "index14.html",
+            "index2.html",
+            "nigga.html",
+            "sidebar.html",
+            "sigmatsenguun.html",
+          ],
+          product: [
+            "capstone.html",
+            "iphone.html",
+            "product.html",
+            "style.html",
+          ],
+          starbucks: [],
+          travel: [
+            "6gt.html",
+            "anir.html",
+            "anirkh.html",
+            "oyunn.html",
+            "project-W16.html",
+            "puje.html",
+            "telmen.html",
+            "zya.html",
+          ],
+        },
+        "9B": {
+          ethereal: [
+            "ashid.html",
+            "batuka.html",
+            "homepage.html",
+            "indexlol.html",
+            "indexs.html",
+          ],
+          hotel: [
+            "ariunzaya.html",
+            "enerel.html",
+            "khulan.html",
+            "uurintuya.html",
+          ],
+          product: [
+            "khulan.html",
+            "ninjin 1.html",
+            "ninjin 2.html",
+            "ravjaa.html",
+            "sayangua.html",
+            "tselmuun. 4.html",
+            "tselmuun2.html",
+          ],
+          travel: [
+            "Enkh-Gerel.html",
+            "Kevin.html",
+            "Lhkam.html",
+            "Unu-Ujin.html",
+            "XiaoTravel.html",
+          ],
+          yuna: [
+            "ermu.html",
+            "ermu2.html",
+            "idfrvb.html",
+            "index.html",
+            "index1.html",
+            "index2.html",
+            "indexcupchicken.html",
+            "indra.html",
+            "khuska.html",
+            "khuskawhy.html",
+            "sundari.html",
+            "tushig.html",
+          ],
+        },
+        "9C": {
+          "can-make": [
+            "collection.html",
+            "concept.html",
+            "hello.html",
+            "home.html",
+            "location.html",
+          ],
+          "coffee-shop": [
+            "culture.html",
+            "events.html",
+            "home.html",
+            "index.html",
+            "shop.html",
+          ],
+          "hotel-booking": [
+            "Attraction.html",
+            "Bookings.html",
+            "Checkout.html",
+            "Info.html",
+            "Location.html",
+          ],
+          miffy: [
+            "aboutdickbruna.html",
+            "aboutmiffy.html",
+            "books.html",
+            "index15.html",
+            "products.html",
+          ],
+          restaurant: [
+            "burger.html",
+            "desserts.html",
+            "drink.html",
+            "lions.html",
+            "pizza.html",
+            "side.html",
+          ],
+        },
+        "11": {
+          product: [
+            "about us.html",
+            "accesories.html",
+            "amaraa.html",
+            "amente.html",
+            "fragrance.html",
+            "header.html",
+            "hog.html",
+            "hog2.html",
+            "hover.html",
+            "hulan.html",
+            "iphone.html",
+            "maincode.html",
+            "makeup.html",
+            "skincare.html",
+            "skincarechoises.html",
+          ],
+          hotel: ["about.HTML", "erkhes.HTML", "hotel.html", "sum.html", "yalla.HTML"],
+          minecraft: [
+            "button.html",
+            "end.base.html",
+            "minecraftevo.html",
+            "minecraftintroduction.html",
+            "minecraftnether.html",
+            "nether.base.html",
+            "overworld_base.html",
+          ],
+          mosaic: [
+            "iveel.html",
+            "munkhjin.html",
+            "narangoo.html",
+            "pic.html",
+            "sergelen.html",
+            "zev.html",
+          ],
+          movie: [
+            "ETO.TV Facebook.html",
+            "ETO.TV youtube.html",
+            "ict project.html",
+            "movie.html",
+            "movie2.html",
+            "movie3.html",
+            "oyunkhand.html",
+            "PrimeCineplex.html",
+            "tergel sign up.html",
+            "tergel.html",
+            "The Shining.html",
+            "vici.html",
+          ],
+          restaurant: ["emujin2.html", "enkul1.html", "finalversionitalian.html", "naska4.html", "tugs2.html"],
+          travel: [
+            "aboutus.html",
+            "book now.html",
+            "New project.HTML",
+            "tour.html",
+            "Tourism.html",
+            "tours1.html",
+          ],
+        },
+        "12": {
+          cineverse: [
+            "aboutus2.html",
+            "card.html",
+            "cineverse.html",
+            "homepage.html",
+            "movies.html",
+            "shows.html",
+          ],
+          coffee: [
+            "contact.html",
+            "history.html",
+            "index.html",
+            "location.html",
+            "menu.html",
+          ],
+          "cup-chicken": [
+            "ajliinbair.html",
+            "bidniituhai.html",
+            "CupChicken.html",
+            "index.html",
+            "menu.html",
+            "nevtreh.html",
+            "salbar.html",
+          ],
+          minecraft: [],
+          news: [
+            "Bilguun.html",
+            "enkhuyan.html",
+            "enujin.html",
+            "galaa.html",
+            "Khulan.html",
+          ],
+          travel: [],
+        },
+      };
+
+      // Gradient pairs for project icons (deterministic by project name).
+      const gradients = [
+        ["#6c8cff", "#b06cff"],
+        ["#4ade80", "#06b6d4"],
+        ["#fbbf24", "#ef4444"],
+        ["#f472b6", "#8b5cf6"],
+        ["#34d399", "#3b82f6"],
+        ["#fb923c", "#f43f5e"],
+        ["#22d3ee", "#6366f1"],
+        ["#a78bfa", "#ec4899"],
+      ];
+      function gradientFor(name) {
+        let h = 0;
+        for (let i = 0; i < name.length; i++)
+          h = (h * 31 + name.charCodeAt(i)) >>> 0;
+        return gradients[h % gradients.length];
+      }
+      function initialsFor(name) {
+        const parts = name.replace(/[_-]/g, " ").split(/\s+/).filter(Boolean);
+        if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+        return (parts[0][0] + parts[1][0]).toUpperCase();
+      }
+      function prettify(name) {
+        return name.replace(/[_-]+/g, " ");
+      }
+
+      const classNav = document.getElementById("class-nav");
+      const projectsEl = document.getElementById("projects");
+      const classTitle = document.getElementById("class-title");
+      const classMeta = document.getElementById("class-meta");
+      const projectCount = document.getElementById("project-count");
+      const searchInput = document.getElementById("search");
+
+      let currentClass = null;
+
+      // Color-coded gradient per grade (deterministic, distinct).
+      const gradeColors = {
+        "9A": ["#7c9aff", "#b06cff"],
+        "9B": ["#06b6d4", "#3b82f6"],
+        "9C": ["#4ade80", "#06b6d4"],
+        "11": ["#fbbf24", "#fb923c"],
+        "12": ["#f472b6", "#8b5cf6"],
+      };
+      function chipColorsFor(cls) {
+        return gradeColors[cls] || gradients[0];
+      }
+
+      // Featured demo project per class.
+      const demoProjects = {
+        "9A": "movie",
+        "9B": "hotel",
+        "9C": "coffee-shop",
+        "11": "mosaic",
+        "12": "cineverse",
+      };
+
+      // Explicit class order (JS hoists integer-like keys, so we override).
+      const classOrder = ["9A", "9B", "9C", "11", "12"];
+      const orderedClasses = classOrder.filter((c) => catalog[c]);
+
+      // Build sidebar.
+      orderedClasses.forEach((cls) => {
+        const btn = document.createElement("button");
+        btn.className = "class-btn";
+        btn.dataset.class = cls;
+        const projCount = Object.keys(catalog[cls]).length;
+        const [c1, c2] = chipColorsFor(cls);
+        btn.innerHTML = `
+          <span class="class-chip" style="background: linear-gradient(135deg, ${c1}, ${c2});">${cls}</span>
+          <span class="class-meta">
+            <span class="class-name">Class ${cls}</span>
+          </span>
+          <span class="count">${projCount}</span>
+        `;
+        btn.addEventListener("click", () => {
+          searchInput.value = "";
+          selectClass(cls);
+        });
+        classNav.appendChild(btn);
+      });
+
+      // Add divider + "Capstone Team Projects" featured section button.
+      const featuredLabel = document.createElement("div");
+      featuredLabel.className = "sidebar-label";
+      featuredLabel.style.marginTop = "12px";
+      featuredLabel.style.paddingTop = "12px";
+      featuredLabel.style.borderTop = "1px solid var(--side-border)";
+      featuredLabel.textContent = "Featured";
+      classNav.appendChild(featuredLabel);
+
+      const featuredBtn = document.createElement("button");
+      featuredBtn.className = "class-btn";
+      featuredBtn.dataset.class = "__featured__";
+      const featuredCount = Object.keys(demoProjects).length;
+      featuredBtn.innerHTML = `
+        <span class="class-chip" style="background: linear-gradient(135deg, #fbbf24, #f43f5e);">★</span>
+        <span class="class-meta">
+          <span class="class-name">Capstone Team Projects</span>
+        </span>
+        <span class="count">${featuredCount}</span>
+      `;
+      featuredBtn.addEventListener("click", () => {
+        searchInput.value = "";
+        selectFeatured();
+      });
+      classNav.appendChild(featuredBtn);
+
+      // Compute and render overall stats.
+      (function renderStats() {
+        const classes = Object.keys(catalog).length;
+        let projects = 0;
+        let files = 0;
+        Object.values(catalog).forEach((cls) => {
+          projects += Object.keys(cls).length;
+          Object.values(cls).forEach((f) => { files += f.length; });
+        });
+        document.getElementById("stat-classes").textContent = classes;
+        document.getElementById("stat-projects").textContent = projects;
+        document.getElementById("stat-files").textContent = files;
+      })();
+
+      // Hand-picked main entry page for each project (where no obvious "index" exists).
+      const entryOverrides = {
+        "9A/movie": "baymax.html",
+        "9A/pizza-hut": "index11.html",
+        "9A/product": "product.html",
+        "9A/travel": "zya.html",
+        "9B/ethereal": "homepage.html",
+        "9B/hotel": "ariunzaya.html",
+        "9B/product": "khulan.html",
+        "9B/travel": "XiaoTravel.html",
+        "9B/yuna": "khuska.html",
+        "9C/coffee-shop": "home.html",
+        "9C/hotel-booking": "Bookings.html",
+        "9C/miffy": "index15.html",
+        "9C/restaurant": "pizza.html",
+        "11/product": "maincode.html",
+        "11/hotel": "hotel.html",
+        "11/minecraft": "minecraftintroduction.html",
+        "11/mosaic": "zev.html",
+        "11/movie": "ict project.html",
+        "11/restaurant": "finalversionitalian.html",
+        "11/travel": "New project.HTML",
+        "12/cineverse": "homepage.html",
+        "12/cup-chicken": "CupChicken.html",
+        "12/news": "galaa.html",
+      };
+
+      function pickEntry(cls, proj, files) {
+        const key = `${cls}/${proj}`;
+        if (entryOverrides[key] && files.includes(entryOverrides[key]))
+          return entryOverrides[key];
+        const preferred = [
+          "index",
+          "home",
+          "homepage",
+          "main",
+          "maincode",
+          proj.toLowerCase(),
+        ];
+        for (const p of preferred) {
+          const match = files.find(
+            (f) => f.toLowerCase().replace(/\.html?$/, "") === p
+          );
+          if (match) return match;
+        }
+        return files[0];
+      }
+
+      function renderProjects(cls, filter = "") {
+        const projects = catalog[cls];
+        const projectNames = Object.keys(projects);
+        const q = filter.trim().toLowerCase();
+        const visible = q
+          ? projectNames.filter((p) => p.toLowerCase().includes(q))
+          : projectNames;
+
+        // Reset main area: clear demo banner (if any) and grid.
+        const existingBanner = document.getElementById("demo-banner");
+        if (existingBanner) existingBanner.remove();
+
+        projectsEl.innerHTML = "";
+
+        // Render demo banner (only when not searching, and the class has a demo).
+        const demoProj = demoProjects[cls];
+        if (!q && demoProj && projects[demoProj] && projects[demoProj].length > 0) {
+          const files = projects[demoProj];
+          const entry = pickEntry(cls, demoProj, files);
+          const href = `${cls}/${demoProj}/${entry}`
+            .split("/")
+            .map(encodeURIComponent)
+            .join("/");
+          const [c1, c2] = gradientFor(demoProj);
+
+          const banner = document.createElement("a");
+          banner.id = "demo-banner";
+          banner.className = "demo-banner";
+          banner.href = href;
+          banner.target = "_blank";
+          banner.rel = "noopener";
+          banner.style.setProperty("--demo-glow", c1 + "88");
+          banner.innerHTML = `
+            <div class="demo-icon" style="background: linear-gradient(135deg, ${c1}, ${c2});">
+              ${initialsFor(demoProj)}
+            </div>
+            <div class="demo-body">
+              <div class="demo-label">Featured Demo</div>
+              <div class="demo-title">${prettify(demoProj)}</div>
+              <div class="demo-sub">Class ${cls} · ${files.length} file${files.length === 1 ? "" : "s"}</div>
+            </div>
+            <span class="demo-cta">View Demo &rarr;</span>
+          `;
+          projectsEl.parentElement.insertBefore(banner, projectsEl);
+        }
+
+        if (visible.length === 0) {
+          const empty = document.createElement("div");
+          empty.className = "empty-state";
+          empty.innerHTML = q
+            ? `<div class="emoji">⌕</div>No projects match "<strong>${q}</strong>"`
+            : `<div class="emoji">∅</div>No projects in this class yet`;
+          projectsEl.appendChild(empty);
+          return;
+        }
+
+        visible.forEach((proj) => {
+          const files = projects[proj];
+          const [c1, c2] = gradientFor(proj);
+          const hasEntry = files.length > 0;
+
+          const card = document.createElement(hasEntry ? "a" : "div");
+          card.className = "project-card" + (hasEntry ? "" : " disabled");
+
+          if (hasEntry) {
+            const entry = pickEntry(cls, proj, files);
+            const href = `${cls}/${proj}/${entry}`
+              .split("/")
+              .map(encodeURIComponent)
+              .join("/");
+            card.href = href;
+            card.target = "_blank";
+            card.rel = "noopener";
+          }
+
+          const sub = hasEntry
+            ? `<span>${files.length} file${files.length === 1 ? "" : "s"}</span><span class="dot"></span><span>Open</span>`
+            : `<span>No files yet</span>`;
+
+          card.innerHTML = `
+        <div class="project-icon" style="background: linear-gradient(135deg, ${c1}, ${c2});">
+          ${initialsFor(proj)}
+        </div>
+        <div class="project-body">
+          <div class="project-title">${prettify(proj)}</div>
+          <div class="project-sub">${sub}</div>
+        </div>
+        ${hasEntry ? '<div class="project-arrow">&rarr;</div>' : ""}
+      `;
+
+          projectsEl.appendChild(card);
+        });
+      }
+
+      function selectClass(cls) {
+        currentClass = cls;
+        document
+          .querySelectorAll(".class-btn")
+          .forEach((b) =>
+            b.classList.toggle("active", b.dataset.class === cls)
+          );
+        const projects = catalog[cls];
+        const projectNames = Object.keys(projects);
+        const totalFiles = Object.values(projects).reduce((s, f) => s + f.length, 0);
+        classTitle.textContent = `Class ${cls}`;
+        classMeta.textContent = `${projectNames.length} team project${
+          projectNames.length === 1 ? "" : "s"
+        } · ${totalFiles} file${totalFiles === 1 ? "" : "s"}`;
+        projectCount.textContent = `${projectNames.length} projects`;
+
+        renderProjects(cls, searchInput.value);
+      }
+
+      function selectFeatured() {
+        currentClass = "__featured__";
+        document
+          .querySelectorAll(".class-btn")
+          .forEach((b) =>
+            b.classList.toggle("active", b.dataset.class === "__featured__")
+          );
+        const entries = Object.entries(demoProjects);
+        classTitle.textContent = "Capstone Team Projects";
+        classMeta.textContent = `${entries.length} featured project${entries.length === 1 ? "" : "s"} across all classes`;
+        projectCount.textContent = `${entries.length} featured`;
+
+        renderFeatured(searchInput.value);
+      }
+
+      function renderFeatured(filter = "") {
+        const q = filter.trim().toLowerCase();
+        const existingBanner = document.getElementById("demo-banner");
+        if (existingBanner) existingBanner.remove();
+        projectsEl.innerHTML = "";
+
+        const entries = Object.entries(demoProjects).filter(([cls, proj]) => {
+          if (!q) return true;
+          return proj.toLowerCase().includes(q) || cls.toLowerCase().includes(q);
+        });
+
+        if (entries.length === 0) {
+          const empty = document.createElement("div");
+          empty.className = "empty-state";
+          empty.innerHTML = `<div class="emoji">⌕</div>No featured projects match "<strong>${q}</strong>"`;
+          projectsEl.appendChild(empty);
+          return;
+        }
+
+        entries.forEach(([cls, proj]) => {
+          const files = catalog[cls] && catalog[cls][proj];
+          if (!files || files.length === 0) return;
+          const entry = pickEntry(cls, proj, files);
+          const href = `${cls}/${proj}/${entry}`
+            .split("/")
+            .map(encodeURIComponent)
+            .join("/");
+          const [c1, c2] = gradientFor(proj);
+
+          const card = document.createElement("a");
+          card.className = "project-card";
+          card.href = href;
+          card.target = "_blank";
+          card.rel = "noopener";
+          card.innerHTML = `
+        <div class="project-icon" style="background: linear-gradient(135deg, ${c1}, ${c2});">
+          ${initialsFor(proj)}
+        </div>
+        <div class="project-body">
+          <div class="project-title">${prettify(proj)}</div>
+          <div class="project-sub"><span>Class ${cls}</span><span class="dot"></span><span>${files.length} file${files.length === 1 ? "" : "s"}</span></div>
+        </div>
+        <div class="project-arrow">&rarr;</div>
+      `;
+          projectsEl.appendChild(card);
+        });
+      }
+
+      searchInput.addEventListener("input", (e) => {
+        if (currentClass === "__featured__") renderFeatured(e.target.value);
+        else if (currentClass) renderProjects(currentClass, e.target.value);
+      });
+
+      // Default to first class.
+      selectClass(orderedClasses[0]);
+    </script>
+  </body>
+</html>

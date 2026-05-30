@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza Hut Menu</title>
+    <style>
+      /* Reset some default styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        background: #f3f3f3;
+        color: #333;
+      }
+
+      /* Header styles */
+      .header {
+        width: 100%;
+        height: 60px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 999;
+      }
+
+      .logo img {
+        width: 120px;
+      }
+
+      .menu-options {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .menu-options select {
+        padding: 6px 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .menu-links {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .menu-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 700;
+        font-size: 14px;
+        transition: color 0.3s;
+      }
+
+      .menu-link:hover {
+        color: #c8102e;
+      }
+
+      /* Container for product sections */
+      .product-section {
+        width: 100%;
+        padding: 40px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        background-color: #fff;
+      }
+
+      /* Product card styles */
+      .product-card {
+        background-color: #fff;
+        border-radius: 13px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 330px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .product-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .product-info {
+        padding: 15px;
+        flex: 1;
+      }
+
+      .product-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .product-description {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 15px;
+      }
+
+      .product-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px 15px;
+      }
+
+      .price {
+        color: #c8102e;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .btn {
+        width: 120px;
+        height: 40px;
+        background-color: #c8102e;
+        border-radius: 5px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+
+      .btn:hover {
+        background-color: rgb(218, 69, 139);
+        transform: scale(1.05);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .header {
+          flex-direction: column;
+          height: auto;
+          padding: 10px 20px;
+        }
+
+        .menu-options {
+          margin-top: 10px;
+          gap: 10px;
+        }
+
+        .product-section {
+          flex-direction: column;
+          align-items: center;
+          padding: 20px 10px;
+        }
+
+        .product-card {
+          max-width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">
+        <img
+          src="https://d2l1qb2xg9gi7w.cloudfront.net/mn/web-static-images/logos/Pizza Hut_logo_desktop.svg"
+          alt="Pizza Hut Logo"
+        />
+      </div>
+      <div class="menu-options">
+        <select>
+          <option>Монгол</option>
+          <option>English</option>
+        </select>
+        <div class="menu-links">
+          <a href="#" class="menu-link">
+            <img
+              src="https://d2l1qb2xg9gi7w.cloudfront.net/mn/web-static-images/Icons/location.svg"
+              alt="Location"
+              style="width: 22px"
+            />
+            <span>Салбар сонгох</span>
+          </a>
+          <a href="#" class="menu-link">
+            <img
+              src="https://d2l1qb2xg9gi7w.cloudfront.net/mn/web-static-images/Icons/Account.svg"
+              alt="Account"
+              style="width: 22px"
+            />
+            <span>НЭВТРЭХ/БҮРТГҮҮЛЭХ</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product section -->
+    <div class="product-section">
+      <!-- Cheese Balls -->
+      <div class="product-card">
+        <img
+          src="https://d2l1qb2xg9gi7w.cloudfront.net/kh/images/website_variant_b/cheese-ball8246.png"
+          alt="Cheese balls"
+          class="product-image"
+        />
+        <div class="product-info">
+          <div class="product-title">Cheese balls</div>
+          <div class="product-description">Cheese balls</div>
+        </div>
+        <div class="product-footer">
+          <div class="price">MNT 5,000</div>
+          <div class="btn">Сагсанд хийх</div>
+        </div>
+      </div>
+      <!-- Алимтай тэргүүн -->
+      <div class="product-card">
+        <img
+          src="https://d2l1qb2xg9gi7w.cloudfront.net/kh/images/Website/apple-turnover9049.png"
+          alt="Алимтай тэргүүн"
+          class="product-image"
+        />
+        <div class="product-info">
+          <div class="product-title">Алимтай тэргүүн</div>
+          <div class="product-description">
+            Алимны шүүсээр дүүргэсэн пай бүтэээгдэхүүн....Дэлгэрэнгүй
+          </div>
+        </div>
+        <div class="product-footer">
+          <div class="price">MNT 4,500</div>
+          <div class="btn">Сагсанд хийх</div>
+        </div>
+      </div>
+      <!-- Татер шотс -->
+      <div class="product-card">
+        <img
+          src="https://d2l1qb2xg9gi7w.cloudfront.net/kh/images/Website/tater-shots2085.png"
+          alt="Татер шотс"
+          class="product-image"
+        />
+        <div class="product-info">
+          <div class="product-title">Татер шотс</div>
+          <div class="product-description">Хэлбэрт оруулсан шарсан төмс</div>
+        </div>
+        <div class="product-footer">
+          <div class="price">MNT 7,000</div>
+          <div class="btn">Сагсанд хийх</div>
+        </div>
+      </div>
+      <!-- Попкорн тахиа -->
+      <div class="product-card">
+        <img
+          src="https://d2l1qb2xg9gi7w.cloudfront.net/kh/images/Website/popcorn-chicken9728.png"
+          alt="Попкорн тахиа"
+          class="product-image"
+        />
+        <div class="product-info">
+          <div class="product-title">Попкорн тахиа</div>
+          <div class="product-description">
+            Халуун ногоотой шаржигнуур тахиа 200гр
+          </div>
+        </div>
+        <div class="product-footer">
+          <div class="price">MNT 8,000</div>
+          <div class="btn">Сагсанд хийх</div>
+        </div>
+      </div>
+      <!-- Тахианы далавч -->
+      <div class="product-card">
+        <img
+          src="https://d2l1qb2xg9gi7w.cloudfront.net/kh/images/Website/chicken-drummets-6-pcs2299.png"
+          alt="Тахианы далавч"
+          class="product-image"
+        />
+        <div class="product-info">
+          <div class="product-title">Тахианы далавч</div>
+          <p>Барбекьвю соусаар амталсан тахианы бугалга 6ш</p>
+        </div>
+        <div class="product-footer">
+          <div class="price">MNT 15,000</div>
+          <div class="btn">Сагсанд хийх</div>
+        </div>
+      </div>
+      <!-- Тахианы мөч -->
+      <div class="product-card">
+        <img
+          src="https://d2l1qb2xg9gi7w.cloudfront.net/kh/images/Website/chicken-drumstick4974.png"
+          alt="Тахианы мөч"
+          class="product-image"
+        />
+        <div class="product-info">
+          <div class="product-title">Тахианы мөч</div>
+          <p>Теряаки соусаар амталсан тахианы мөч</p>
+        </div>
+        <div class="product-footer">
+          <div class="price">MNT 15,000</div>
+          <div class="btn">Сагсанд хийх</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Timeless - Global News & Stories</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family: Georgia, serif;
+      background:#f5f5f5;
+      color:#111;
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* HEADER */
+    header{
+      background:#000;
+      color:white;
+      padding:20px 40px;
+      border-bottom:4px solid #c9a227;
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-size:42px;
+      font-weight:bold;
+      letter-spacing:3px;
+      text-transform:uppercase;
+    }
+
+    .date{
+      font-size:14px;
+      opacity:0.8;
+    }
+
+    nav{
+      margin-top:20px;
+      display:flex;
+      gap:25px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      color:white;
+      font-size:15px;
+      text-transform:uppercase;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#c9a227;
+    }
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:20px;
+      padding:30px 40px;
+    }
+
+    .main-story{
+      background:white;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .main-story img{
+      width:100%;
+      height:420px;
+      object-fit:cover;
+    }
+
+    .main-story-content{
+      padding:25px;
+    }
+
+    .category{
+      color:#c9a227;
+      font-weight:bold;
+      text-transform:uppercase;
+      font-size:13px;
+      margin-bottom:10px;
+    }
+
+    .main-story h1{
+      font-size:40px;
+      margin-bottom:15px;
+    }
+
+    .sidebar{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .side-card{
+      background:white;
+      padding:20px;
+      border-left:5px solid #c9a227;
+      border-radius:10px;
+      box-shadow:0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    .side-card h3{
+      margin-top:10px;
+      font-size:22px;
+    }
+
+    /* NEWS GRID */
+    .section-title{
+      margin:20px 40px;
+      font-size:32px;
+      border-bottom:3px solid #000;
+      padding-bottom:10px;
+    }
+
+    .news-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+      gap:25px;
+      padding:0 40px 40px;
+    }
+
+    .card{
+      background:white;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow:0 3px 10px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:20px;
+    }
+
+    .card-content h3{
+      margin:10px 0;
+      font-size:24px;
+    }
+
+    .card-content p{
+      color:#555;
+    }
+
+    /* NEWSLETTER */
+    .newsletter{
+      background:#111;
+      color:white;
+      text-align:center;
+      padding:60px 20px;
+    }
+
+    .newsletter h2{
+      font-size:36px;
+      margin-bottom:15px;
+    }
+
+    .newsletter input{
+      padding:14px;
+      width:300px;
+      border:none;
+      border-radius:5px;
+      margin-top:15px;
+    }
+
+    .newsletter button{
+      padding:14px 20px;
+      border:none;
+      background:#c9a227;
+      color:white;
+      font-weight:bold;
+      border-radius:5px;
+      margin-left:10px;
+      cursor:pointer;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#000;
+      color:white;
+      padding:30px 40px;
+      text-align:center;
+    }
+
+    footer p{
+      opacity:0.8;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .hero{
+        grid-template-columns:1fr;
+      }
+
+      .main-story h1{
+        font-size:30px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="topbar">
+      <div class="logo">TIMELESS</div>
+      <div class="date">Wednesday, May 13, 2026</div>
+    </div>
+
+    <nav>
+      <a href="#">World</a>
+      <a href="#">Politics</a>
+      <a href="#">Business</a>
+      <a href="#">Technology</a>
+      <a href="#">Culture</a>
+      <a href="#">Science</a>
+      <a href="#">Sports</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+
+    <div class="main-story">
+      <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1200" alt="News Image">
+
+      <div class="main-story-content">
+        <div class="category">Top Story</div>
+        <h1>Global Leaders Gather To Discuss The Future Of Technology</h1>
+        <p>
+          Major world leaders and innovators met today to discuss the rapid evolution
+          of artificial intelligence, cybersecurity, and the digital future shaping humanity.
+        </p>
+      </div>
+    </div>
+
+    <div class="sidebar">
+
+      <div class="side-card">
+        <div class="category">Breaking</div>
+        <h3>Markets Surge As Investors Respond To New Economic Policies</h3>
+      </div>
+
+      <div class="side-card">
+        <div class="category">Science</div>
+        <h3>Researchers Discover New Renewable Energy Breakthrough</h3>
+      </div>
+
+      <div class="side-card">
+        <div class="category">Culture</div>
+        <h3>Historic Art Exhibition Opens To Record Crowds</h3>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- LATEST NEWS -->
+  <h2 class="section-title">Latest Stories</h2>
+
+  <section class="news-grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?q=80&w=1000" alt="">
+      <div class="card-content">
+        <div class="category">Politics</div>
+        <h3>Election Debates Intensify Across Major Cities</h3>
+        <p>
+          Candidates focused heavily on economic growth, healthcare, and global relations.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1000" alt="">
+      <div class="card-content">
+        <div class="category">Technology</div>
+        <h3>AI Startups Continue To Transform Daily Life</h3>
+        <p>
+          New innovations are changing communication, education, and business operations.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1000" alt="">
+      <div class="card-content">
+        <div class="category">Business</div>
+        <h3>Small Businesses Adapt To The Digital Economy</h3>
+        <p>
+          Entrepreneurs are embracing online platforms and automation tools faster than ever.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <h2>Stay Updated With Timeless</h2>
+    <p>Get the latest headlines delivered directly to your inbox.</p>
+
+    <div style="margin-top:20px;">
+      <input type="email" placeholder="Enter your email">
+      <button>Subscribe</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <h2>TIMELESS</h2>
+    <p>Independent Journalism For A Changing World.</p>
+    <br>
+    <p>© 2026 Timeless Media. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

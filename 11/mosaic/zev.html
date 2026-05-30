@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOSAIC</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1f1f30;
+    color: #f5f0e8;
+    min-height: 100vh;
+  }
+  .link { text-decoration: none; color: inherit; }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    position: sticky;
+    top: 0;
+    background-color: rgba(31,31,48,0.92);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.15em;
+    font-size: 1.5rem;
+    color: #f5f0e8;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+  }
+  .nav-links a {
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    transition: color 0.2s;
+    text-transform: uppercase;
+  }
+  .nav-links a:hover { color: #f5f0e8; }
+  .nav-subscribe {
+    background-color: transparent;
+    color: #f5f0e8;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 1000px;
+    padding: 8px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .nav-subscribe:hover {
+    background-color: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 60px 80px;
+    text-align: center;
+    gap: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/a6/Hobby_School_of_Ulaanbaatar_campus_photo.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(15,15,28,0.72);
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 5px 16px;
+    border-radius: 100px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .hero-sub {
+    font-size: 0.95rem;
+    color: rgba(255,235,235,0.7);
+    max-width: 540px;
+    line-height: 1.7;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    margin-top: 8px;
+  }
+  .btn-primary {
+    background-color: #f5f0e8;
+    color: #1f1f30;
+    border: none;
+    border-radius: 1000px;
+    padding: 12px 30px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-ghost {
+    background-color: transparent;
+    color: #f5f0e8;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 1000px;
+    padding: 12px 30px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .btn-ghost:hover {
+    background-color: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  hr.dim { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 0; }
+
+  .carousel-wrap {
+    overflow: hidden;
+    padding: 40px 0;
+    background-color: #191927;
+  }
+  @keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  #track {
+    display: flex;
+    animation: slide 18s linear infinite;
+  }
+  #track img {
+    width: 260px;
+    height: 380px;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-right: 16px;
+    border-radius: 12px;
+    opacity: 0.85;
+    transition: opacity 0.3s;
+  }
+  #track img:hover { opacity: 1; }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 60px 40px 40px;
+    background-color: #141422;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.15em;
+    font-size: 1.5rem;
+    color: #f5f0e8;
+  }
+  .footer-links {
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #f5f0e8; }
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 700px) {
+    .nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 80px 24px 60px; }
+    .hero-cta { flex-direction: column; align-items: center; }
+  }
+  .link{
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+</head>
+<body>
+
+  <nav class="nav">
+    <span class="nav-logo"><a href="zev.html" class="link">MOSAIC</a></span>
+    <div class="nav-links">
+      <a href="munkhjin.html" class="link">Activities</a>
+      <a href="sergelen.html" class="link">About Us</a>
+      <a href="iveel.html" class="link">Archive</a>
+      <a href="narangoo.html" class="link">Log In</a>
+    </div>
+    <a href="https://www.instagram.com/mosaichobbyschool?igsh=MWh6M2dxc2thcWNkdg=="><button class="nav-subscribe">Subscribe</button> </a>
+  </nav>
+
+  <section class="hero">
+    <span class="hero-eyebrow">Hobby School of Ulaanbaatar</span>
+    <h1>MOSAIC</h1>
+    <p class="hero-sub">A student-led platform dedicated to amplifying student voices and sharing stories that matter. Driven by curiosity and creativity since 2019.</p>
+    <div class="hero-cta">
+      <button class="btn-primary">Read Latest</button>
+      <button class="btn-ghost">About Us</button>
+    </div>
+  </section>
+
+  <hr class="dim">
+
+  <div class="carousel-wrap">
+    <div id="track">
+      <img src="https://cloud-1.edupage.org/cloud?z%3AElKFj3UvYGAofopVhdPk9bpj%2FBEDoRYHmSNGPpAaXyuy7dNkDbULVx1sHpfYbLx6BOa%2FN92tV%2FObPITR%2Bnsx%2B4MkjbCueOC999MWJ%2BGRHqI%3D" alt="">
+      <img src="https://cloud-2.edupage.org/cloud?z%3ALshfqonbNbfOR8ryEo%2B2Y5KBoEHoxJl2tQmrwszMQzAIll%2BGQoaqBBzWXavSxVBYIz72RSWHzkgPLomnrtT%2F%2FQ%3D%3D" alt="">
+      <img src="https://cloud-f.edupage.org/cloud?z%3A3OQa%2BJUL7D8yKNma2dJwQtflGOGXqNX3r4CxYLefmxQyv3cTAKu536Kmji9u4Xa4C56wDeiyO5eVkeeZA%2Fb5WA%3D%3D" alt="">
+      <img src="https://cloud-d.edupage.org/cloud?z%3Agaxwb1ryYAHP7W1p0i9f%2FIq74fHn6DporXFM7bEVBIxmtMgmtGpzK%2Fk3ZtEdSXlGDlv6ftOX5q%2B%2BlzaDer%2BdgQ%3D%3D" alt="">
+      <img src="https://cloud-1.edupage.org/cloud?z%3AElKFj3UvYGAofopVhdPk9bpj%2FBEDoRYHmSNGPpAaXyuy7dNkDbULVx1sHpfYbLx6BOa%2FN92tV%2FObPITR%2Bnsx%2B4MkjbCueOC999MWJ%2BGRHqI%3D" alt="">
+      <img src="https://cloud-2.edupage.org/cloud?z%3ALshfqonbNbfOR8ryEo%2B2Y5KBoEHoxJl2tQmrwszMQzAIll%2BGQoaqBBzWXavSxVBYIz72RSWHzkgPLomnrtT%2F%2FQ%3D%3D" alt="">
+      <img src="https://cloud-f.edupage.org/cloud?z%3A3OQa%2BJUL7D8yKNma2dJwQtflGOGXqNX3r4CxYLefmxQyv3cTAKu536Kmji9u4Xa4C56wDeiyO5eVkeeZA%2Fb5WA%3D%3D" alt="">
+      <img src="https://cloud-d.edupage.org/cloud?z%3Agaxwb1ryYAHP7W1p0i9f%2FIq74fHn6DporXFM7bEVBIxmtMgmtGpzK%2Fk3ZtEdSXlGDlv6ftOX5q%2B%2BlzaDer%2BdgQ%3D%3D" alt="">
+    </div>
+  </div>
+
+  <hr class="dim">
+
+  <footer>
+    <span class="footer-logo">MOSAIC</span>
+    <div class="footer-links">
+      <a href="munkhjin.html">Activities</a>
+      <a href="sergelen.html">About Us</a>
+      <a href="iveel.html">Archive</a>
+      <a href="narangoo.html">Log In</a>
+    </div>
+    <hr style="width:100%; border:none; border-top:1px solid rgba(255,255,255,0.1);">
+    <p class="footer-copy">© 2025 Mosaic Newspaper · Hobby School of Ulaanbaatar</p>
+  </footer>
+
+</body>
+</html>

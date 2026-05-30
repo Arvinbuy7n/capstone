@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Italian Restaurant Menu</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        background: linear-gradient(rgba(29, 29, 44, 0.80), rgba(29, 29, 44, 0.80)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=80') center/cover fixed;
+        font-family: "Poppins", sans-serif;
+        color: white;
+      }
+
+      header {
+        text-align: center;
+        padding: 50px 40px;
+        font-family: "Playfair Display", serif;
+        font-size: 48px;
+        letter-spacing: 3px;
+      }
+
+      header p {
+        font-size: 16px;
+        color: #aaa;
+        letter-spacing: 2px;
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .menu {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 28px;
+        padding: 40px;
+      }
+
+      .card {
+        background: #1a1a1a;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(109, 85, 104, 0.6);
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+      }
+
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .card-content {
+        padding: 20px;
+      }
+
+      .food-name {
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+      }
+
+      .recipe {
+        color: #aaa;
+        font-size: 13px;
+        margin-top: 6px;
+        line-height: 1.5;
+      }
+
+      .price {
+        color: #e0b15c;
+        margin-top: 8px;
+        font-size: 18px;
+      }
+
+      .order-btn {
+        display: block;
+        width: 100%;
+        margin-top: 14px;
+        padding: 9px 0;
+        background: transparent;
+        border: 1px solid #e0b15c;
+        border-radius: 8px;
+        color: #e0b15c;
+        font-size: 13px;
+        font-family: "Poppins", sans-serif;
+        cursor: pointer;
+        transition: 0.2s;
+        box-sizing: border-box;
+      }
+
+      .order-btn:hover {
+        background: #e0b15c;
+        color: #1a1a1a;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      Food Menu
+      <p>Classic Italian cuisine</p>
+    </header>
+
+    <div class="menu">
+
+      <div class="card">
+        <img src="https://png.pngtree.com/thumb_back/fw800/background/20250822/pngtree-pizza-topped-with-fresh-basil-cherry-tomatoes-and-melted-cheese-served-image_18198803.webp" alt="Margherita Pizza" />
+        <div class="card-content">
+          <div class="food-name">Margherita Pizza</div>
+          <div class="recipe">San Marzano tomatoes, fresh mozzarella, basil, extra virgin olive oil</div>
+          <div class="price">$20</div>
+          <button class="order-btn">Add to Order</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://static.vecteezy.com/system/resources/previews/069/817/392/large_2x/pepperoni-pizza-restaurant-dark-background-free-photo.jpg" alt="Pepperoni Pizza" />
+        <div class="card-content">
+          <div class="food-name">Pepperoni Pizza</div>
+          <div class="recipe">Tomato sauce, mozzarella, spicy pepperoni, oregano, olive oil</div>
+          <div class="price">$20</div>
+          <button class="order-btn">Add to Order</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://thumbs.dreamstime.com/b/delicious-lasagna-meat-sauce-cheese-dark-background-hd-photography-food-bolognese-pasta-style-319686569.jpg" alt="Lasagna" />
+        <div class="card-content">
+          <div class="food-name">Lasagna</div>
+          <div class="recipe">Pasta sheets, beef ragù, béchamel sauce, Parmigiano-Reggiano, ricotta</div>
+          <div class="price">$23</div>
+          <button class="order-btn">Add to Order</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://media.istockphoto.com/id/1407982559/photo/spaghetti-or-linguine-with-meat-and-tomato-sauce-bolognese-on-a-black-plate-and-dark.jpg?s=612x612&w=0&k=20&c=bbJzS2g5hpTtXqLqGVkKmL71HyAmoWoxiCtEDzVGPUI=" alt="Spaghetti Bolognese" />
+        <div class="card-content">
+          <div class="food-name">Spaghetti Bolognese</div>
+          <div class="recipe">Classic spaghetti, spaghetti sauce, sofrito bolognese, creamy cheese</div>
+          <div class="price">$25</div>
+          <button class="order-btn">Add to Order</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://thumbs.dreamstime.com/b/chicken-alfredo-tagliatelle-greens-cream-sauce-dark-background-fettuccine-meal-created-generative-ai-288562798.jpg" alt="Fettuccine Alfredo" />
+        <div class="card-content">
+          <div class="food-name">Fettuccine Alfredo</div>
+          <div class="recipe">Fettuccine pasta, butter, heavy cream, Parmesan, black pepper, garlic</div>
+          <div class="price">$27</div>
+          <button class="order-btn">Add to Order</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://thumbs.dreamstime.com/b/high-resolution-photorealistic-image-creamy-mushroom-risotto-served-black-bowl-dark-background-garnished-shaved-399385369.jpg" alt="Mushroom Risotto" />
+        <div class="card-content">
+          <div class="food-name">Mushroom Risotto</div>
+          <div class="recipe">Arborio rice, mixed mushrooms, white wine, vegetable broth, Parmesan, thyme</div>
+          <div class="price">$26</div>
+          <button class="order-btn">Add to Order</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://imgs.search.brave.com/pAAU7bqEN9hyG_fuOQdFqmQfK209RlrJc0mU1hJzfJY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbGF5/c3dlbGx3aXRoYnV0/dGVyLmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyNC8xMC9P/c3NvLUJ1Y28tMzMu/anBn" alt="Osso Buco" />
+        <div class="card-content">
+          <div class="food-name">Osso Buco</div>
+          <div class="recipe">Braised veal shank, gremolata, saffron risotto, white wine, vegetables</div>
+          <div class="price">$34</div>
+          <button class="order-btn">Add to Order</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://imgs.search.brave.com/rdV6K1FXu5aoBmhSbh1_n4MHQxEfbtRfYCH6CBmrTmQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNDcv/NTcyLzgxOS9zbWFs/bC9icnVzY2hldHRh/LXRvcHBlZC13aXRo/LWRpY2VkLXRvbWF0/b2VzLWdhcmxpYy1i/YXNpbC1hbmQtYmFs/c2FtaWMtZ2xhemUt/ZnJlZS1waG90by5q/cGc" alt="Bruschetta" />
+        <div class="card-content">
+          <div class="food-name">Bruschetta</div>
+          <div class="recipe">Toasted ciabatta, ripe tomatoes, fresh basil, garlic, extra virgin olive oil</div>
+          <div class="price">$12</div>
+          <button class="order-btn">Add to Order</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://imgs.search.brave.com/tKKeodjC3513zj0iFTXW0IbLIA2kiUGBRDM7QA_PYYs/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvOTYw/MDA3NTU2L3Bob3Rv/L3NhbHRpbWJvY2Nh/LWFsbGEtcm9tYW5h/LWluLWEtcGFuLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz13/YkF5Z3lLb3JDVnZ1/U2Z1OE1WaUUwOFBo/S1Z6dkpXSWl6dnh4/cjJOUGpBPQ" alt="Saltimbocca" />
+        <div class="card-content">
+          <div class="food-name">Saltimbocca</div>
+          <div class="recipe">Veal cutlet, prosciutto, sage, white wine butter sauce, lemon</div>
+          <div class="price">$30</div>
+          <button class="order-btn">Add to Order</button>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

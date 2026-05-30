@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .nav-links {
+    display: flex;
+    gap: 25px;
+  }
+      .big {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        background-color: #ffffff;
+        .last {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: auto;
+            background-color: #99aabb;
+            gap: 5px;
+            margin-top: 70px;
+            padding: 48px 20px 32px 20px;
+            border-top-left-radius: 18px;
+            border-top-right-radius: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body style="background-color: black">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; background: #0f1115; border-bottom: 1px solid rgba(255,255,255,0.08); position: sticky; top: 0; z-index: 100; gap: 24px; flex-wrap: wrap;">
+      <a href="./homepage.html" style="font-size: 26px; font-weight: 700; color: white; text-decoration: none; letter-spacing: 0.3px;">CineVerse</a>
+      <nav style="display: flex; gap: 4px; align-items: center;">
+        <a href="./homepage.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Home</a>
+        <a href="./movies.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Movies</a>
+        <a href="./shows.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Series</a>
+        <a href="./cineverse.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Reviews</a>
+        <a href="./card.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Account</a>
+        <a href="./aboutus2.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">About</a>
+      </nav>
+      <input type="text" placeholder="Search films, directors..." style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: white; padding: 9px 16px; border-radius: 8px; font-size: 13px; width: 240px; outline: none; font-family: inherit;" />
+    </div>
+    <div style="display: flex; gap: 7px; margin-top: 5px">
+      <div
+        style="
+          background-image: url(https://corp.formula1.com/wp-content/uploads/2025/03/F1_WBDO_FEATURED_IMAGE_MAIN_1920x1080-1-768x432.jpg);
+          height: 600px;
+          width: 700px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://static1.colliderimages.com/wordpress/wp-content/uploads/sharedimages/2024/04/hells-kitchen-tv-poster.jpg);
+          height: 600px;
+          width: 700px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://th.bing.com/th/id/R.2657eae5f65279fa436d9ffcf40cc99f?rik=rh6FyplEVLRo8w&pid=ImgRaw&r=0);
+          height: 600px;
+          width: 700px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://images.justwatch.com/poster/306100215/s718/nineteen-to-twenty.jpg);
+          height: 600px;
+          width: 700px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+        "
+      ></div>
+    </div>
+
+    <h1
+      style="
+        color: aliceblue;
+        font-size: 40px;
+        font-family: sans-serif;
+        margin-top: 25px;
+        margin-left: 15px;
+      "
+    >
+      Korean TV shows
+    </h1>
+    <div style="display: flex; flex-direction: row; margin-top: 3px; gap: 7px">
+      <div
+        style="
+          background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXKeC6qq3owXGaHdc-4jrRo8aDb-ELh0vw-Q&s);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://cassette.sphdigital.com.sg/image/straitstimes/22274052e415b7a5a511cb88e9fffc04df77ee9fec0d50bd532f8fe3fb488610);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://tse3.mm.bing.net/th/id/OIP.b3nG6_loT9N86oas2WFE_QHaEJ?rs=1&pid=ImgDetMain&o=7&rm=3);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://tse4.mm.bing.net/th/id/OIP.cAIxf_oH1yHJtxOZVTv5uAAAAA?rs=1&pid=ImgDetMain&o=7&rm=3);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://d1rldr9jdodfaa.cloudfront.net/images/01KDWMQ6B71F2JFWJZX2K68250/e2548b57-c6ea-4fc1-a1c4-1d363763f3a0_1767266556.webp);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+    </div>
+    <h1
+      style="
+        color: aliceblue;
+        font-size: 40px;
+        font-family: sans-serif;
+        margin-top: 25px;
+        margin-left: 15px;
+      "
+    >
+      American TV shows
+    </h1>
+    <div style="display: flex; flex-direction: row; margin-top: 3px; gap: 7px">
+      <div
+        style="
+          background-image: url(https://cdn.theplaylist.net/wp-content/uploads/2024/07/07100724/fi-teaser-brad-pitt.jpg);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://tse3.mm.bing.net/th/id/OIP.sk23Kcot9SSi4bcvB1TLBgHaEK?w=1920&h=1080&rs=1&pid=ImgDetMain&o=7&rm=3);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://tse4.mm.bing.net/th/id/OIP.3dLpbBxt9hKZYm-zrYMViwHaEK?rs=1&pid=ImgDetMain&o=7&rm=3);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://tse3.mm.bing.net/th/id/OIP.LBPKMirFu85WRiuqKJuvugHaEK?w=720&h=405&rs=1&pid=ImgDetMain&o=7&rm=3);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://www.usmagazine.com/wp-content/uploads/2021/01/Kim-Kardashian-Marks-Last-Day-Ever-of-KUWTK-Filming-Amid-Kanye-West-Drama-Cast.jpg?w=1000&quality=86&strip=all);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+    </div>
+    <h1
+      style="
+        color: aliceblue;
+        font-size: 40px;
+        font-family: sans-serif;
+        margin-top: 25px;
+        margin-left: 15px;
+      "
+    >
+      Documentaries
+    </h1>
+    <div style="display: flex; flex-direction: row; margin-top: 3px; gap: 7px">
+      <div
+        style="
+          background-image: url(https://tse3.mm.bing.net/th/id/OIP.CgCYHcWAgju5zYCNP1kGQgHaKY?rs=1&pid=ImgDetMain&o=7&rm=3);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://i.ytimg.com/vi/wwOEO2ZhFIw/maxresdefault.jpg);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://tse2.mm.bing.net/th/id/OIP.hRtHay5huAHPa7gAiDsDHwHaEE?w=800&h=440&rs=1&pid=ImgDetMain&o=7&rm=3);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://tse4.mm.bing.net/th/id/OIP.kk0RClWDGVRXrjkJ4MFZPwHaEK?rs=1&pid=ImgDetMain&o=7&rm=3);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://hips.hearstapps.com/thepioneerwoman/wp-content/uploads/2018/02/image.jpg?resize=980:*);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+    </div>
+    <h1
+      style="
+        color: aliceblue;
+        font-size: 40px;
+        font-family: sans-serif;
+        margin-top: 25px;
+        margin-left: 15px;
+      "
+    >
+      For kids
+    </h1>
+    <div style="display: flex; flex-direction: row; margin-top: 3px; gap: 7px">
+      <div
+        style="
+          background-image: url(https://tse1.mm.bing.net/th/id/OIP.U7WnBD7RQgvVu7CD9swPVAHaEK?w=309&h=180&c=7&r=0&o=7&dpr=1.1&pid=1.7&rm=3);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://tse1.mm.bing.net/th/id/OIP.ZMEsZJYjvopaVMb2kdOKZAHaEK?w=1280&h=720&rs=1&pid=ImgDetMain&o=7&rm=3);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://tse3.mm.bing.net/th/id/OIP.L_J9rU9MNC_u64gXFCqijAHaEK?w=1024&h=576&rs=1&pid=ImgDetMain&o=7&rm=3https://tse4.mm.bing.net/th/id/OIP.8iitMVroojmWDkOPBYRHOAHaFj?rs=1&pid=ImgDetMain&o=7&rm=3);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://www.yesstyle.com/blog/wp-content/uploads/2025/07/outfits-from-kpop-demon-hunters-1200-x-630-px.png);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://i.ytimg.com/vi/JRl7EIIToBk/maxresdefault.jpg);
+          height: 200px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 20%;
+        "
+      ></div>
+    </div>
+    <h1
+      style="
+        color: aliceblue;
+        font-size: 40px;
+        font-family: sans-serif;
+        margin-top: 25px;
+        margin-left: 15px;
+      "
+    >
+     
+      </div>
+    </div>
+<div class="last">
+<div style="display:flex; flex-direction:row; justify-content:center; align-items:center; flex-wrap: wrap; height: auto; gap: 32px; max-width: 1200px; margin: 0 auto;"> 
+
+    <div style="display:flex; flex-direction:column; gap: 8px; align-items:flex-start; text-align: left;">
+        <p style="font-size:28px; color: white; font-weight: 700; margin-bottom: 4px;"><strong>Stay in the Loop</strong></p>
+        <p style="font-size:16px; color: white; max-width: 340px; line-height: 1.4;">
+            Receive weekly cinematic deep-dives, exclusive reviews, and festival updates directly in your inbox.
+        </p>
+    </div>
+<div style="display: flex; flex-direction: row; align-items: center; gap: 18px; flex-wrap: wrap; justify-content: center;">
+        <input class="search" type="email" placeholder="Your email address" style="min-width: 240px;"/>
+
+    <button style="background-color:rgb(251,140,5); color:whitesmoke; height:48px; width:165px; border-radius:60px; font-size:14px; font-weight: 600; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        Subscribe Now →
+</button></div>
+</div>
+<hr style="width: 90%; max-width: 1100px; border: 1px solid #2c3e4e; margin: 32px auto 28px auto;">
+<div style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 48px; flex-wrap: wrap; row-gap: 16px; padding: 0 20px;">
+     <p style="font-size: 22px; color: white; font-weight: 700; letter-spacing: -0.3px;"><strong>CineVerse</strong></p>
+     <p style="font-size: 14px; color: white; letter-spacing: 0.2px;">Policy &nbsp;&nbsp;•&nbsp;&nbsp; Terms of Service &nbsp;&nbsp;•&nbsp;&nbsp; Contact</p>
+     <p style="font-size: 14px; color: white;">Ⓒ 2024 CineVerse Inc. All cinematic rights reserved.</p>
+</div>
+</div>
+  </body>
+</html>

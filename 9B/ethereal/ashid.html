@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>At Dead Of Night</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+    * {
+      font-family: "Anta", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+  </style>
+  <style>
+    * {
+      font-family: "Anta", sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #1a0202; 
+      color: #ffffff;
+    }
+
+  
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background: #000000;
+      border-bottom: 1px solid #333;
+ 
+  
+
+    }
+
+    .search-bar {
+      background: #222;
+      border: 1px solid #444;
+      height: 30px;
+      border-radius: 5px;
+      width: 300px;
+      color: white;
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-icons img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .banner-box {
+      width: 100%;
+      height: 400px;
+      position: relative;
+    }
+
+    .banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    }
+
+    .game-title {
+      padding: 20px 40px;
+      font-size: 45px;
+      margin-top: -60px;
+    }
+
+
+    .btn-row {
+      padding: 20px 40px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      background: #ffffff;
+      color: #000000;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    
+     
+    }
+
+      .btn2 {
+      padding: 12px 30px;
+      background:rgba(255,255,255,0.03);
+      color: #ffffff;
+      border:1px solid rgba(255,255,255,0.3);
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+ 
+     
+    }
+
+    .btn-alt {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid #555;
+    }
+
+ 
+    .description-panel {
+      margin: 20px 40px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+    }
+.tabs{     
+   display: flex;
+      gap: 340px;
+      padding: 20px 40px;
+      border-bottom: 1px solid #333;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: large;}
+
+
+    .tabs3 {
+         cursor: pointer;
+    }
+
+
+     .tabs2 {
+         cursor: pointer;
+    }
+
+    
+    .tabs4 {
+         cursor: pointer;
+    }
+
+
+        .tabs5 {
+         cursor: pointer;
+    }
+
+
+    .tabs1 {
+      color: white;
+      border-bottom: 2px solid white;
+      padding-bottom: 19px;
+         cursor: pointer;
+    }
+
+  
+    .comment-list {
+      margin: 20px 40px;
+    }
+
+    .comment-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid #222;
+    }
+
+    .user { color: #888; width: 200px; }
+    .msg { flex: 1;color: white; }
+    .heart { color: #555; display: flex; align-items: center; gap: 5px; }
+
+
+    .icon-white {
+      filter: brightness(0) invert(1);
+      width: 20px;
+    }
+
+    .btn:hover {
+      transform: scale(1.2);
+    }
+    .btn2:hover{
+      transform: scale(1.2);
+    }
+    .tabs1:hover{
+      transform: scale(1.5);
+    }
+      .tabs2:hover{
+      transform: scale(1.5);
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <a href="homepage.html">
+        <img
+        style="width: 20px; height: 20px;"
+        alt="something"
+        src="https://uxwing.com/wp-content/themes/uxwing/download/arrow-direction/arrow-left-direction-white-icon.png"
+      >
+    </a>
+    <input type="text" class="search-bar" placeholder="">
+    <div class="nav-icons">
+      <img
+        alt="something"
+        src="https://uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/shopping-cart-white-icon.png"
+      >
+
+      <img
+        alt="something"
+        src="https://uxwing.com/wp-content/themes/uxwing/download/location-travel-map/world-globe-white-icon.png"
+      >
+    </div>
+  </div>
+
+  <div class="banner-box">
+    <img src="https://baggycat.com/media/DONbanner.jpg" class="banner-img">
+  </div>
+
+  <h3 class="game-title">At Dead Of Night</h3>
+
+  <div class="btn-row">
+    <button class="btn2">Add to cart</button>
+    <button class="btn">Purchase</button>
+  </div>
+
+  <div class="description-panel">
+    <h5 style="color: rgba(255,255,255,0.8); font-size: 20px; margin-bottom: 10px;">Description</h5>
+    <p style="font-size: 18px; color: rgba(255,255,255,0.8);">At Dead of Night is a 2020 indie FMV (Full Motion Video) horror game blending live-action, 3D environments, and ghost-hunting mechanics. Players control Maya, who is trapped in a remote hotel haunted by the spirits of victims murdered by the psychopathic, comedic proprietor, Jimmy Hall.</p>
+  </div>
+
+  <div class="tabs">
+    <p class="tabs1">Comments</p>
+    <p class="tabs2">Info</p>
+    <p class="tabs2">Achievments</p>
+    <p class="tabs2">Uptades</p>
+    <p class="tabs2">More like this</p>
+  </div>
+
+  <div class="comment-list">
+    <div class="comment-item">
+      <div class="user">individualdartboard:</div>
+      <div class="msg">ts game is so ahh🥀</div>
+      <div class="heart">12 <img style="width: 50px;height: 40px;" src="https://static.vecteezy.com/system/resources/thumbnails/068/119/928/small/white-heart-on-transparent-background-png.png" alt=""></div>
+    </div>
+    <div class="comment-item">
+      <div class="user">thanksbolt:</div>
+      <div class="msg">how do i get past the last part?</div>
+      <div class="heart">2 <img style="width: 50px;height: 40px;" src="https://static.vecteezy.com/system/resources/thumbnails/068/119/928/small/white-heart-on-transparent-background-png.png" alt=""></div>
+    </div>
+    <div class="comment-item">
+      <div class="user">worrisomeimp:</div>
+      <div class="msg">🥰🥰🥰</div>
+      <div class="heart">0<img style="width: 50px;height: 40px;" src="https://static.vecteezy.com/system/resources/thumbnails/068/119/928/small/white-heart-on-transparent-background-png.png" alt=""> </div>
+    </div>
+    <div class="comment-item">
+      <div class="user">dimcost:</div>
+      <div class="msg">bro how is ts game so expensive</div>
+      <div class="heart"> 47 <img style="width: 50px;height: 40px;" src="https://static.vecteezy.com/system/resources/thumbnails/068/119/928/small/white-heart-on-transparent-background-png.png" alt=""></div>
+    </div>
+    <div class="comment-item">
+      <div class="user">doutgarnish:</div>
+      <div class="msg">Cant wait for coryxkenshin to play this</div>
+      <div class="heart">294 <img style="width: 50px;height: 40px;" src="https://static.vecteezy.com/system/resources/thumbnails/068/119/928/small/white-heart-on-transparent-background-png.png" alt=""></div>
+    </div>
+    <div class="comment-item">
+      <div class="user">mercedesracketeer:</div>
+      <div class="msg">what are these bots in the comment section lmao</div>
+      <div class="heart">1.3k<img style="width: 50px;height: 40px;" src="https://static.vecteezy.com/system/resources/thumbnails/068/119/928/small/white-heart-on-transparent-background-png.png" alt=""> </div>
+    </div>
+  </div>
+
+</body>
+</html>

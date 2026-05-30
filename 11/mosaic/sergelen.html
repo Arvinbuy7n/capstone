@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOSAIC — About Us</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1f1f30;
+    color: #f5f0e8;
+    min-height: 100vh;
+  }
+
+    .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    position: sticky;
+    top: 0;
+    background-color: rgba(31,31,48,0.92);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.15em;
+    font-size: 1.5rem;
+    color: #f5f0e8;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.2s;
+    text-transform: uppercase;
+  }
+  .nav-links a:hover, .nav-links a.active { color: #f5f0e8; }
+  .nav-subscribe {
+    background-color: transparent;
+    color: #f5f0e8;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 1000px;
+    padding: 8px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .nav-subscribe:hover {
+    background-color: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  hr.dim { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 0; }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 52vh;
+    padding: 80px 60px;
+    text-align: center;
+    gap: 20px;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/a6/Hobby_School_of_Ulaanbaatar_campus_photo.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(15,15,28,0.70);
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    color: #ffffff;
+    letter-spacing: 0.01em;
+    line-height: 1.05;
+  }
+  .hero p {
+    color: rgba(255,235,235,0.75);
+    line-height: 1.75;
+    font-size: 0.95rem;
+    max-width: 580px;
+  }
+
+
+  .cards-section {
+    padding: 60px 60px;
+    display: flex;
+    gap: 20px;
+  }
+  .info-card {
+    flex: 1;
+    background-color: rgba(20,20,38,0.75);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 32px 28px;
+    transition: transform 0.3s cubic-bezier(0.25,0.8,0.25,1), border-color 0.3s, box-shadow 0.3s;
+  }
+  .info-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.22);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+    cursor: pointer;
+  }
+  .card-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 16px;
+    display: block;
+    text-align: center;
+  }
+  .info-card p {
+    line-height: 1.78;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #f5f0e8;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .heads-section {
+    padding: 60px 60px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .heads-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .head-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    background-color: rgba(20,20,38,0.65);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 28px 36px;
+    min-width: 160px;
+    transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s;
+  }
+  .head-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.22);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.35);
+  }
+  .head-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.2);
+    object-fit: cover;
+  }
+  .head-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #f5f0e8;
+    text-align: center;
+  }
+  .head-role {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+
+  .members-section {
+    padding: 60px 60px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+  }
+  .member-card {
+    background-color: rgba(20,20,38,0.65);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 18px 20px;
+    transition: transform 0.25s ease, border-color 0.25s, box-shadow 0.25s;
+  }
+  .member-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255,255,255,0.18);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.3);
+  }
+  .member-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #f5f0e8;
+    margin-bottom: 4px;
+  }
+  .member-role {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.38);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 60px 40px 40px;
+    background-color: #141422;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 60px;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.15em;
+    font-size: 1.5rem;
+    color: #f5f0e8;
+  }
+  .footer-links { display: flex; gap: 36px; flex-wrap: wrap; justify-content: center; }
+  .footer-links a {
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #f5f0e8; }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.22); letter-spacing: 0.04em; }
+
+  @media (max-width: 700px) {
+    .nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 60px 24px; }
+    .cards-section { flex-direction: column; padding: 40px 24px; }
+    .heads-section, .members-section { padding: 40px 24px; }
+    .heads-row { gap: 20px; }
+  }
+  .link{
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="zev.html" class="nav-logo">MOSAIC</a>
+    <div class="nav-links">
+      <a href="munkhjin.html">Activities</a>
+      <a href="sergelen.html" class="active">About Us</a>
+      <a href="iveel.html">Archive</a>
+      <a href="narangoo.html">Log In</a>
+    </div>
+    <a href="https://www.instagram.com/mosaichobbyschool?igsh=MWh6M2dxc2thcWNkdg=="><button class="nav-subscribe">Subscribe</button></a>
+  </nav>
+
+  <section class="hero">
+    <h1>About Us</h1>
+    <p>Founded in 2019, our MOSAIC newspaper club is a student-led platform dedicated to amplifying student voices and sharing stories that matter. Driven by curiosity and creativity.</p>
+  </section>
+
+  <hr class="dim">
+
+  <div class="cards-section">
+    <div class="info-card">
+      <span class="card-label">Our Mission</span>
+      <p>Our mission is to amplify student voices and create a platform where ideas, stories and perspectives from our community can be shared. As a student-led newspaper club, we aim to promote honest journalism, creativity, and critical thinking while informing and inspiring our school community.</p>
+    </div>
+    <div class="info-card">
+      <span class="card-label">Our Vision</span>
+      <p>Our vision is to build a vibrant and trusted student newspaper that informs, connects and inspires our school community. We strive to create a space where diverse perspectives are shared and where student journalism continues to grow and make meaningful impact.</p>
+    </div>
+  </div>
+
+  <hr class="dim">
+
+  <section class="heads-section">
+    <h2 class="section-title">Our Heads</h2>
+    <div class="heads-row">
+      <div class="head-card">
+        <img src="pic.html/IMG_6541.jpeg" alt="Narangoo M">
+        <span class="head-name">Narangoo M</span>
+        <span class="head-role">President</span>
+      </div>
+      <div class="head-card">
+        <img src="pic.html/IMG_6540.jpeg" alt="Munkh-Aldar">
+        <span class="head-name">Munkh-Aldar</span>
+        <span class="head-role">Vice President</span>
+      </div>
+      <div class="head-card">
+        <img src="pic.html/IMG_6542.jpeg" alt="Uyaral">
+        <span class="head-name">Uyaral</span>
+        <span class="head-role">Vice President</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="dim">
+  <section class="members-section">
+    <h2 class="section-title">Members</h2>
+    <div class="members-grid">
+      <div class="member-card"><p class="member-name">Sergelen M</p><p class="member-role">Secretary</p></div>
+      <div class="member-card"><p class="member-name">Bilguungerelt</p><p class="member-role">Artist</p></div>
+      <div class="member-card"><p class="member-name">Enkh-Ujin G</p><p class="member-role">Editor in Chief</p></div>
+      <div class="member-card"><p class="member-name">Enkhlen U</p><p class="member-role">Editor</p></div>
+      <div class="member-card"><p class="member-name">Munkhjin M</p><p class="member-role">Cameraman</p></div>
+      <div class="member-card"><p class="member-name">Nasankhand B</p><p class="member-role">Writer</p></div>
+      <div class="member-card"><p class="member-name">Erkhesjin P</p><p class="member-role">Writer</p></div>
+      <div class="member-card"><p class="member-name">Munkhjin G</p><p class="member-role">Writer</p></div>
+      <div class="member-card"><p class="member-name">Emuujin T</p><p class="member-role">Writer</p></div>
+      <div class="member-card"><p class="member-name">Anirlan</p><p class="member-role">Marketing</p></div>
+      <div class="member-card"><p class="member-name">Anand T</p><p class="member-role">Marketing</p></div>
+      <div class="member-card"><p class="member-name">Bilegjargal</p><p class="member-role">Marketing</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-logo">MOSAIC</span>
+    <div class="footer-links">
+      <a href="munkhjin.html">Activities</a>
+      <a href="sergelen.html">About Us</a>
+      <a href="iveel.html">Archive</a>
+      <a href="narangoo.html">Log In</a>
+    </div>
+    <hr style="width:100%; border:none; border-top:1px solid rgba(255,255,255,0.1);">
+    <p class="footer-copy">© 2025 Mosaic Newspaper · Hobby School of Ulaanbaatar</p>
+  </footer>
+
+</body>
+</html>

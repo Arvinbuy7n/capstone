@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sura</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+      .scroll-container {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .scroll-container::-webkit-scrollbar {
+        display: none;
+      }
+
+      .dialog-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: none; /* Hide overlay */
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Show when targeted via URL fragment (#my-dialog) */
+      .dialog-overlay:target {
+        display: flex;
+      }
+
+      .dialog-box {
+        background: rgb(240, 232, 220);
+        padding: 20px;
+        border-radius: 8px;
+        width: 800px;
+        height: 400px;
+        text-align: center;
+        position: relative;
+      }
+     
+    </style>
+  </head>
+  <body style="display: flex; justify-content: center">
+    <div style="width: 1400px">
+      <div style="display: flex; justify-content: center; gap: 40px">
+        <img
+          style="width: 110px; height: 70px; padding-top: 20px"
+          src="https://1000logos.net/wp-content/uploads/2016/10/Burger-King-Logo-1994.png"
+          alt=""
+        />
+        <p style="font-family: Bebas Neue; font-size: 35px; font-weight: 400px">
+          <a href="tushig.html">ABOUT US</a> 
+        </p>
+        <p style="font-family: Bebas Neue; font-size: 35px; font-weight: 400px">
+          <a href="indra.html">WHY BURGER KING</a>
+        </p>
+        <p style="font-family: Bebas Neue; font-size: 35px; font-weight: 400px">
+          
+          <a href="ermu.html">PRODUCTS</a>
+        </p>
+        <p style="font-family: Bebas Neue; font-size: 35px; font-weight: 400px">
+          <a href="sundari.html">MENU</a>
+        </p>
+        <p style="font-size: 35px; font-weight: 400px; font-family: Bebas Neue">
+         <a href="ermu2.html">LOCATIONS</a>
+        </p>
+      </div>
+      <hr />
+      <div style="display: flex; gap: 5px">
+        <a href="#my-dialog" class="open-btn" style="width: 100%">
+          <img
+            style="width: 100%; border-radius: 10px"
+            src="https://cdn.bk.blueprint.mn/images/69cc6c2c62fa5.jpg"
+            alt=""
+          />
+        </a>
+ <a href="#my-dialog" class="open-btn" style="width: 100%">
+        <img
+          style="width: 100%; border-radius: 10px"
+          src="https://cdn.bk.blueprint.mn/images/69c117f4ab29d.jpg"
+          alt=""
+        />
+        </a>
+        <img
+          style="width: 33%; border-radius: 10px"
+          src="https://cdn.bk.blueprint.mn/images/69d30178655b9.jpg"
+          alt=""
+        />
+      </div>
+
+      <div style="display: flex; gap: 100px">
+        <img
+          src="https://www.yunarestaurant.com/_next/image?url=%2Fmenu.png&w=1200&q=100"
+          alt=""
+          style="filter: hue-rotate(20deg); width: 50%"
+        />
+        <div
+          style="display: flex; flex-direction: column; align-items: flex-end"
+        >
+          <h1
+            style="
+              color: rgb(254, 128, 81);
+              font-family: Bebas Neue;
+              margin-bottom: 0px;
+              font-size: 80px;
+              margin-top: 0%;
+              justify-content: flex-end;
+            "
+          >
+            Highest quality
+          </h1>
+          <div
+            style="
+              width: 100%;
+              height: 10px;
+              background-color: rgb(254, 128, 81);
+            "
+          ></div>
+          <p style="font-size: 20px">
+            Burger King menus vary around the world—offering unique items like
+            rice burgers in Asia and plant-based options like the Impossible
+            Whopper in the U.S.
+          </p>
+          <img
+            style="height: 500px; width: 500px"
+            src="https://images.squarespace-cdn.com/content/v1/622fc620c05e5408757df8df/1728420801085-4PIOR9BLHMM58BQ81J55/EIS_Burger+King_Vosendorf_Austria_03+WEB.jpg"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <h1
+        style="font-family: Bebas Neue; text-align: center; letter-spacing: 1px"
+      >
+        WHY burger king
+      </h1>
+
+      <div style="position: relative">
+        <button
+          id="prev-btn"
+          onclick="moveSlide(-1)"
+          style="
+            position: absolute;
+            left: -22px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background: none;
+            border: none;
+            width: 45px;
+            height: 45px;
+            font-size: 36px;
+            cursor: pointer;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.3;
+            transition: opacity 0.3s;
+          "
+        >
+          &#8249;
+        </button>
+
+        <button
+          id="next-btn"
+          onclick="moveSlide(1)"
+          style="
+            position: absolute;
+            right: -22px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background: none;
+            border: none;
+            width: 45px;
+            height: 45px;
+            font-size: 36px;
+            cursor: pointer;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s;
+          "
+        >
+          &#8250;
+        </button>
+
+        <div
+          class="scroll-container"
+          style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory"
+        >
+          <div
+            style="
+              min-width: 55vw;
+              flex-shrink: 0;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              scroll-snap-align: start;
+            "
+          >
+            <h1
+              style="
+                letter-spacing: 1px;
+                font-family: Bebas Neue;
+                text-align: center;
+                border-bottom: 6px solid orange;
+                padding-bottom: 10px;
+              "
+            >
+              Flame-Grilled Flavor
+            </h1>
+            <p style="width: 300px; text-align: center">
+              At Burger King, every burger is flame-grilled, giving it a rich,
+              smoky taste that sets it apart from ordinary fast food. It's a
+              bold flavor you can recognize in every bite.
+            </p>
+            <div style="display: flex; gap: 200px; padding-top: 20px">
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="90"
+                  height="90"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 16H4a2 2 0 1 1 0-4h16a2 2 0 1 1 0 4h-4.25" />
+                  <path d="M5 12a2 2 0 0 1-2-2 9 7 0 0 1 18 0 2 2 0 0 1-2 2" />
+                  <path
+                    d="M5 16a2 2 0 0 0-2 2 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 2 2 0 0 0-2-2q0 0 0 0"
+                  />
+                  <path d="m6.67 12 6.13 4.6a2 2 0 0 0 2.8-.4l3.15-4.2" />
+                </svg>
+                <h1 style="font-family: Bebas Neue">Delicious</h1>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="90"
+                  height="90"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"
+                  />
+                  <path d="M6 17h12" />
+                </svg>
+                <h1 style="font-family: Bebas Neue">Professional</h1>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="90"
+                  height="90"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"
+                  />
+                  <path
+                    d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7"
+                  />
+                  <path d="m2.1 21.8 6.4-6.3" />
+                  <path d="m19 5-7 7" />
+                </svg>
+                <h1 style="font-family: Bebas Neue">Clean</h1>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style="
+              min-width: 55vw;
+              flex-shrink: 0;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              scroll-snap-align: start;
+            "
+          >
+            <h1
+              style="
+                letter-spacing: 1px;
+                font-family: Bebas Neue;
+                text-align: center;
+                border-bottom: 6px solid red;
+                padding-bottom: 10px;
+              "
+            >
+              Fast and Convenient
+            </h1>
+            <p style="width: 300px; text-align: center">
+              In a hurry? Burger King has you covered. With quick service and
+              easy ordering, you can grab your favorite meal without the
+              wait—perfect for busy days when you need something delicious on
+              the go.
+            </p>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 20px;
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="90"
+                height="90"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"
+                />
+              </svg>
+              <h1 style="font-family: Bebas Neue">Swift</h1>
+            </div>
+          </div>
+
+          <div
+            style="
+              min-width: 55vw;
+              flex-shrink: 0;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              scroll-snap-align: start;
+            "
+          >
+            <h1
+              style="
+                letter-spacing: 1px;
+                font-family: Bebas Neue;
+                text-align: center;
+                border-bottom: 6px solid green;
+                padding-bottom: 10px;
+              "
+            >
+              Great Value
+            </h1>
+            <p style="width: 300px; text-align: center">
+              Enjoy satisfying meals at affordable prices. Burger King offers a
+              variety of deals and combos, so you can get more of what you love
+              without overspending.
+            </p>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 20px;
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="90"
+                height="90"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"
+                />
+                <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
+              </svg>
+              <h1 style="font-family: Bebas Neue">Affordable</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="carousel-dots"
+        style="
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          margin-top: 16px;
+        "
+      >
+        <div
+          class="dot"
+          data-index="0"
+          data-color="orange"
+          style="
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: orange;
+            cursor: pointer;
+            transition: background-color 0.3s;
+          "
+        ></div>
+        <div
+          class="dot"
+          data-index="1"
+          data-color="red"
+          style="
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s;
+          "
+        ></div>
+        <div
+          class="dot"
+          data-index="2"
+          data-color="green"
+          style="
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s;
+          "
+        ></div>
+      </div>
+
+      <script>
+        const scrollContainer = document.querySelector(".scroll-container");
+        const dots = document.querySelectorAll(".dot");
+        const totalSlides = 3;
+        let currentIndex = 0;
+
+        function updateDots() {
+          dots.forEach((dot, i) => {
+            dot.style.backgroundColor =
+              i === currentIndex ? dot.getAttribute("data-color") : "#ccc";
+          });
+        }
+
+        function updateArrows() {
+          document.getElementById("prev-btn").style.opacity =
+            currentIndex === 0 ? "0.3" : "1";
+          document.getElementById("next-btn").style.opacity =
+            currentIndex === totalSlides - 1 ? "0.3" : "1";
+        }
+
+        function goToSlide(index) {
+          currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
+          const slideWidth = scrollContainer.scrollWidth / totalSlides;
+          scrollContainer.scrollTo({
+            left: slideWidth * currentIndex,
+            behavior: "smooth",
+          });
+          updateDots();
+          updateArrows();
+        }
+
+        function moveSlide(direction) {
+          goToSlide(currentIndex + direction);
+        }
+
+        scrollContainer.addEventListener("scroll", () => {
+          const slideWidth = scrollContainer.scrollWidth / totalSlides;
+          currentIndex = Math.round(scrollContainer.scrollLeft / slideWidth);
+          updateDots();
+          updateArrows();
+        });
+
+        dots.forEach((dot) => {
+          dot.addEventListener("click", () => {
+            goToSlide(parseInt(dot.getAttribute("data-index")));
+          });
+        });
+
+        updateArrows();
+      </script>
+    </div>
+
+    <!-- Trigger Link -->
+
+    <!-- Dialog Container -->
+    <div id="my-dialog" class="dialog-overlay">
+      <div class="dialog-box">
+       <div style="display: flex;">
+
+
+       <div>
+          <img
+            style="
+              width: 460px;
+              display: flex;
+              justify-content: flex-start;
+              padding-top: 10px;
+            "
+            src="https://cdn.bk.blueprint.mn/images/69ccd4709235b.png"
+            alt=""
+          />
+
+          <h1
+            style="
+              display: flex;
+              justify-content: flex-start;
+              padding-left: 95px;
+              font-family: Bebas Neue;
+            "
+          >
+            Double Duoble Combo
+          </h1>
+        </div>
+        <div style=" width: 480px">
+          <p style="font-size: 14px; text-align: start;">
+            The perfect combination of grilled beef, delicious chicken, BBQ
+            sauce, and cheese. Double Double Burger, fries, and drink.
+          </p>
+          <div style="background-color: wheat; display: flex; border-radius: 10px; margin-bottom: 9px;"> 
+            <img style="height: 59px; display: flex; justify-content: flex-start;"  src="https://cdn.bk.blueprint.mn/images/69ccd46514ff7.png" alt=""> 
+            <p style="font-family: Bebas Neue; ">1x Double Duoble</p>
+
+          </div>
+           <div style="background-color: wheat; display: flex; border-radius: 10px; margin-bottom: 9px;"> 
+            <img style="height: 59px; display: flex; justify-content: flex-start;"  src="https://cdn.bk.blueprint.mn/images/69c1131dcc012.png" alt=""> 
+            <p style="font-family: Bebas Neue; ">1x french fries </p>
+
+          </div>
+           <div style="background-color: wheat; display: flex; border-radius: 10px;"> 
+            <img style="height: 59px; display: flex; justify-content: flex-start;"  src="https://cdn.bk.blueprint.mn/images/69c115ba9a829.png" alt=""> 
+            <p style="font-family: Bebas Neue; ">1x pepsi 0.5l</p>
+
+          </div>
+        </div>
+
+        <a href="#" class="close-btn"
+          ><span
+            style="
+              position: absolute;
+              top: -19px;
+              right: -40px;
+              background-color: white;
+              border-radius: 50%;
+              padding: 4px;
+            "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-x-icon lucide-x"
+            >
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg> </span
+        ></a>
+      </div>
+      
+    </div>
+  </body>
+</html>
+

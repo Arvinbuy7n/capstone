@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>funiculi funicula</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        font-family: cursive;
+      }
+      .slideshow-container {
+        max-width: 100%;
+        height: 100vh;
+        position: relative;
+        margin: auto;
+        background-color: black;
+      }
+      .mySlides {
+        display: none;
+      }
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: auto;
+        padding: 14px 18px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        transition: 0.3s ease;
+        border-radius: 4px;
+        user-select: none;
+        background-color: rgba(0,0,0,0.3);
+        z-index: 10;
+        text-decoration: none;
+      }
+
+      .next {
+        right: 0;
+      }
+
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.75);
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: white;
+        letter-spacing: 1px;
+        font-size: 14px;
+        padding-bottom: 2px;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s;
+      }
+      .nav-link:hover { border-bottom-color: white; }
+
+      .photo-grid-item {
+        width: 33.333%;
+        overflow: hidden;
+      }
+      .photo-grid-item img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+      .photo-grid-item:hover img {
+        transform: scale(1.05);
+      }
+
+      .dot {
+        cursor: crosshair;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+
+      .active,
+      .dot:hover {
+        background-color: #96935e;
+      }
+      .imagecarousel {
+        position: relative;
+        height: 233px;
+        margin-bottom: 30px;
+        display: flex;
+        width: 100%;
+      }
+
+      .imagecarousel img {
+        margin: 0px 25px;
+        box-shadow: 2px 2px 8px #8a8a8a;
+      }
+
+      .imagecarousel {
+        animation: bannermove 50s linear infinite;
+      }
+
+      @keyframes bannermove {
+        0% {
+          left: 0;
+        }
+        50% {
+          left: -100%;
+        }
+        100% {
+          left: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; position: relative">
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 70px;
+        background-color: rgb(85, 64, 13);
+        color: white;
+        text-decoration: none;
+        margin: 0;
+        align-items: center;
+        position: sticky;
+        top: 0px;
+        z-index: 1;
+      "
+    >
+      <a
+        style="
+          text-decoration: none;
+          color: rgba(243, 224, 142, 0.991);
+          font-family: cursive;
+          font-size: 22px;
+          letter-spacing: 1px;
+          margin-left: 2%;
+        "
+        href="home.html"
+        >funiculi funicula</a
+      >
+      <div
+        style="
+          justify-content: space-around;
+          align-items: center;
+          margin-right: 2%;
+          gap: 32px;
+          display: flex;
+        "
+      >
+        <a class="nav-link" href="shop.html">Shop</a>
+        <a class="nav-link" href="index.html">About</a>
+        <a class="nav-link" href="culture.html">Culture</a>
+        <a class="nav-link" href="events.html">Events</a>
+      </div>
+    </div>
+
+    <div style="position: relative" class="slideshow-container">
+      <div
+        style="
+          position: absolute;
+          display: flex;
+          height: 100%;
+          width: 100%;
+          color: rgb(255, 255, 255);
+          font-family: cursive;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 150px;
+        "
+        class="subtitle"
+      >
+        <h1 style="margin: 0; font-size: 52px; letter-spacing: 4px; text-shadow: 0 2px 16px rgba(0,0,0,0.55)">The Art of Coffee</h1>
+      </div>
+
+      <div class="mySlides fade">
+        <video width="100%" loop playsinline muted preload="auto">
+          <source
+            src="vecteezy_drizzle-cream-in-black-coffee-cream-swirled-in-coffee-4k_48233308.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+
+      <div class="mySlides fade">
+        <video width="100%" loop playsinline muted preload="auto">
+          <source src="cod.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div class="mySlides fade">
+        <video width="100%" loop playsinline muted preload="auto">
+          <source src="hero.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <div
+      style="
+        width: 100%;
+        background-color: rgb(175, 123, 64);
+        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 20px 70px;
+      "
+    >
+      <p style="color: rgb(85, 64, 13); font-family: cursive; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px">Our Mission</p>
+      <div style="width: 50px; height: 1px; background-color: rgb(85, 64, 13); margin-bottom: 30px"></div>
+      <div
+        style="
+          max-width: 760px;
+          width: 100%;
+        "
+      >
+        <p
+          style="
+            color: rgb(85, 64, 13);
+            font-family: cursive;
+            font-size: 19px;
+            line-height: 1.8;
+            text-align: center;
+          "
+        >
+          Funiculi Funicula was founded by an artist to bring beautiful coffee
+          experiences to life. Our inspiration? Meeting an interesting new or
+          happy dog. Belly laughs. Imperfect beauty. Genuine smiles. Friendly
+          hangout spots. And yes, a perfectly crafted cup of coffee. We’re here
+          to prove that the little things in life are actually a really big
+          deal. We want to help people get off their phones, away from stress
+          and into conversation, creativity and connection. That’s why we
+          source, roast and brew our coffee with care and craft, because every
+          single cup can be the start of an inspirational idea... one that might
+          even change the world.
+        </p>
+      </div>
+    </div>
+
+    <div style="display: flex; margin: 0">
+      <div
+        style="
+          width: 50%;
+          display: flex;
+          background-image: url(https://goodboybob.com/cdn/shop/files/Misty_Mtns.png?v=1763781959&width=1000);
+          background-repeat: no-repeat;
+          height: 100vh;
+          align-items: center;
+          background-size: cover;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+          "
+        >
+          <h1 style="color: white; margin-left: 25px; text-shadow: 0 2px 10px rgba(0,0,0,0.5)">Thoughtfully sourced</h1>
+          <a
+            style="color: white; margin-right: 25px; font-size: 16px; letter-spacing: 1px; text-decoration: underline; text-underline-offset: 4px"
+            href="index.html"
+            >Learn more about us</a
+          >
+        </div>
+      </div>
+
+      <div
+        style="
+          width: 50%;
+          display: flex;
+          background-image: url(https://goodboybob.com/cdn/shop/files/DSCF5447_5e272fad-c00a-411a-8580-34b81877ff21.jpg?v=1771321160&width=1000);
+          background-repeat: no-repeat;
+          height: 100vh;
+          align-items: center;
+          background-size: cover;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+          "
+        >
+          <h1 style="color: white; margin-left: 25px; text-shadow: 0 2px 10px rgba(0,0,0,0.5)">Award-Winning</h1>
+          <a
+            style="color: white; margin-right: 25px; font-size: 16px; letter-spacing: 1px; text-decoration: underline; text-underline-offset: 4px"
+            href="shop.html"
+            >Shop all coffee</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="imagecarousel">
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+      <img
+        src="https://goodboybob.com/cdn/shop/files/6_1_300x300.png?v=1757120774"
+        alt=""
+      />
+    </div>
+
+    <div
+      style="
+        display: flex;
+        width: 100vw;
+        background-color: bisque;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding: 70px 20px;
+      "
+    >
+      <p
+        style="
+          max-width: 800px;
+          font-size: 22px;
+          line-height: 1.75;
+          color: rgb(85, 64, 13);
+          font-family: cursive;
+        "
+      >
+        We’re really not ones to brag, but our coffee isn’t just good—it’s
+        award-winning. We source exceptional beans from renowned growers and
+        roast them with precision, earning top honors from some of the most
+        respected names in the industry.
+      </p>
+    </div>
+
+    <div style="display: flex; margin: 0; width: 100vw; height: 100vh">
+      <div style="width: 50%; position: relative; overflow: hidden">
+        <video
+          src="mixkit-customers-in-a-minimalist-style-restaurant-4385-full-hd.mp4"
+          autoplay
+          style="width: 100%; object-fit: cover; height: 100%"
+          muted
+          loop
+          playsinline
+        ></video>
+      </div>
+      <div style="width: 50%; position: relative; overflow: hidden">
+        <video
+          src="mixkit-urban-coffee-shop-4350-full-hd.mp4"
+          autoplay
+          style="width: 100%; object-fit: cover; height: 100%"
+          muted
+          loop
+          playsinline
+        ></video>
+        <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; padding: 36px">
+          <h1 style="color: white; margin: 0 0 12px; text-shadow: 0 2px 10px rgba(0,0,0,0.55)">Our Cafés</h1>
+          <a style="color: white; font-size: 15px; letter-spacing: 1px; text-decoration: underline; text-underline-offset: 4px" href="events.html">Find a location</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; width: 100%; margin: 0; padding: 0">
+      <div class="photo-grid-item">
+        <img
+          src="https://goodboybob.com/cdn/shop/files/IMG_0026.jpg?v=1756150484&width=1000"
+          alt=""
+        />
+      </div>
+
+      <div class="photo-grid-item">
+        <img
+          src="https://goodboybob.com/cdn/shop/files/IMG_1670_edit.jpg?v=1756150547&width=1000"
+          alt=""
+        />
+      </div>
+
+      <div class="photo-grid-item">
+        <img
+          src="https://goodboybob.com/cdn/shop/files/DSCF5156.jpg?v=1756150485&width=1000"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <div
+      style="
+        display: flex;
+        background-image: url('https://goodboybob.com/cdn/shop/files/DSCF3148_66da34fb-aedf-439e-8a90-8350aa9607ea.jpg?v=1756150420&width=1920');
+        width: 100vw;
+        height: 65vh; /* Changed from 1000px to a responsive screen percentage */
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center; /* Ensures the middle of the photo stays visible */
+      "
+    >
+      <h2
+        style="
+          color: white;
+          margin-left: 10%;
+          max-width: 520px;
+          font-size: 22px;
+          line-height: 1.7;
+          font-family: cursive;
+          text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+        "
+      >
+        Whether you're making your own brew at home or enjoying a pour-over at
+        one of our two Southern California locations, our goal is the same: to
+        provide an extraordinary coffee experience.
+      </h2>
+    </div>
+
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let lines = document.getElementsByClassName("line"); // Updated variable name
+
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+          const v = slides[i].querySelector("video");
+          if (v) {
+            v.pause();
+          }
+        }
+        for (i = 0; i < lines.length; i++) {
+          lines[i].className = lines[i].className.replace(" active", "");
+        }
+
+        if (slides.length > 0) {
+          slides[slideIndex - 1].style.display = "block";
+          const activeVideo = slides[slideIndex - 1].querySelector("video");
+          if (activeVideo) {
+            setTimeout(() => activeVideo.play().catch(() => {}), 50);
+          }
+          if (lines.length > 0) {
+            lines[slideIndex - 1].className += " active";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MOSAIC — Archive</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #1f1f30;
+        color: #f5f0e8;
+        min-height: 100vh;
+        background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/a6/Hobby_School_of_Ulaanbaatar_campus_photo.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 15, 28, 0.82);
+        z-index: 0;
+      }
+      * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 60px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        background-color: rgba(31, 31, 48, 0.85);
+        backdrop-filter: blur(10px);
+      }
+      .nav-logo {
+        font-family: "Playfair Display", serif;
+        letter-spacing: 0.15em;
+        font-size: 1.5rem;
+        color: #f5f0e8;
+      }
+      .nav-links {
+        display: flex;
+        gap: 32px;
+      }
+      .nav-links a {
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        color: rgba(255, 255, 255, 0.55);
+        text-decoration: none;
+        transition: color 0.2s;
+        text-transform: uppercase;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #f5f0e8;
+      }
+      .nav-subscribe {
+        background-color: transparent;
+        color: #f5f0e8;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 1000px;
+        padding: 8px 22px;
+        font-family: "Inter", sans-serif;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .nav-subscribe:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+      }
+
+      .intro {
+        text-align: center;
+        padding: 80px 40px 60px;
+      }
+      .intro-eyebrow {
+        display: inline-block;
+        font-size: 0.72rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 5px 16px;
+        border-radius: 100px;
+        margin-bottom: 20px;
+      }
+      .intro h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.5rem, 7vw, 5rem);
+        color: #fff;
+        line-height: 1.05;
+        margin-bottom: 20px;
+      }
+      .intro p {
+        font-size: 0.95rem;
+        color: rgba(255, 235, 235, 0.65);
+        line-height: 1.75;
+        max-width: 560px;
+        margin: 0 auto;
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px 40px 80px;
+      }
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 2px;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          rgba(255, 255, 255, 0.25) 10%,
+          rgba(255, 255, 255, 0.25) 90%,
+          transparent
+        );
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .tl-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 40px;
+        margin-bottom: 60px;
+        position: relative;
+      }
+      .tl-item.left {
+        flex-direction: row;
+        padding-right: calc(50% + 40px);
+      }
+      .tl-item.right {
+        flex-direction: row-reverse;
+        padding-left: calc(50% + 40px);
+      }
+
+      .tl-item::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 20px;
+        transform: translateX(-50%);
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: #f5f0e8;
+        border: 3px solid #1f1f30;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+        z-index: 2;
+      }
+
+      .tl-card {
+        background-color: rgba(20, 20, 38, 0.75);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        overflow: hidden;
+        flex: 1;
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+          border-color 0.3s, box-shadow 0.3s;
+      }
+      .tl-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 255, 255, 0.22);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+      }
+      .tl-card img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        display: block;
+        opacity: 0.85;
+      }
+      .tl-card-body {
+        padding: 18px 22px;
+      }
+      .tl-year {
+        font-family: "Playfair Display", serif;
+        font-size: 1.3rem;
+        color: #f5f0e8;
+        margin-bottom: 4px;
+      }
+      .tl-desc {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.45);
+        letter-spacing: 0.04em;
+      }
+
+      footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding: 60px 40px 40px;
+        background-color: rgba(15, 15, 25, 0.9);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .footer-logo {
+        font-family: "Playfair Display", serif;
+        letter-spacing: 0.15em;
+        font-size: 1.5rem;
+        color: #f5f0e8;
+      }
+      .footer-links {
+        display: flex;
+        gap: 36px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.45);
+        text-decoration: none;
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: #f5f0e8;
+      }
+      .footer-copy {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.22);
+      }
+
+      @media (max-width: 700px) {
+        .nav {
+          padding: 14px 20px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .timeline::after {
+          left: 20px;
+        }
+        .tl-item.left,
+        .tl-item.right {
+          padding: 0 0 0 50px;
+          flex-direction: column;
+        }
+        .tl-item::before {
+          left: 20px;
+        }
+      }
+
+      .link {
+        text-decoration: none;
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <span class="nav-logo"><a href="zev.html" class="link">MOSAIC</a></span>
+      <div class="nav-links">
+        <a href="munkhjin.html">Activities</a>
+        <a href="sergelen.html">About Us</a>
+        <a href="iveel.html" class="active">Archive</a>
+        <a href="narangoo.html">Log In</a>
+      </div>
+      <a
+        href="https://www.instagram.com/mosaichobbyschool?igsh=MWh6M2dxc2thcWNkdg=="
+        ><button class="nav-subscribe">Subscribe</button></a
+      >
+    </nav>
+
+    <div class="intro">
+      <span class="intro-eyebrow">Since 2019</span>
+      <h1>Archive</h1>
+      <p>
+        Mosaic Newspaper is the first newspaper club at Hobby School of
+        Ulaanbaatar, founded in 2019. Browse our journey through the years.
+      </p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item left">
+        <div class="tl-card">
+          <img
+            src="pic.html/2019.png"
+            alt="2019–2020"
+            onerror="this.style.display='none'"
+          />
+          <div class="tl-card-body">
+            <p class="tl-year">2019 – 2020</p>
+            <p class="tl-desc">The founding year of Mosaic</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item right">
+        <div class="tl-card">
+          <img
+            src="pic.html/2021.png"
+            alt="2020–2021"
+            onerror="this.style.display='none'"
+          />
+          <div class="tl-card-body">
+            <p class="tl-year">2020 – 2021</p>
+            <p class="tl-desc">Growing our voice</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item left">
+        <div class="tl-card">
+          <img
+            src="pic.html/2022.png"
+            alt="2021-2022"
+            onerror="this.style.display='none'"
+          />
+          <div class="tl-card-body">
+            <p class="tl-year">2021 – 2022</p>
+            <p class="tl-desc">Expanding the community</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item right">
+        <div class="tl-card">
+          <img
+            src="pic.html/2023.jpg"
+            alt="2022–2023"
+            onerror="this.style.display='none'"
+          />
+          <div class="tl-card-body">
+            <p class="tl-year">2022 – 2023</p>
+            <p class="tl-desc">New stories, new perspectives</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item left">
+        <div class="tl-card">
+          <img
+            src="pic.html/2024.jpg"
+            alt="2023–2024"
+            onerror="this.style.display='none'"
+          />
+          <div class="tl-card-body">
+            <p class="tl-year">2023 – 2024</p>
+            <p class="tl-desc">Deeper journalism</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item right">
+        <div class="tl-card">
+          <img
+            src="pic.html/2025.jpeg"
+            alt="2024–2025"
+            onerror="this.style.display='none'"
+          />
+          <div class="tl-card-body">
+            <p class="tl-year">2024 – 2025</p>
+            <p class="tl-desc">Reaching wider audiences</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item left">
+        <div class="tl-card">
+          <img
+            src="pic.html/2026.png"
+            alt="2025–2026"
+            onerror="this.style.display='none'"
+          />
+          <div class="tl-card-body">
+            <p class="tl-year">2025 – 2026</p>
+            <p class="tl-desc">This year's chapter</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <span class="footer-logo">MOSAIC</span>
+      <div class="footer-links">
+        <a href="munkhjin.html">Activities</a>
+        <a href="sergelen.html">About Us</a>
+        <a href="iveel.html">Archive</a>
+        <a href="narangoo.html">Log In</a>
+      </div>
+      <hr
+        style="
+          width: 100%;
+          border: none;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        "
+      />
+      <p class="footer-copy">
+        © 2025 Mosaic Newspaper · Hobby School of Ulaanbaatar
+      </p>
+    </footer>
+  </body>
+</html>

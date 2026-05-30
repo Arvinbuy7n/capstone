@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Lightkeeper | Store</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anta&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-color: #0d0d0d;
+        --card-bg: #161616;
+        --accent-gray: #252525;
+        --text-main: #ffffff;
+        --text-dim: #a0a0a0;
+        --border-color: #333;
+        --highlight: #00cfcc; 
+      }
+
+      * {
+        box-sizing: border-box;
+        font-family: "Anta", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        line-height: 1.6;
+      }
+
+      
+      .hero-container {
+        position: relative;
+        width: 100%;
+        height: 70vh;
+        overflow: hidden;
+      }
+
+      .back-arrow {
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        z-index: 10;
+        width: 40px;
+        transition: transform 0.3s ease;
+      }
+
+      .back-arrow:hover {
+        transform: scale(1.1);
+      }
+
+      .hero-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        
+        mask-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 1) 60%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 1) 60%,
+          rgba(0, 0, 0, 0) 100%
+        );
+      }
+
+      .hero-content {
+        position: absolute;
+        bottom: 80px;
+        left: 5%;
+        z-index: 5;
+        bottom: -47px;
+      }
+
+      .game-title {
+        font-size: 4rem;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 20px;
+      }
+
+      button {
+        background: var(--accent-gray);
+        color: white;
+        border: 1px solid var(--border-color);
+        padding: 14px 30px;
+        font-size: 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      button:hover {
+        background: white;
+        color: black;
+        transform: translateY(-3px);
+      }
+
+      
+      .main-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 40px;
+        padding: 40px 5%;
+      }
+
+      .description-box {
+        background: var(--card-bg);
+        padding: 40px;
+        border-radius: 15px;
+        border: 1px solid var(--border-color);
+        font-size: 1.2rem;
+      }
+
+      .description-box strong {
+        color: var(--highlight);
+      }
+
+      .side-img-box img {
+        width: 100%;
+        height: 100%;
+        min-height: 350px;
+        object-fit: cover;
+        border-radius: 15px;
+        border: 1px solid var(--border-color);
+      }
+
+      
+      .tab-bar {
+        display: flex;
+        justify-content: flex-start;
+        gap: 40px;
+        background: #111;
+        padding: 20px 5%;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .tab-bar p {
+        font-size: 1.1rem;
+        color: var(--text-dim);
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+
+      .tab-bar p:hover {
+        color: var(--text-main);
+      }
+
+      .active-tab {
+        color: var(--text-main) !important;
+        border-bottom: 2px solid white;
+      }
+
+      
+      .comments-container {
+        margin: 0 5% 80px 5%;
+        background: var(--card-bg);
+        border-radius: 0 0 15px 15px;
+        padding: 10px 0;
+      }
+
+      .comment-row {
+        display: grid;
+        grid-template-columns: 150px 1fr 100px;
+        align-items: center;
+        padding: 20px 30px;
+        border-bottom: 1px solid #222;
+        transition: background 0.2s;
+      }
+
+      .comment-row:hover {
+        background: #1e1e1e;
+      }
+
+      .user-col {
+        color: var(--highlight);
+        font-weight: bold;
+      }
+
+      .text-col {
+        color: #ddd;
+      }
+
+      .like-col {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+        color: var(--text-dim);
+      }
+
+      .heart-icon {
+        width: 18px;
+        filter: brightness(0.8);
+        cursor: pointer;
+      }
+
+      .heart-icon:hover {
+        filter: brightness(1.2);
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .main-grid {
+          grid-template-columns: 1fr;
+        }
+        .game-title {
+          font-size: 2.5rem;
+        }
+        .comment-row {
+          grid-template-columns: 100px 1fr 60px;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="hero-container">
+      
+      
+      <a href="homepage.html">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWFycm93LWxlZnQtaWNvbiBsdWNpZGUtYXJyb3ctbGVmdCI+PHBhdGggZD0ibTEyIDE5LTctNyA3LTciLz48cGF0aCBkPSJNMTkgMTJINSIvPjwvc3ZnPg=="
+  style="position: absolute; top: 10px; left: 10px; z-index: 2; width: 50px; height: 50px;">
+      </a>
+      <img
+        class="hero-img"
+        src="https://i.ytimg.com/vi/6-HgC_pNwEI/hq720.jpg"
+        alt="The Devil is Dead Cover"
+      />
+
+      <div class="hero-content">
+        
+        <div class="btn-group">
+          <button style="background: white; color: black; font-weight: bold">
+            Purchase
+          </button>
+          <button>Add to wishlist</button>
+        </div>
+        <h1 class="game-title">The Devil is Dead</h1>
+      </div>
+    </div>
+
+    
+    <div class="main-grid">
+      <div style="font-size: xx-large;" class="description-box">
+        Set in 1925, <strong>The Lightkeeper</strong> is a psychological horror
+        game following Arthur Lucian, a veteran seeking peace as a remote
+        lighthouse keeper. <br /><br />
+        The gameplay blends routine maritime maintenance with a slow-burn
+        descent into madness as Arthur’s traumatic past and the island’s dark
+        history collide. Players must manage the lighthouse while uncovering
+        cryptic clues, eventually confronting "monsters" born from Arthur’s own
+        isolation and guilt.
+      </div>
+      <div class="side-img-box">
+        
+        <img style="width: 700px;height: 700px;" src="/lighthouse.jpeg" alt="Lighthouse View" />
+      </div>
+    </div>
+
+    
+    <div class="tab-bar">
+      <p class="active-tab">Comments</p>
+      <p>Info</p>
+      <p>Achievements</p>
+      <p>Updates</p>
+      <p>More like this</p>
+    </div>
+
+    
+    <div class="comments-container">
+      <div class="comment-row">
+        <div class="user-col">silentvortixx</div>
+        <div class="text-col">67</div>
+        <div class="like-col">
+          <img
+            class="heart-icon"
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWhlYXJ0LWljb24gbHVjaWRlLWhlYXJ0Ij48cGF0aCBkPSJNMiA5LjVhNS41IDUuNSAwIDAgMSA5LjU5MS0zLjY3Ni41Ni41NiAwIDAgMCAuODE4IDBBNS40OSA1LjQ5IDAgMCAxIDIyIDkuNWMwIDIuMjktMS41IDQtMyA1LjVsLTUuNDkyIDUuMzEzYTIgMiAwIDAgMS0zIC4wMTlMNSAxNWMtMS41LTEuNS0zLTMuMi0zLTUuNSIvPjwvc3ZnPg=="
+          />
+          <span>0</span>
+        </div>
+      </div>
+
+      <div class="comment-row">
+        <div class="user-col">whineperception</div>
+        <div class="text-col">This looks incredible! 🥰🥰🥰</div>
+        <div class="like-col">
+          <img
+            class="heart-icon"
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWhlYXJ0LWljb24gbHVjaWRlLWhlYXJ0Ij48cGF0aCBkPSJNMiA5LjVhNS41IDUuNSAwIDAgMSA5LjU5MS0zLjY3Ni41Ni41NiAwIDAgMCAuODE4IDBBNS40OSA1LjQ5IDAgMCAxIDIyIDkuNWMwIDIuMjktMS41IDQtMyA1LjVsLTUuNDkyIDUuMzEzYTIgMiAwIDAgMS0zIC4wMTlMNSAxNWMtMS41LTEuNS0zLTMuMi0zLTUuNSIvPjwvc3ZnPg=="
+          />
+          <span>12</span>
+        </div>
+      </div>
+
+      <div class="comment-row">
+        <div class="user-col">user263763</div>
+        <div class="text-col">
+          what are these bots in the comment section lmao
+        </div>
+        <div class="like-col">
+          <img
+            class="heart-icon"
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWhlYXJ0LWljb24gbHVjaWRlLWhlYXJ0Ij48cGF0aCBkPSJNMiA5LjVhNS41IDUuNSAwIDAgMSA5LjU5MS0zLjY3Ni41Ni41NiAwIDAgMCAuODE4IDBBNS40OSA1LjQ5IDAgMCAxIDIyIDkuNWMwIDIuMjktMS41IDQtMyA1LjVsLTUuNDkyIDUuMzEzYTIgMiAwIDAgMS0zIC4wMTlMNSAxNWMtMS41LTEuNS0zLTMuMi0zLTUuNSIvPjwvc3ZnPg==""
+          <span style="color: white">1.2k</span>
+        </div>
+      </div>
+
+      <div class="comment-row">
+        <div class="user-col">echo</div>
+        <div class="text-col">Cant wait for coryxkenshin to play this</div>
+        <div class="like-col">
+          <img
+            class="heart-icon"
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWhlYXJ0LWljb24gbHVjaWRlLWhlYXJ0Ij48cGF0aCBkPSJNMiA5LjVhNS41IDUuNSAwIDAgMSA5LjU5MS0zLjY3Ni41Ni41NiAwIDAgMCAuODE4IDBBNS40OSA1LjQ5IDAgMCAxIDIyIDkuNWMwIDIuMjktMS41IDQtMyA1LjVsLTUuNDkyIDUuMzEzYTIgMiAwIDAgMS0zIC4wMTlMNSAxNWMtMS41LTEuNS0zLTMuMi0zLTUuNSIvPjwvc3ZnPg=="
+          />
+          <span>294</span>
+        </div>
+      </div>
+      <div class="comment-row">
+        <div class="user-col">bluegibson</div>
+        <div class="text-col">bro how is ts game  so expensive</div>
+        <div class="like-col">
+          <img
+            class="heart-icon"
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWhlYXJ0LWljb24gbHVjaWRlLWhlYXJ0Ij48cGF0aCBkPSJNMiA5LjVhNS41IDUuNSAwIDAgMSA5LjU5MS0zLjY3Ni41Ni41NiAwIDAgMCAuODE4IDBBNS40OSA1LjQ5IDAgMCAxIDIyIDkuNWMwIDIuMjktMS41IDQtMyA1LjVsLTUuNDkyIDUuMzEzYTIgMiAwIDAgMS0zIC4wMTlMNSAxNWMtMS41LTEuNS0zLTMuMi0zLTUuNSIvPjwvc3ZnPg=="
+          />
+          <span>79</span>
+        </div>
+      </div>
+
+      <div class="comment-row">
+        <div class="user-col">TNT</div>
+        <div class="text-col">
+          lowkey easy man
+        </div>
+        <div class="like-col">
+          <img
+            class="heart-icon"
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWhlYXJ0LWljb24gbHVjaWRlLWhlYXJ0Ij48cGF0aCBkPSJNMiA5LjVhNS41IDUuNSAwIDAgMSA5LjU5MS0zLjY3Ni41Ni41NiAwIDAgMCAuODE4IDBBNS40OSA1LjQ5IDAgMCAxIDIyIDkuNWMwIDIuMjktMS41IDQtMyA1LjVsLTUuNDkyIDUuMzEzYTIgMiAwIDAgMS0zIC4wMTlMNSAxNWMtMS41LTEuNS0zLTMuMi0zLTUuNSIvPjwvc3ZnPg==""
+          <span style="color: white">590</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

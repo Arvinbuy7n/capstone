@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Gobi Desert Tours & Activities</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #f5f1e8;
+        color: #3d2f1f;
+        font-family: Arial, sans-serif;
+        line-height: 1.7;
+      }
+      .navbar {
+        width: 100%;
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px 0;
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid #f0e8d8;
+      }
+
+      .navbar h2 {
+        color: #bc9a5a;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-links a {
+        font-family: "Times New Roman", Times, serif;
+        color: black;
+        text-decoration: none;
+        padding: 10px;
+        transition: color 0.3s;
+      }
+      .nav-links a:hover {
+        color: #bc9a5a;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: Georgia, serif;
+        font-weight: bold;
+      }
+
+      h1 {
+        font-size: 80px;
+        color: white;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 50px;
+        margin-bottom: 25px;
+      }
+
+      h3 {
+        font-size: 25px;
+        color: #bc9a5a;
+      }
+
+      a {
+        font-size: 15px;
+        color: #3d2f1f;
+      }
+
+      p {
+        font-size: 18px;
+        color: #5f4a35;
+      }
+
+      .section-label {
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-size: 13px;
+        color: #8a6a3e;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 15px 35px;
+        border-radius: 50px;
+        border: 1px solid #8a6a3e;
+        background: #8a6a3e;
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+        font-size: 16px;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        background: #6d4f26;
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: #3d2f1f;
+      }
+
+      .btn-outline:hover {
+        background: #8a6a3e;
+        color: white;
+      }
+
+      .hero {
+        position: relative;
+        height: 700px;
+        background-image: url("https://hips.hearstapps.com/townandcountry/assets/16/40/1475940499-mongolia.jpg");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 40px;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.45);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        width: 800px;
+      }
+
+      .hero p {
+        color: #f0e7d6;
+        margin-bottom: 40px;
+      }
+
+      .hero-label {
+        color: #d8c5a0;
+        text-transform: uppercase;
+        letter-spacing: 6px;
+        margin-bottom: 20px;
+        font-size: 14px;
+      }
+
+      .intro {
+        padding: 100px;
+      }
+
+      .intro-grid {
+        display: flex;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .activity-section {
+        display: flex;
+        gap: 70px;
+        align-items: center;
+        padding: 100px;
+      }
+
+      .activity-image {
+        overflow: hidden;
+        border-radius: 25px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .activity-image img {
+        width: 700px;
+        height: 500px;
+        object-fit: cover;
+        transition: 0.7s;
+      }
+
+      .activity-image:hover img {
+        transform: scale(1.05);
+      }
+
+      .activity-content {
+        width: 500px;
+      }
+
+      .activity-content p {
+        margin-bottom: 35px;
+      }
+
+      .cta {
+        padding: 120px;
+        text-align: center;
+      }
+
+      .cta p {
+        width: 700px;
+        margin: auto;
+        margin-bottom: 40px;
+      }
+
+      .btn-book {
+        font-family: "Times New Roman", Times, serif;
+        color: white;
+        background-color: #bc9a5a;
+        border: none;
+        padding: 12px 20px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      .btn-book:hover {
+        background-color: #9a7a3a;
+        transform: scale(1.03);
+      }
+
+      footer {
+        background-color: #3a302a;
+        color: rgba(255, 255, 255, 0.75);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .footer-main {
+        display: flex;
+        justify-content: space-around;
+        padding: 60px 80px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-col h3 {
+        color: white;
+        font-size: 20px;
+        font-style: italic;
+        margin-bottom: 24px;
+      }
+
+      .footer-col ul {
+        list-style: none;
+      }
+
+      .footer-col ul li {
+        margin-bottom: 12px;
+      }
+
+      .footer-col ul li a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 15px;
+        transition: color 0.3s;
+      }
+      .footer-col ul li a:hover {
+        color: #bc9a5a;
+      }
+
+      .footer-center {
+        text-align: center;
+      }
+
+      .footer-center h2 {
+        color: white;
+        letter-spacing: 3px;
+        margin-bottom: 6px;
+      }
+
+      .footer-center p {
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 24px;
+      }
+
+      .footer-contact-label {
+        font-size: 11px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #bc9a5a;
+        margin-bottom: 8px;
+      }
+
+      .footer-phone {
+        font-size: 26px;
+        color: #d4b47a;
+        display: block;
+        margin-bottom: 20px;
+      }
+
+      .footer-bottom {
+        background: rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 80px;
+      }
+
+      .footer-bottom p {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      .footer-bottom a {
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      .newsletter-bar {
+        background-color: #302820;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 80px;
+      }
+
+      .newsletter-bar p {
+        font-size: 12px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .newsletter-bar a {
+        font-family: "Times New Roman", Times, serif;
+        background-color: #bc9a5a;
+        color: #2a2420;
+        padding: 14px 30px;
+        text-decoration: none;
+        letter-spacing: 2px;
+        font-size: 13px;
+        transition: 0.3s;
+      }
+      .newsletter-bar a:hover {
+        background-color: #9a7a3a;
+        color: white;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 16px;
+      }
+
+      .social-icons a {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 18px;
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+      }
+      .social-icons a:hover {
+        color: #d4b47a;
+        border-color: #bc9a5a;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <a
+        style="
+          font-family:
+            Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;
+          color: #bc9a5a;
+          font-size: 30px;
+          text-decoration: none;
+        "
+        href="New project.HTML"
+        >ALTAN EXPEDITIONS</a
+      >
+      <div class="nav-links">
+        <a href="tours1.html">TOURS</a>
+        <a href="https://www.apple.com/">DESTINATIONS</a>
+        <a href="tour.html">LODGES</a>
+        <a href="aboutus.html">ABOUT US</a>
+        <a href="https://www.apple.com/">CONTACT</a>
+      </div>
+      <a class="btn-book" href="book now.html">BOOK NOW</a>
+    </div>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-label">DISCOVER MONGOLIA</div>
+        <h1>Gobi Desert Tours & Activities</h1>
+        <p>
+          Explore Mongolia’s breathtaking desert landscapes through immersive
+          cultural experiences, ancient fossil sites, dramatic dunes, and
+          unforgettable adventures.
+        </p>
+        <a href="#" class="btn">Explore Experiences</a>
+      </div>
+    </section>
+
+    <section class="intro">
+      <div class="intro-grid">
+        <div>
+          <div class="section-label">Curated Adventures</div>
+          <h2>Experiences shaped by the Gobi Desert</h2>
+        </div>
+
+        <div>
+          <p>
+            The Gobi Desert is a land of extremes, where vast dunes, rocky
+            mountains, and ancient fossil sites meet nomadic culture and
+            timeless traditions. Every journey reveals a new layer of Mongolia’s
+            natural and cultural heritage.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="activity-section">
+      <div class="activity-image">
+        <img
+          src="https://kahwailin.com/wp-content/uploads/2023/04/DSC9150.jpg"
+        />
+      </div>
+
+      <div class="activity-content">
+        <div class="section-label">Signature Experience</div>
+        <h2>Khongor Sand Dunes</h2>
+        <p>
+          The Khongor Sand Dunes stretch over 100 kilometers and are known as
+          the “Singing Dunes” due to the sound created by shifting sands. Climb
+          to the top for breathtaking views of the endless Gobi landscape.
+        </p>
+        <a href="#" class="btn btn-outline">Learn More</a>
+      </div>
+    </section>
+
+    <section class="activity-section">
+      <div class="activity-content">
+        <div class="section-label">Night Experience</div>
+        <h2>Stargazing</h2>
+        <p>
+          With no light pollution and crystal-clear skies, the Gobi Desert
+          offers one of the most spectacular stargazing experiences in the
+          world. Witness constellations in incredible clarity.
+        </p>
+        <a href="#" class="btn btn-outline">Learn More</a>
+      </div>
+
+      <div class="activity-image">
+        <img
+          src="https://www.gafencushop.com/wp-content/uploads/2026/03/03_March_2026-Travel_main.jpg"
+        />
+      </div>
+    </section>
+
+    <section class="activity-section">
+      <div class="activity-image">
+        <img
+          src="https://www.threecamellodge.com/wp-content/uploads/2025/07/Why-the-Flaming-Cliffs-Are-Mongolias-Most-Iconic-Landmark.jpg"
+        />
+      </div>
+
+      <div class="activity-content">
+        <div class="section-label">Historic Landmark</div>
+        <h2>Flaming Cliffs</h2>
+        <p>
+          Famous for their fiery red glow at sunset, the Flaming Cliffs are one
+          of the world’s most important dinosaur fossil sites, including the
+          discovery of the first dinosaur eggs.
+        </p>
+        <a href="#" class="btn btn-outline">Learn More</a>
+      </div>
+    </section>
+
+    <section class="activity-section">
+      <div class="activity-content">
+        <div class="section-label">Cultural Experience</div>
+        <h2>Ger Building</h2>
+        <p>
+          Learn how to construct a traditional Mongolian ger, a portable home
+          used by nomadic families for centuries. Experience the structure,
+          symbolism, and craftsmanship firsthand.
+        </p>
+        <a href="#" class="btn btn-outline">Learn More</a>
+      </div>
+
+      <div class="activity-image">
+        <img
+          src="https://www.threecamellodge.com/wp-content/uploads/2020/10/ger-building.jpg"
+        />
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="section-label">Begin Your Journey</div>
+      <h2>Experience Mongolia’s Gobi Desert</h2>
+      <p>
+        Discover unforgettable landscapes, cultural encounters, and desert
+        adventures that stay with you long after you leave.
+      </p>
+      <a href="#" class="btn">Book Now</a>
+    </section>
+
+    <footer>
+      <div class="footer-main">
+        <div class="footer-col">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="https://www.apple.com/">Contact Us</a></li>
+            <li><a href="https://www.apple.com/">Meet Our Team</a></li>
+            <li><a href="https://www.apple.com/">Sustainability</a></li>
+            <li><a href="https://www.apple.com/">Media & Blog</a></li>
+            <li><a href="https://www.apple.com/">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-center">
+          <h2>ALTAN EXPEDITIONS</h2>
+          <p>Ulaanbaatar, Mongolia</p>
+          <p class="footer-contact-label">Speak to a Travel Expert</p>
+          <span class="footer-phone">+976 · 88845501</span>
+          <div class="footer-weather">
+            <p>Ulaanbaatar</p>
+            <h3>12 Degrees celsius</h3>
+          </div>
+        </div>
+
+        <div class="footer-col" style="text-align: right">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="https://www.apple.com/">Tour Packages</a></li>
+            <li><a href="https://www.apple.com/">Lodges & Camps</a></li>
+            <li><a href="https://www.apple.com/">Private Travel</a></li>
+            <li><a href="https://www.apple.com/">Download Brochure</a></li>
+            <li><a href="https://www.apple.com/">Responsible Tourism</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="newsletter-bar">
+        <p>Don't miss our latest updates</p>
+        <a href="https://www.apple.com/">SIGN UP FOR OUR NEWSLETTER</a>
+        <div class="social-icons">
+          <a href="https://www.apple.com/">f</a>
+          <a href="https://www.apple.com/">in</a>
+          <a href="https://www.apple.com/">&</a>
+          <a href="https://www.apple.com/">*</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright 2026. All Rights Reserved.</p>
+        <p>Dulguun, Mergedei, Bulgankhuu, Tenuun, Tanan</p>
+      </div>
+    </footer>
+  </body>
+</html>

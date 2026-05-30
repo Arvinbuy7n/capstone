@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+  body {
+    background-color: #0e0d0d;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 50px;
+  }
+
+  .logo {
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 25px;
+  }
+
+  .nav-links button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+ .hero {
+  width: 90%;
+  height: 700px;
+  margin: auto;
+  border-radius: 30px;
+
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2)),
+    url(https://images.augustman.com/wp-content/uploads/2019/10/02115636/suits_finale_aspot_desktop_2880x1620_0.jpg);
+
+  background-size: cover;
+  background-position: center;
+
+  padding: 80px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+}
+
+  .hero h1 {
+    font-size: 80px;
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    width: 500px;
+    font-size: 22px;
+    line-height: 1.5;
+    color: #ddd;
+  }
+
+  .hero-buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  position: relative;
+  z-index: 10;
+}
+
+  .watch-btn {
+    background: white;
+    color: black;
+    border: transparent;
+    padding: 15px ;
+    border-radius: 40px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+ 
+  .details-btn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: transparent;
+    padding: 15px ;
+    border-radius: 40px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .section {
+    padding: 40px 60px;
+  }
+
+  .movies-row {
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+    scrollbar-width: none;
+  }
+  .movies-row::-webkit-scrollbar {
+  display: none; }
+
+  .poster {
+    width: 250px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .poster:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+  }
+  .footer {
+  padding: 60px;
+  margin-top: 80px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.subscribe-box {
+  display: flex;
+  gap: 15px;
+}
+
+.subscribe-box input {
+  width: 250px;
+  height: 45px;
+  border-radius: 12px;
+  border: none;
+  padding-left: 15px;
+}
+
+.subscribe-btn {
+  background: orange;
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  color: #bbb;
+}
+</style>
+  </head>
+  <body style="background-color: rgb(14, 13, 13)">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; background: #0f1115; border-bottom: 1px solid rgba(255,255,255,0.08); position: sticky; top: 0; z-index: 100; gap: 24px; flex-wrap: wrap;">
+      <a href="./homepage.html" style="font-size: 26px; font-weight: 700; color: white; text-decoration: none; letter-spacing: 0.3px;">CineVerse</a>
+      <nav style="display: flex; gap: 4px; align-items: center;">
+        <a href="./homepage.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Home</a>
+        <a href="./movies.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Movies</a>
+        <a href="./shows.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Series</a>
+        <a href="./cineverse.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Reviews</a>
+        <a href="./card.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Account</a>
+        <a href="./aboutus2.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">About</a>
+      </nav>
+      <input type="text" placeholder="Search films, directors..." style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: white; padding: 9px 16px; border-radius: 8px; font-size: 13px; width: 240px; outline: none; font-family: inherit;" />
+    </div>
+
+<div class="hero">
+
+  <h1>Suits</h1>
+
+  <p>
+     "Suits" is an American legal drama that follows a brilliant college
+        dropout, Mike Ross, as he navigates the high-stakes world of a top New
+        York City law firm under the mentorship of star attorney Harvey Specter.
+     
+  </p>
+
+  <div class="hero-buttons">
+    <button class="watch-btn">Watch Now</button>
+    <button class="details-btn">Details</button>
+  </div>
+ 
+</div>
+
+      <div class="section">
+
+  <h1>Trending Movies</h1>
+
+  <div class="movies-row">
+            <img class="poster" src="https://www.coffeeandcigarettes.co.uk/wp-content/uploads/2017/08/LandOfMine_CCWebsite_1600x900-1.jpg">
+            <img class="poster" src="https://wallpapercave.com/wp/wp8525542.jpg">
+            <img class="poster" src="https://m.media-amazon.com/images/I/71ZYId5py2L._AC_UF894,1000_QL80_.jpg">
+            <img class="poster" src="https://wallpapercave.com/wp/wp1934740.jpg">
+            <img class="poster" src="https://4kwallpapers.com/images/wallpapers/wicked-movie-poster-1920x1080-18391.jpeg">
+            <img class="poster"src="https://wallpapers.com/images/featured/harry-potter-desktop-vtho1d6dbpcfzv5v.jpg">
+            <img class="poster"src="https://wallpapers.com/images/hd/godzilla-vs-kong-2021-8mfx2u9do3rv20lg.jpg">
+            <img class="poster"src="https://images.thedirect.com/media/article_full/spider-man-no-way-home-poster-doc-ock.jpg">
+            <img class="poster"src="https://www.tallengestore.com/cdn/shop/products/Fast_Furious_-_Vin_Diesel_-_Dwayne_Rock_Johnson_-_Hollywood_Action_Movie_Poster_fd764ae2-afc5-4ffb-9b1d-b4e8602721b8.jpg?v=1582542938">
+
+     
+       
+
+        </div></div>
+       
+      <div class="section">
+
+  <h1>Recommended</h1>
+
+  <div class="movies-row">
+            <img class="poster" src="https://images.squarespace-cdn.com/content/v1/565cdefce4b0f1f2949c335a/1642348281070-V1BAFEAOWP2IOAAW9E9L/conorsmythdesigns-posterdesign-bottleneckgallery-lordoftherings-thetwotowers-regular.png?format=1500w">
+            <img class="poster" src="https://static0.colliderimages.com/wordpress/wp-content/uploads/2022/11/avatar-the-way-of-water-poster.jpg">
+            <img class="poster" src="https://m.media-amazon.com/images/I/8134Bd5apAL.jpg">
+            <img class="poster" src="https://www.showbizjunkies.com/wp-content/uploads/2011/10/shameless-season2-trailer.jpg">
+            <img class="poster" src="https://wp.clutchpoints.com/wp-content/uploads/2023/05/never-have-i-ever-x-things-you-might-have-missed-in-the-final-season-trailer.jpg?w=1200">
+            <img class="poster"src="https://wallup.net/wp-content/uploads/2019/09/06/275740-vampire-diaries-drama-fantasy-horror-television-series-poster.jpg">
+            <img class="poster"src="https://ghsexplosion.com/wp-content/uploads/2022/11/Teen-Wolf-1-900x506.png">
+            <img class="poster"src="https://knightwriters.org/wp-content/uploads/2022/12/wednesday-netflix-review-900x506.jpg">
+            <img class="poster"src="https://original.fontsinuse.com/fontsinuse.com/use-images/134/134460/134460.png">
+
+       
+      </div></div>
+     <div class="section">
+
+  <h1>TV series</h1>
+
+  <div class="movies-row">
+            <img class="poster" src="https://assets.teenvogue.com/photos/582ccaeac1bb0f0a1311842d/master/w_1600%2Cc_limit/GilmoreGirls_MOVIE_NIGHT_US_Pre-1.jpg">
+            <img class="poster" src="https://wallpapers.com/images/hd/gossip-girl-television-series-cover-7pcnc5wvmxsj3bc9.jpg">
+            <img class="poster" src="https://www.dailyartmagazine.com/wp-content/uploads/2021/12/EqjQxJbVkAAwPuq-e1653644465582.jpeg">
+            <img class="poster" src="https://id-serienjunkies-production.s3.eu-central-1.amazonaws.com/s-cdn-sj/victorious/hdtv.webp">
+            <img class="poster" src="https://i.ebayimg.com/images/g/URgAAOSw4P1ZwsX4/s-l1200.jpg">
+            <img class="poster"src="https://scotscoop.com/wp-content/uploads/2017/10/YoungSheldonPromo.jpg">
+            <img class="poster"src="https://ntvb.tmsimg.com/assets/p13810219_b_h8_ai.jpg?w=1280&h=720">
+            <img class="poster"src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/63d275100591999.5f0c6fb0a8f12.jpg">
+            <img class="poster"src="https://mehkashi.wordpress.com/wp-content/uploads/2021/06/elite-poster.jpeg">
+
+       
+      </div></div>
+        <div class="section">
+
+  <h1>Continue Watching</h1>
+
+  <div class="movies-row">
+            <img class="poster" src="https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/0e5222d8-5ed5-4d2a-adac-862b390407a0/2c8eb4eb-6173-4869-8401-491cc275f327?host=wbd-images.prod-vod.h264.io&partner=beamcom">
+            <img class="poster" src="https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/4ffd33c9-e0d6-4cd6-bd13-34c266c79be0/b7af76fa-b7cd-4bbd-9dc2-5d5b0fec8010?host=wbd-images.prod-vod.h264.io&partner=beamcom">
+            <img class="poster" src="https://static0.colliderimages.com/wordpress/wp-content/uploads/2021/11/One-Piece-Character-Guide.jpg?w=1200&h=675&fit=crop">
+            <img class="poster" src="https://www.themusichall.org/wp-content/uploads/2025/05/Pride-Prejudice-1024x576.jpg">
+            <img class="poster" src="https://www.yourdecoration.com/cdn/shop/files/abystyle-abydco600-demon-slayer-pillars-poster-52x38cm_add6ad99-36d1-4a41-9a98-37d6ef008714.jpg?v=1767621150">
+           </div>
+      </div>
+     
+<div class="footer">
+
+  <div class="footer-top">
+
+    <div>
+      <h2>Stay in the Loop</h2>
+      <p>Receive weekly cinematic updates directly in your inbox.</p>
+    </div>
+
+    <div class="subscribe-box">
+
+      <input type="text" placeholder="Your email address">
+
+      <button class="subscribe-btn">
+        Subscribe
+      </button>
+
+    </div>
+
+  </div>
+
+  <hr>
+
+  <div class="footer-bottom">
+
+    <h2>CineVerse</h2>
+
+    <p>
+      Policy • Terms • Contact
+    </p>
+
+    <p>
+      © 2024 CineVerse
+    </p>
+
+  </div>
+
+</div>
+    </div>
+  </body>
+</html>

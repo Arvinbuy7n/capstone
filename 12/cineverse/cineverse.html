@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .parent {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        margin-left: 220px;
+      }
+      .big {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+      }
+      .big:hover {
+        transition-duration: 2s;
+      }
+      .search {
+        height: 35px;
+
+        font-size: 35px;
+        justify-content: flex-end;
+      }
+      .cineverse {
+        font-size: 45px;
+        color: whitesmoke;
+      }
+      .reviews {
+        font-size: 21px;
+        color: whitesmoke;
+      }
+      .grey {
+        font-size: 15px;
+        color: #99aabb;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 35px;
+      }
+      .horizontal {
+        width: 70%;
+        margin: 25px auto;
+        color: #99aabb;
+      }
+      .main_reviews p {
+        margin: 0;
+     }
+      .main_reviews {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 5px;
+      }
+      .posters {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        height: 197px;
+        width: 145px;
+      }
+      .sub {
+        width: 70%;
+        margin: 0px auto;             
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .review {
+        display: flex;
+        gap: 18px;
+      }
+      .title {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+      }
+      .title h2,
+      .title h3 {
+        margin: 0px;
+      }
+      .year {
+        color: #99aabb;
+        font-size: 20px;
+      }
+      .search {
+        border: 1 px transparent #99aabb;
+        width: 130px;
+        height: 20px;
+        font-size: 15px;
+        border-radius: 13px;
+      }
+      .trailers {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: end;
+        margin-right: 220px;
+      }
+      .big:hover {
+        transform: scale(1);
+        background-color: #99aabb;
+        color: white;
+        transition:
+        background-color 0.4s ease,
+        color 0.4s ease-in-out;
+        border: 1px transparent #99aabb;
+        border-radius: 15px;
+        }
+        .zone {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 30px;
+          max-width: 900px;
+          margin-left: 15%;
+          margin-top: 35px;
+        }
+        .last {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: auto;
+            background-color: #99aabb;
+            gap: 5px;
+            margin-top: 70px;
+            padding: 48px 20px 32px 20px;
+            border-top-left-radius: 18px;
+            border-top-right-radius: 18px;
+        }
+        .images {
+          height: 300px;
+          width: 500px;
+          border-radius: 15px;
+        }
+        .blue {
+          font-size: 20px;
+          color: rgb(9, 88, 171);
+        }
+        .button {
+          width: 180px;
+          height: 48px;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: rgb(68, 121, 221);
+          color: white;
+          font-size: 17px;
+        }
+        .nav-links {
+    display: flex;
+    gap: 25px;
+  }
+        .new {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 18px;
+        }
+        .new p,
+        .new h2 {
+          margin: 0;
+        }
+        .greys {
+          font-size: 20px;
+          color: #99aabb;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          margin-top: 35px;
+        }
+    </style>
+  </head>
+
+  <body style="font-family: -apple-system; background-color: #15181d">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; background: #0f1115; border-bottom: 1px solid rgba(255,255,255,0.08); position: sticky; top: 0; z-index: 100; gap: 24px; flex-wrap: wrap;">
+      <a href="./homepage.html" style="font-size: 26px; font-weight: 700; color: white; text-decoration: none; letter-spacing: 0.3px;">CineVerse</a>
+      <nav style="display: flex; gap: 4px; align-items: center;">
+        <a href="./homepage.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Home</a>
+        <a href="./movies.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Movies</a>
+        <a href="./shows.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Series</a>
+        <a href="./cineverse.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Reviews</a>
+        <a href="./card.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Account</a>
+        <a href="./aboutus2.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">About</a>
+      </nav>
+      <input type="text" placeholder="Search films, directors..." style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: white; padding: 9px 16px; border-radius: 8px; font-size: 13px; width: 240px; outline: none; font-family: inherit;" />
+    </div>
+
+<hr class="horizontal"> 
+<div class="zone">
+    <img class='images' src="https://ucarecdn.com/da8b59e3-affe-4bb3-a6bb-01ebb7f820ac/-/format/auto/-/preview/3000x3000/-/quality/lighter/Dune_CollectionWebsiteBanner_020124_Tablet-2.jpg">
+    <div class="new">
+      <p class="blue"><strong>FEATURED REVIEW</strong></p>
+      <p class="reviews"><strong>Dune: Part Two</strong></p>
+      <h2 class = "year">2026 ★★★★★</h2>
+      <p class="greys">"A cinematic masterpiece that demands to be seen on the biggest screen possible. Villeneuve outdoes himself in every technical aspect."</p>
+      <button class="button"><strong>Read Full Review</strong></button>
+
+    </div>
+</div>
+    <div class="grey">
+      <p class="grey">POPULAR REVIEWS THIS WEEK</p>
+      <p class="grey">MORE</p>
+    </div>
+
+
+    <hr class="horizontal" />
+<div class="parent">
+    <div class="sub">
+      <div class="review">
+      <img src="https://assets-prd.ignimgs.com/2026/01/14/scream7-dom-online-payoff-1-sheet-04-fin20-1768384462638.jpg" class = "posters">
+      <div class="main_reviews">
+       <div class="title">
+          <h2>Scream 7</h2>
+          <h2 class = "year">2026 ★★☆☆☆</h2>
+       </div> 
+        <h3 class="grey">@Jane333XOXO</h3>
+        <p class="grey">Scream 5: For Wes</p>
+        <p class="grey">Scream 6: For the fans</p>
+        <p class="grey">Scream 7: For Charlie Kirk</p>
+        <p class="grey">♥ 11,731 likes</p></div>
+      </div>
+    </div>
+  <iframe 
+  class="trailers"
+  width="420" 
+  height="197"
+  src="https://www.youtube.com/embed/UJrghaPJ0RY"
+  title="Scream 7 Trailer"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+</div>
+<hr class="horizontal">
+
+<div class="parent">
+<div class="sub">
+  <div class="review">
+      <img src="https://a.ltrbxd.com/resized/film-poster/1/1/9/6/9/1/1/1196911-wuthering-heights-2026-0-2000-0-3000-crop.jpg?v=7d02cf3bdc" class = "posters">
+      <div class="main_reviews">
+              <div class="title">
+              <h2>Wuthering Heights</h2>
+              <h3 class="year">2026 ★★★☆☆</h3>
+              </div>
+        <h3 class="grey">@mygloriouskingtamaki</h3>
+        <p class="grey">Scream 5: For Wes</p>
+        <p class="grey">Scream 6: For the fans</p>
+        <p class="grey">Scream 7: For Charlie Kirk</p>
+        <p class="grey">♥ 11,731 likes</p></div>
+      </div>
+    </div>
+    <iframe 
+  class="trailers"
+  width="420" 
+  height="197"
+  src="https://www.youtube.com/embed/ID0rqEWrN44"
+  title="Scream 7 Trailer"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+  </div>
+
+  <hr class="horizontal">
+
+  <div class="parent">
+    <div class="sub">
+      <div class="review">
+      <img src="https://a.ltrbxd.com/resized/film-poster/7/1/3/3/8/71338-the-perks-of-being-a-wallflower-0-2000-0-3000-crop.jpg?v=f2235860f7" class = "posters">
+      <div class="main_reviews">
+       <div class="title">
+          <h2>The Perks of being a Wallflower</h2>
+          <h2 class = "year">2012 ★★★★☆</h2>
+       </div> 
+        <h3 class="grey">@siobhan</h3>
+        <p class="grey">if paul rudd was my english teacher he would be the only friend i need in high school tbh</p>
+         <p class="grey">♥ 23,181 likes</p></div>
+      </div>
+    </div>
+  <iframe 
+  class="trailers"
+  width="420" 
+  height="197"
+  src="https://www.youtube.com/embed/0pdqf4P9MB8"
+  title="La La Land Trailer"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+</div>
+
+ <hr class="horizontal"/>
+
+<div class="parent">
+    <div class="sub">
+      <div class="review">
+      <img src="https://a.ltrbxd.com/resized/film-poster/2/4/0/3/4/4/240344-la-la-land-0-2000-0-3000-crop.jpg?v=053670ff84" class = "posters">
+      <div class="main_reviews">
+       <div class="title">
+          <h2>La La Land</h2>
+          <h2 class = "year">2016 ★★★★☆</h2>
+       </div> 
+        <h3 class="grey">@lucypoh</h3>
+        <p class="grey">this cured my depression and brought it back full force in the span of 2 hours</p>
+         <p class="grey">♥ 42,793 likes</p></div>
+      </div>
+    </div>
+  <iframe 
+  class="trailers"
+  width="420" 
+  height="197"
+  src="https://www.youtube.com/embed/0pdqf4P9MB8"
+  title="La La Land Trailer"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+</div>
+
+ <hr class="horizontal">
+<div class="parent">
+    <div class="sub">
+      <div class="review">
+      <img src="https://a.ltrbxd.com/resized/sm/upload/nq/jo/26/tn/dAC0hkYmz5ZOCHURZCyj9isPMPd-0-2000-0-3000-crop.jpg?v=b3dac3ffd7" class = "posters">
+      <div class="main_reviews">
+              <div class="title">
+              <h2>Pride & Prejudice</h2>
+              <h3 class="year">2005 ★★★★☆</h3>
+              </div>
+        <h3 class="grey">@cathy</h3>
+        <p class="grey">nothing has better comedic timing than Darcy saying he likes women who read and elizabeth closing her book to tell him off for it</p>
+        <p class="grey">♥ 29,614 likes</p></div>
+      </div>
+      </div>
+      <iframe 
+      class="trailers"
+      width="420" 
+      height="197"
+      src="https://www.youtube.com/embed/Ur_DIHs92NM"
+      title="Pride & Prejudice"
+      frameborder="0"
+      allowfullscreen>
+     </iframe>
+    </div>
+
+<hr class="horizontal">
+
+<div class="parent">
+    <div class="sub">
+      <div class="review">
+      <img src="https://a.ltrbxd.com/resized/film-poster/4/2/7/7/9/42779-coraline-0-2000-0-3000-crop.jpg?v=b792483e2a" class = "posters">
+      <div class="main_reviews">
+              <div class="title">
+              <h2>Coraline</h2>
+              <h3 class="year">2009 ★★★★★</h3>
+              </div>
+        <h3 class="grey">@Aaron</h3>
+        <p class="grey">I'm in complete awe of how every single frame is a literal work of art</p>
+        <p class="grey">♥ 14,627 likes</p></div>
+      </div>
+      </div>
+      <iframe 
+      class="trailers"
+      width="420" 
+      height="197"
+      src="https://www.youtube.com/embed/m9bOpeuvNwY"
+      title="Coraline Trailer"
+      frameborder="0"
+      allowfullscreen>
+     </iframe>
+    </div>
+
+    <hr class="horizontal">
+<div class="parent">
+    <div class="sub">
+      <div class="review">
+      <img src="https://a.ltrbxd.com/resized/sm/upload/yt/ae/iz/kj/bIjkE9Og0nulRycj144sCcQcsZ6-0-2000-0-3000-crop.jpg?v=a571e4c644" class = "posters">
+      <div class="main_reviews">
+              <div class="title">
+              <h2>Black Swan</h2>
+              <h3 class="year">2010 ★★★★☆</h3>
+              </div>
+        <h3 class="grey">@Erik 🎼</h3>
+        <p class="grey">the feminine urge to go completely insane</p>
+        <p class="grey">♥ 28,241 likes</p></div>
+      </div>
+      </div>
+      <iframe 
+  class="trailers"
+  width="420" 
+  height="197"
+  src="https://www.youtube.com/embed/5jaI1XOB-bs"
+  title="The Perks of Being a Wallflower Trailer"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+    </div>
+
+    <hr class="horizontal">
+<div class="parent">
+    <div class="sub">
+      <div class="review">
+      <img src="https://a.ltrbxd.com/resized/sm/upload/sw/w2/ep/v4/9O50TVszkz0dcP5g6Ej33UhR7vw-0-2000-0-3000-crop.jpg?v=5a65f5202f" class = "posters">
+      <div class="main_reviews">
+              <div class="title">
+              <h2>Kill Bill</h2>
+              <h3 class="year">2003 ★★★★☆</h3>
+              </div>
+        <h3 class="grey">@clementine</h3>
+        <p class="grey">tarantino’s casting call for this like “bad bitches only 😡🧍🏻‍♀️🚫”</p>
+        <p class="grey">♥ 30,912 likes</p></div>
+      </div>
+      </div>
+      <iframe 
+  class="trailers"
+  width="420" 
+  height="197"
+  src="https://www.youtube.com/embed/7kSuas6mRpk"
+  title="The Perks of Being a Wallflower Trailer"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+    </div>
+
+<hr class="horizontal">
+<div class="parent">
+    <div class="sub">
+      <div class="review">
+      <img src="https://a.ltrbxd.com/resized/film-poster/4/1/3/5/2/41352-inglourious-basterds-0-2000-0-3000-crop.jpg?v=0c74c673e0" class = "posters">
+      <div class="main_reviews">
+              <div class="title">
+              <h2>Inglourious Basterds</h2>
+              <h3 class="year">2009 ★★★★☆</h3>
+              </div>
+        <h3 class="grey">@demi_adejuyigbe</h3>
+        <p class="grey">i would never invite hitler to my movie premiere. that guy is bad news</p>
+        <p class="grey">♥ 28,345 likes</p></div>
+      </div>
+      </div>
+      <iframe 
+  class="trailers"
+  width="420" 
+  height="197"
+  src="https://www.youtube.com/embed/qRYDNWXuip8"
+  title="Inglourious Basterds Trailer"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+    </div>
+
+    <hr class="horizontal">
+<div class="parent">
+    <div class="sub">
+      <div class="review">
+      <img src="https://a.ltrbxd.com/resized/sm/upload/a3/0q/kf/h8/jUFjMoLh8T2CWzHUSjKCojI5SHu-0-2000-0-3000-crop.jpg?v=6285ee260e" class = "posters">
+      <div class="main_reviews">
+              <div class="title">
+              <h2>Harry Potter and the Prisoner of Azkaban</h2>
+              <h3 class="year">2004 ★★★★☆</h3>
+              </div>
+        <h3 class="grey">@Bethany</h3>
+        <p class="grey">when hermione punched malfoy in the face and then watched herself do it again... it’s everything to me</p>
+        <p class="grey">♥ 14,591 likes</p></div>
+      </div>
+      </div>
+      <iframe 
+  class="trailers"
+  width="420" 
+  height="197"
+  src="https://www.youtube.com/embed/lAxgztbYDbs"
+  title="Harry Potter and the Prisoner of Azkaban Trailer"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+    </div>
+
+    <hr class="horizontal">
+<div class="parent">
+    <div class="sub">
+      <div class="review">
+      <img src="https://a.ltrbxd.com/resized/film-poster/5/1/5/6/8/51568-fight-club-0-2000-0-3000-crop.jpg?v=768b32dfa4" class = "posters">
+      <div class="main_reviews">
+              <div class="title">
+              <h2>Fight Club</h2>
+              <h3 class="year">1994 ★★★★☆</h3>
+              </div>
+        <h3 class="grey">@mialeevicino</h3>
+        <p class="grey">first watch: fight club is the best movie ever made
+second watch: fight club is a deep commentary on the dangers of consumerism
+third watch: fight club is a disgusting cesspool of toxic masculinity and it’s not as deep as its fanboys think it is
+fourth watch: fight club is a critique of toxic masculinity and it’s deeper than its fanboys think it is
+fifth watch: fight club is the best satirical gay romcom ever made</p>
+        <p class="grey">♥ 83,697 likes</p></div>
+      </div>
+      </div>
+      <iframe 
+  class="trailers"
+  width="420" 
+  height="197"
+  src="https://www.youtube.com/embed/qtRKdVHc-cE"
+  title="Fight Club Trailer"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+    </div>
+<div class="last">
+<div style="display:flex; flex-direction:row; justify-content:center; align-items:center; flex-wrap: wrap; height: auto; gap: 32px; max-width: 1200px; margin: 0 auto;"> 
+
+    <div style="display:flex; flex-direction:column; gap: 8px; align-items:flex-start; text-align: left;">
+        <p style="font-size:28px; color:#15181d; font-weight: 700; margin-bottom: 4px;"><strong>Stay in the Loop</strong></p>
+        <p style="font-size:16px; color:#1e293b; max-width: 340px; line-height: 1.4;">
+            Receive weekly cinematic deep-dives, exclusive reviews, and festival updates directly in your inbox.
+        </p>
+    </div>
+<div style="display: flex; flex-direction: row; align-items: center; gap: 18px; flex-wrap: wrap; justify-content: center;">
+        <input class="search" type="email" placeholder="Your email address" style="min-width: 240px;"/>
+
+    <button style="background-color:rgb(251,140,5); color:whitesmoke; height:48px; width:165px; border-radius:60px; font-size:14px; font-weight: 600; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        Subscribe Now →
+</button></div>
+</div>
+<hr style="width: 90%; max-width: 1100px; border: 1px solid #2c3e4e; margin: 32px auto 28px auto;">
+<div style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 48px; flex-wrap: wrap; row-gap: 16px; padding: 0 20px;">
+     <p style="font-size: 22px; color: #15181d; font-weight: 700; letter-spacing: -0.3px;"><strong>CineVerse</strong></p>
+     <p style="font-size: 14px; color: #1e293b; letter-spacing: 0.2px;">Policy &nbsp;&nbsp;•&nbsp;&nbsp; Terms of Service &nbsp;&nbsp;•&nbsp;&nbsp; Contact</p>
+     <p style="font-size: 14px; color: #1e293b;">Ⓒ 2024 CineVerse Inc. All cinematic rights reserved.</p>
+</div>
+</div>
+
+  </body>
+</html>

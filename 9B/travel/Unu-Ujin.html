@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        font-weight: 700;
+        color: black;
+      }
+
+      .custombutton {
+        border: 0;
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 34px;
+        color: white;
+      }
+
+      .custombutton:hover {
+        background-color: rgb(200, 200, 200);
+      }
+
+      @keyframes slide {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: 612px 612px;
+        }
+      }
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      /* Show the modal */
+      .modal-overlay.show {
+        display: flex;
+      }
+
+      /* The modal box */
+      .modal-box {
+        background: white;
+        width: 90%;
+        max-width: 400px;
+        margin: 100px auto;
+        padding: 20px;
+        border-radius: 10px;
+        position: relative;
+      }
+
+      /* Close button */
+      .modal-close {
+        position: absolute;
+        right: 12px;
+        top: 8px;
+        font-size: 24px;
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+      .tp-section {
+        font-family: Arial, sans-serif;
+        background: rgb(242, 221, 237);
+        padding: 40px;
+        max-width: 1100px;
+        margin: 40px auto;
+        box-sizing: border-box;
+      }
+
+      .tp-layout {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: 30px;
+      }
+
+      .tp-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .tp-card {
+        background: rgb(242, 233, 240);
+        border: 1px solid #ddd;
+        border-radius: 16px;
+        padding: 25px;
+        min-height: 180px;
+        transition: 0.2s;
+      }
+
+      .tp-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .tp-icon {
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+
+      .tp-card h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
+        margin-top: 0;
+      }
+
+      .tp-card p {
+        color: #555;
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      .tp-side-ad {
+        background: rgb(242, 233, 240);
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+      }
+
+      .tp-side-ad img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .tp-side-ad-content {
+        padding: 20px;
+      }
+
+      .tp-side-ad-content h3 {
+        margin-top: 0;
+        font-size: 20px;
+      }
+
+      .tp-btn {
+        margin-top: 20px;
+        display: inline-block;
+        background: navy;
+        color: white;
+        padding: 12px 18px;
+        border-radius: 50px;
+        text-decoration: none;
+      }
+
+      @media (max-width: 900px) {
+        .tp-layout {
+          grid-template-columns: 1fr;
+        }
+        .tp-cards {
+          grid-template-columns: 1fr;
+        }
+      }
+      .registermain {
+        width: 100vw;
+        height: 100vh;
+
+        z-index: 67;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        position: fixed;
+
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .registerpage {
+        height: 60vh;
+        width: 50vh;
+
+        border-radius: 0.25vh;
+
+        background-color: white;
+
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .registerclose {
+        height: 3vh;
+        width: 3vh;
+
+        background-color: white;
+
+        border: 0;
+        border-radius: 0.25vh;
+
+        position: absolute;
+
+        right: 0.25vh;
+        top: 0.25vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .registercontent {
+        width: 50vh;
+        height: 50vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+
+        gap: 1vh;
+      }
+
+      .registerclose:hover {
+        background-color: #ccc;
+      }
+
+      .registerclose img {
+        height: 2vh;
+        width: 2vh;
+      }
+
+      .inputstyle {
+        width: 40vh;
+        height: 6vh;
+
+        padding: 0;
+        margin: 0;
+
+        font-size: 1.7vh;
+        font-weight: 1000;
+
+        color: black;
+        background-color: white;
+        border: #eee 1px solid;
+        border-radius: 0.25vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 0.25vh;
+      }
+
+      .inputstyle img {
+        border-radius: 100ch;
+
+        background-color: white;
+
+        height: 1.7vh;
+        width: 1.7vh;
+      }
+
+      .inputgmail {
+        width: 36vh;
+        height: 6vh;
+
+        padding: 0 2vh;
+        margin: 0;
+
+        font-size: 1.7vh;
+        font-weight: 500;
+
+        color: black;
+        background-color: white;
+        border: #eee 1px solid;
+        border-radius: 0.25vh;
+      }
+
+      #inputgmailid:not(:placeholder-shown) + .inputstyle {
+        background-color: #f4daec !important;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body
+    style="
+      font-family: &quot;Segoe UI&quot;, Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-image: url(https://static.vecteezy.com/system/resources/thumbnails/003/219/197/small/seamless-check-pink-pattern-textile-tartan-plaid-swatch-free-vector.jpg);
+      background-color: rgb(225, 225, 225, 0.85);
+      background-blend-mode: lighten;
+      background-repeat: repeat;
+      animation: slide 20s linear infinite;
+    "
+  >
+    <img
+      src="https://cdn2.cdnstep.com/gBEg0PCWpNYQtNKFwDmd/8-1.png"
+      alt="chii"
+      style="position: absolute; right: 0; top: 0; z-index: 2"
+    />
+
+    <div style="display: flex; justify-content: center">
+      <div
+        style="
+          height: 10vh;
+          width: 100vw;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 43px;
+          position: relative;
+        "
+      >
+        <img
+          src="https://images.seeklogo.com/logo-png/34/3/imagine-your-korea-logo-png_seeklogo-345825.png"
+          alt="korea tourism"
+          style="height: 150px; width: 150px; position: absolute; left: 0"
+        />
+        <button class="custombutton">Tours</button>
+        <button class="custombutton">Hotels</button>
+        <button class="custombutton">Blog</button>
+        <button class="custombutton">About</button>
+        <button class="custombutton">Contact</button>
+        <button class="custombutton">Review</button>
+      </div>
+    </div>
+    <div
+      style="
+        margin-left: 10vw;
+        width: 80vw;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 2vh;
+      "
+    >
+      <h1
+        style="
+          font-size: 80px;
+          font-family:
+            &quot;Segoe UI&quot;, Tahoma, Geneva, Verdana, sans-serif;
+          font-weight: 100px;
+          padding: 0;
+          margin: 0;
+        "
+      >
+        Seoul
+      </h1>
+      <h2
+        style="
+          color: rgb(127, 126, 126);
+          text-align: start;
+          padding: 0;
+          width: 80vw;
+          margin: 0;
+        "
+      >
+        추억만 가져가고 발자국만 남기고...
+      </h2>
+    </div>
+
+    <div style="width: 100vw; height: 75vh; position: absolute; top: 0">
+      <div
+        style="
+          background-image: url(https://images.alphacoders.com/127/1270245.jpg);
+          background-size: cover;
+          height: 75vh;
+          width: 100vw;
+          background-position-y: bottom;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          z-index: -1;
+          align-items: center;
+          font-family:
+            Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;
+          position: relative;
+        "
+      ></div>
+    </div>
+    <div
+      style="
+        display: flex;
+        justify-content: space-evenly;
+        width: 100vw;
+        height: 90vh;
+        margin-top: 55vh;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          width: calc(100vw - 10vh);
+          height: 80vh;
+          view-transition-name: --revealing-elements;
+          view-timeline-axis: block;
+          animation-name: slide-in;
+          animation-timing-function: ease-in-out;
+          animation-timeline: --revealing-element;
+          animation-range: entry 0% cover 50%;
+          border-radius: 0.5vh;
+        "
+      >
+        <div
+          style="
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+            background: rgb(242, 221, 237);
+            display: flex;
+            flex-direction: column;
+          "
+        >
+          <div
+            style="
+              width: 100%;
+              height: 50%;
+              background-color: black;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              overflow: hidden;
+            "
+          >
+            <img
+              src="https://www.ahstatic.com/photos/0966_rotwb_00_p_1024x768.jpg"
+              style="width: 100%; height: auto"
+            />
+          </div>
+          <div
+            style="
+              width: 100%;
+              height: 50%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <div
+              style="background-color: black; width: 45vw; height: 2px"
+            ></div>
+
+            <h1
+              style="
+                font-size: 3.5vh;
+                width: 45vw;
+                text-align: center;
+                font-weight: 400;
+              "
+            >
+              Discover hotels in South Korea that offer comfort, style, and
+              convenience for every traveler. Whether you prefer modern city
+              stays or quiet, cozy retreats, you’ll find the perfect place to
+              unwind. Book now and make your trip effortless from the moment you
+              arrive.
+            </h1>
+
+            <div
+              style="background-color: black; width: 45vw; height: 2px"
+            ></div>
+
+            <button
+              style="
+                background-color: #60d8ce;
+                border-radius: 100ch;
+                margin-top: 2vh;
+                border-color: #4ebab1;
+              "
+            >
+              Book Hotel
+            </button>
+          </div>
+        </div>
+        <div
+          style="
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+            background: rgb(242, 221, 237);
+            display: flex;
+            flex-direction: column;
+          "
+        >
+          <div
+            style="
+              width: 100%;
+              height: 50%;
+              background-color: black;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              overflow: hidden;
+            "
+          >
+            <img
+              src="https://media.cntraveler.com/photos/690e4ca3a9c690a4a456b375/4:3/w_2668,h_2001,c_limit/Kisa-korean-nyc-Table%20spread%20(1).jpg"
+              style="width: 100%; height: auto"
+            />
+          </div>
+          <div
+            style="
+              width: 100%;
+              height: 50%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <div
+              style="background-color: black; width: 45vw; height: 2px"
+            ></div>
+
+            <h1
+              style="
+                font-size: 3.5vh;
+                width: 45vw;
+                text-align: center;
+                font-weight: 400;
+              "
+            >
+              Experience the rich taste of Korean cuisine through flavorful
+              street food, traditional recipes, and unique dining experiences.
+              From spicy favorites to savory barbecue and comforting soups,
+              every dish offers a delicious glimpse into Korea’s vibrant food
+              culture.
+            </h1>
+            <div
+              style="background-color: black; width: 45vw; height: 2px"
+            ></div>
+            <button
+              style="
+                background-color: #60d8ce;
+                border-radius: 100ch;
+                margin-top: 2vh;
+                border-color: #4ebab1;
+              "
+            >
+              Order menu
+            </button>
+          </div>
+        </div>
+        <div
+          style="
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+            background: rgb(242, 221, 237);
+            display: flex;
+            flex-direction: column;
+          "
+        >
+          <div
+            style="
+              width: 100%;
+              height: 50%;
+              background-color: black;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              overflow: hidden;
+            "
+          >
+            <img
+              src="https://cdn.audleytravel.com/4595/3282/79/15982672-pagoda-in-the-autumn.jpg"
+              style="width: 100%; height: auto"
+            />
+          </div>
+          <div
+            style="
+              width: 100%;
+              height: 50%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <div
+              style="background-color: black; width: 45vw; height: 2px"
+            ></div>
+
+            <h1
+              style="
+                font-size: 3.5vh;
+                width: 45vw;
+                text-align: center;
+                font-weight: 400;
+              "
+            >
+              Korea’s scenery is filled with breathtaking mountains, peaceful
+              forests, and beautiful coastlines that change with every season.
+              From cherry blossoms in spring to colorful autumn leaves, every
+              view feels unique and unforgettable. Whether in the city or
+              countryside, nature is always close and inspiring.
+            </h1>
+
+            <div
+              style="background-color: black; width: 45vw; height: 2px"
+            ></div>
+            <button
+              style="
+                background-color: #60d8ce;
+                border-radius: 100ch;
+                margin-top: 2vh;
+                border-color: #4ebab1;
+              "
+            >
+              Book trip
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div></div>
+
+    <div
+      style="width: 100vw; height: auto; display: flex; justify-content: center"
+    >
+      <div class="tp-section">
+        <h1 style="font-size: 48px; margin-bottom: 30px; margin-top: 0">
+          Plan your trip
+        </h1>
+
+        <div class="tp-layout">
+          <div class="tp-cards">
+            <div class="tp-card">
+              <img
+                src="https://s3.getstickerpack.com/storage/uploads/sticker-pack/chiikawa-usagi/sticker_14.png?53134e9055d9fc5eeeebc93b0247af06&d=200x200"
+                alt="chiikawa-usagi"
+              />
+              <h2>Before you go</h2>
+              <p>Things to know before you depart.</p>
+            </div>
+
+            <div class="tp-card">
+              <h2>Transportation</h2>
+              <p>Find the best transport for your trip.</p>
+            </div>
+
+            <div class="tp-card">
+              <h2>Accommodation</h2>
+              <p>Find the best places to stay.</p>
+            </div>
+          </div>
+
+          <div class="tp-side-ad">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/63ff291c8cf8fd1dab8e45bf/cccb90a7-b29d-4aaa-a951-dcdca7ca6ff3/Botapsa-Temple.jpg"
+              alt="Temple tour"
+            />
+            <div class="tp-side-ad-content">
+              <h3>Special Offer</h3>
+              <p>Book your getaway today and save up to 30% on tours.</p>
+              <button id="openBtn">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      x
+      <div
+        style="
+          background-color: white;
+          height: 200px;
+          width: 20vh;
+          display: none;
+          position: absolute;
+          right: 1vh;
+        "
+        id="id"
+      >
+        <h1 style="color: #555">Mail</h1>
+      </div>
+    </div>
+
+    <div
+      id="modal"
+      class="modal-overlay"
+      style="justify-content: center; align-items: center"
+    >
+      <div class="registerpage">
+        <button id="closeBtn" class="registerclose">
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS14LWljb24gbHVjaWRlLXgiPjxwYXRoIGQ9Ik0xOCA2IDYgMTgiLz48cGF0aCBkPSJtNiA2IDEyIDEyIi8+PC9zdmc+"
+          />
+        </button>
+
+        <div class="registercontent">
+          <h9>Sign in/register</h9>
+          <input
+            id="inputgmailid"
+            class="inputgmail"
+            placeholder="Please enter an email address"
+          />
+          <button
+            style="background-color: #eee; color: white"
+            class="inputstyle"
+          >
+            Continue with email
+          </button>
+          <div style="padding: 1vh">or</div>
+          <button
+            style="
+              background-color: #f4daec;
+              border-color: #f4daec;
+              color: white;
+            "
+            class="inputstyle"
+          >
+            <img
+              src="https://www.pngarts.com/files/11/Google-Logo-Icon-Free-PNG-Image.png"
+              alt="loginimg"
+            />
+
+            Continue with Google
+          </button>
+          <button class="inputstyle">
+            <img
+              src="https://cdn.creazilla.com/icons/3204955/logo-apple-icon-lg.png"
+              alt="loginimg"
+            />
+
+            Continue with Apple
+          </button>
+          <button class="inputstyle">
+            <img
+              src="https://freepngimg.com/save/141246-logo-circle-facebook-picture-free-transparent-image-hd/1000x1000"
+              alt="loginimg"
+            />
+
+            Continue with Facebook
+          </button>
+          <button class="inputstyle">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/023/986/633/non_2x/wechat-logo-wechat-logo-transparent-wechat-icon-transparent-free-free-png.png"
+              alt="loginimg"
+            />
+
+            Continue with Wechat
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const modal = document.getElementById("modal");
+      const openBtn = document.getElementById("openBtn");
+      const closeBtn = document.getElementById("closeBtn");
+
+      function openModal() {
+        modal.classList.add("show");
+      }
+
+      function closeModal() {
+        modal.classList.remove("show");
+      }
+
+      openBtn.addEventListener("click", openModal);
+      closeBtn.addEventListener("click", closeModal);
+
+      /* Close when clicking outside the modal box */
+      modal.addEventListener("click", function (event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      /* Close when pressing Escape */
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          closeModal();
+        }
+      });
+    </script>
+  </body>
+</html>

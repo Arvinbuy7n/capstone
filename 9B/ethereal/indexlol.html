@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resident Evil Requiem</title>
+
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+
+        *{
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #000;
+            color: white;
+            font-family: "Anta", sans-serif;
+            overflow-x: hidden;
+        }
+
+       
+        .banner {
+            width: 100%;
+            height: 500px;
+
+            background-image:
+                linear-gradient(to bottom, transparent, rgba(0,0,0,0.95)),
+                url('https://imagenes.hobbyconsolas.com/files/image_990_556/uploads/imagenes/2025/10/29/690b22a66c6eb.jpeg');
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: flex-end;
+
+            padding: 35px 40px;
+        }
+
+        .title-wrap h1{
+            font-size: 62px;
+            margin: 0;
+            color: #ff3b3b;
+            text-shadow: 3px 3px 8px black;
+            letter-spacing: 1px;
+        }
+
+        .title-wrap p{
+            margin-top: 10px;
+            color: #ddd;
+            font-size: 19px;
+        }
+
+       
+        .top-nav{
+            background: #151515;
+            border-bottom: 2px solid #2a2a2a;
+
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+
+            padding: 15px;
+        }
+
+        .top-nav a{
+            text-decoration: none;
+            color: #9f9f9f;
+            font-size: 18px;
+
+            transition: all .25s ease;
+        }
+
+        .top-nav a:hover{
+            color: white;
+            transform: scale(1.08);
+        }
+
+        .main-wrapper{
+            width: 90%;
+            max-width: 1100px;
+            margin: 45px auto;
+        }
+
+        .game-layout{
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .overview-side{
+            flex: 2;
+        }
+
+        .overview-side h2{
+            display: inline-block;
+            border-bottom: 2px solid #ff3333;
+            padding-bottom: 4px;
+
+            margin-bottom: 18px;
+        }
+
+        .overview-side p{
+            color: #c9c9c9;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        
+        .preview-image{
+            flex: 1;
+        }
+
+        .preview-image img{
+            width: 100%;
+            border-radius: 10px;
+
+            border: 4px solid #1d1d1d;
+
+            box-shadow:
+                0 0 20px rgba(255, 51, 51, 0.2),
+                0 0 60px rgba(255, 0, 0, 0.08);
+
+            transition: transform .3s ease;
+        }
+
+        .preview-image img:hover{
+            transform: scale(1.02);
+        }
+
+        .btn-row{
+            margin-top: 35px;
+        }
+
+        .shop-btn{
+            border: none;
+            outline: none;
+
+            padding: 14px 28px;
+            margin-right: 12px;
+
+            cursor: pointer;
+
+            font-size: 19px;
+            border-radius: 6px;
+
+            font-family: inherit;
+
+            transition: background .2s ease, transform .2s ease;
+        }
+
+        .shop-btn:hover{
+            transform: translateY(-2px);
+        }
+
+        .red-btn{
+            background: #ff3333;
+            color: white;
+        }
+
+        .red-btn:hover{
+            background: #cc0000;
+        }
+
+        .dark-btn{
+            background: #2b2b2b;
+            color: #eee;
+        }
+
+        .dark-btn:hover{
+            background: #3a3a3a;
+        }
+
+       
+
+        .comments-title{
+            margin-top: 65px;
+            text-align: center;
+        }
+
+        .comments-box{
+            background: #0b0b0b;
+            border: 1px solid #1d1d1d;
+
+            border-radius: 14px;
+
+            padding: 20px;
+            margin-top: 18px;
+        }
+
+        .comment-card{
+            display: flex;
+            justify-content: space-between;
+
+            padding: 15px 10px;
+
+            border-bottom: 1px solid #1f1f1f;
+        }
+
+        .comment-card:last-child{
+            border-bottom: none;
+        }
+
+        .username{
+            width: 20%;
+            color: #ff4444;
+            font-weight: bold;
+        }
+
+        .comment-text{
+            width: 70%;
+            color: #d0d0d0;
+        }
+
+        .likes{
+            width: 10%;
+            text-align: right;
+            color: #777;
+        }
+
+      
+        @media(max-width: 850px){
+
+            .game-layout{
+                flex-direction: column;
+            }
+
+            .title-wrap h1{
+                font-size: 42px;
+            }
+
+            .comment-card{
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .username,
+            .comment-text,
+            .likes{
+                width: 100%;
+                text-align: left;
+            }
+
+            .top-nav{
+                gap: 18px;
+                flex-wrap: wrap;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+        <div class="title-wrap">
+            <h1>Resident Evil: Requiem</h1>
+
+            
+            <p>Let the sweet pair hear the voice...</p>
+        </div>
+    </div>
+
+    <nav class="top-nav">
+        <a href="#comments">Comments</a>
+        <a href="#game-info">Game Info</a>
+        <a href="#achievements">Achievements</a>
+        <a href="homepage.html">More Like This</a>
+    </nav>
+
+    <main class="main-wrapper">
+
+        <section class="game-layout" id="game-info">
+
+            <div class="overview-side">
+
+                <h2>Game Overview</h2>
+
+                <p>
+                    <strong>Resident Evil Requiem</strong> is a 2026 survival horror
+                    game focused on a dual narrative between FBI analyst Grace
+                    Ashcroft and agent Leon S. Kennedy.
+
+                    Gameplay switches between Grace’s slower stealth-heavy survival
+                    sections and Leon’s more aggressive combat encounters.
+                    The story centers around a disturbing investigation tied to an
+                    abandoned hotel filled with biological horrors and hidden secrets.
+
+                   
+                </p>
+
+                <div class="btn-row">
+                    <button class="shop-btn red-btn">Add to Cart</button>
+
+                    <button class="shop-btn dark-btn">
+                        Purchase
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="preview-image">
+                <img
+                    src="https://c4.wallpaperflare.com/wallpaper/91/750/364/resident-evil-resident-evil-requiem-video-game-art-video-game-characters-leon-kennedy-hd-wallpaper-preview.jpg"
+                    alt="Leon Kennedy "
+                >
+            </div>
+
+        </section>
+
+        <section class="comments-title" id="comments">
+            <h3>Comments</h3>
+        </section>
+
+        <section class="comments-box">
+
+            <div class="comment-card">
+                <div class="username">Leons_n1fan:</div>
+
+                <div class="comment-text">
+                    This hotel is actually terrifying. Best graphics so far.
+                </div>
+
+                <div class="likes">❤️ 50</div>
+            </div>
+
+            <div class="comment-card">
+                <div class="username">auguststilza:</div>
+
+                <div class="comment-text">
+                    I love how Grace plays compared to Leon. So tense!
+                </div>
+
+                <div class="likes">❤️ 1.4k</div>
+            </div>
+
+            <div class="comment-card">
+                <div class="username">icecream3248:</div>
+
+                <div class="comment-text">
+                    How's the police station not ruined completely?
+                </div>
+
+                <div class="likes">❤️ 294</div>
+            </div>
+
+            <div class="comment-card">
+                <div class="username">dearasanta:</div>
+
+                <div class="comment-text">
+                    ez finished it in under an hour
+                </div>
+
+                <div class="likes">❤️ 3k</div>
+            </div>
+
+            <div class="comment-card">
+                <div class="username">riyoreaper:</div>
+
+                <div class="comment-text">
+                    Grace sections stressed me out more than the Leon parts ngl
+                </div>
+
+                <div class="likes">❤️ 123</div>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

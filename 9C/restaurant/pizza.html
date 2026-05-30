@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lions</title>
+    <link
+      style="size: 80px"
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href="https://logo-icons.com/cdn/shop/files/201-logo-1712247205.603color-DAA520.svg?v=1712759419&width=416"
+    />
+    <style>
+      * {
+        margin: 20;
+      }
+      li::marker {
+        color: white;
+      }
+      .btn {
+        background-color: rgb(255, 0, 0);
+        color: rgb(255, 255, 255);
+        font-size: 12px;
+        border: 0.5px solid black;
+        border-radius: 20px;
+        padding-left: 10px;
+        padding-bottom: 7px;
+        padding-top: 7px;
+        padding-right: 10px;
+        margin-right: 5px;
+        cursor: pointer;
+
+        transition: background-color 0.3s ease;
+      }
+      .btn:hover {
+        background-color: #a80c0c;
+        transform: scale(1.2);
+      }
+
+      .mnb {
+        background-color: rgb(255, 0, 0);
+        color: rgb(255, 255, 255);
+        font-size: 12px;
+        border: 0.5px solid black;
+        border-radius: 20px;
+        padding-left: 10px;
+        padding-bottom: 7px;
+        padding-top: 7px;
+        padding-right: 10px;
+        margin-right: 5px;
+        cursor: pointer;
+
+        transition: background-color 0.3s ease;
+      }
+      .mnb:hover {
+        background-color: #a80c0c;
+        transform: scale(1.2);
+      }
+    </style>
+  </head>
+  <body
+    style="
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+        sans-serif;
+    "
+  >
+    <header>
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: start;
+          margin-bottom: 0;
+          margin-top: 0;
+        "
+      >
+        <nav
+          style="
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            text-decoration: none;
+            text-align: justify;
+            word-spacing: 30px;
+            padding: 10px;
+            width: 100%;
+            margin-left: 180px;
+            margin-right: 180px;
+          "
+        >
+          <a href="lions.html">
+            <img
+              style="width: 50px; height: 50px"
+              src="https://logo-icons.com/cdn/shop/files/201-logo-1712247205.603color-DAA520.svg?v=1712759419&width=416"
+              alt=""
+          /></a>
+
+          <a
+            href="burger.html"
+            style="
+              text-decoration: none;
+              font-size: 18px;
+              font-weight: 500;
+              color: #000;
+            "
+            >Burger</a
+          >
+          <a
+            href="pizza.html"
+            style="
+              text-decoration: none;
+              font-size: 18px;
+              color: #000;
+              font-weight: 500;
+            "
+            >Pizza</a
+          >
+          <a
+            href="side.html"
+            style="
+              text-decoration: none;
+              font-size: 18px;
+              color: #000;
+              font-weight: 500;
+            "
+            >Sides</a
+          >
+          <a
+            href="drink.html"
+            style="
+              text-decoration: none;
+              font-size: 18px;
+              color: #000;
+              font-weight: 500;
+            "
+            >Drinks</a
+          >
+          <a
+            href="desserts.html"
+            style="
+              text-decoration: none;
+              font-size: 18px;
+              color: #000;
+              font-weight: 500;
+            "
+            >Desserts</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <div
+      style="display: flex; flex-direction: column; gap: 40px; margin-top: 60px"
+    >
+      <div style="display: flex; justify-content: space-evenly">
+        <div
+          style="
+            width: 420px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #5f2484;
+            flex-direction: column;
+            border-radius: 20px;
+          "
+        >
+          <h1 style="font-size: 200; margin-bottom: 3px; color: rgb(0, 0, 0)">
+            Pepperoni
+          </h1>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 15px;
+              font-weight: normal;
+              font-size: small;
+              margin-bottom: 0;
+            "
+          >
+            a classic combination of spicy cured meat
+          </h4>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 15px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            layered over melty cheese and tomato sauce
+          </h4>
+          <div>
+            <button class="btn">ORDER NOW</button>
+            <button class="mnb">SIZE</button>
+          </div>
+          <img
+            style="height: 200px; width: 300px; margin-top: 15px"
+            src="https://media.istockphoto.com/id/804291810/photo/pepperoni-pizza-italian-pizza-on-white-background.jpg?s=612x612&w=0&k=20&c=LZ-NCv3zCd9ZJO0MgNxoYppvWLsox890bwNm8wLMovE="
+            alt=""
+          />
+        </div>
+
+        <div
+          style="
+            width: 420px;
+            height: 400px;
+            flex-direction: row;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #5f2484;
+            border-radius: 20px;
+          "
+        >
+          <h1 style="font-size: 200; margin-bottom: 3px; color: rgb(0, 0, 0)">
+            Margherita
+          </h1>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 0px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            a classic Neapolitan pizza from Italy topped
+          </h4>
+          <h4
+            style="
+              margin-bottom: 5px;
+              font-weight: normal;
+              font-size: small;
+              margin-top: 5px;
+            "
+          >
+            with tomatoes, mozzarella cheese,
+          </h4>
+          <h4
+            style="
+              margin-top: 0;
+              margin-bottom: 10px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            fresh basil, and extra virgin olive oil
+          </h4>
+          <img
+            style="
+              width: 200px;
+              height: 200px;
+              margin-top: 0;
+              margin-bottom: 10px;
+            "
+            src="https://png.pngtree.com/png-clipart/20250221/original/pngtree-margherita-pizza-white-background-png-image_20491217.png"
+            alt=""
+          />
+
+          <div>
+            <button class="btn">ORDER NOW</button>
+            <button class="mnb">SIZE</button>
+          </div>
+        </div>
+
+        <div
+          style="
+            width: 420px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #5f2484;
+            flex-direction: column;
+            border-radius: 20px;
+          "
+        >
+          <h1 style="font-size: 200; margin-bottom: 3px; color: #000">
+            New York Style
+          </h1>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 0px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            a thin, pliable crust that is crispy
+          </h4>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 5px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            on the edges but soft enough
+          </h4>
+          <h4
+            style="
+              margin-top: 0px;
+              margin-bottom: 5px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            soft enough in the center to be folded
+          </h4>
+          <div style="margin-top: 8px">
+            <button class="btn">ORDER NOW</button>
+            <button class="mnb">SIZE</button>
+          </div>
+          <img
+            style="height: 200px; width: 220px; margin-top: 10px"
+            src="https://images.squarespace-cdn.com/content/v1/5c6344ceab1a621d954f6a13/f84b2149-4fbd-47be-88ec-3bbdb62a184c/Cheese-ny-pizza-anatomy.jpg"
+            alt=""
+          />
+        </div>
+      </div>
+      <div style="display: flex; justify-content: space-evenly">
+        <div
+          style="
+            width: 420px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #5f2484;
+            flex-direction: column;
+            border-radius: 20px;
+          "
+        >
+          <h1 style="font-size: 200; margin-bottom: 3px; color: #000">
+            BBQ Chicken
+          </h1>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 15px;
+              font-weight: normal;
+              font-size: small;
+              margin-bottom: 0;
+            "
+          >
+            a barbecue sauce base topped with
+          </h4>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 5px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            grilled chicken, mozzarella, red
+          </h4>
+          <h4
+            style="
+              margin-top: 0px;
+              margin-bottom: 15px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            onions and a garnish of fresh cilantro
+          </h4>
+          <div>
+            <button class="btn">ORDER NOW</button>
+            <button class="mnb">SIZE</button>
+          </div>
+          <img
+            style="height: 220px; width: 220px; margin-top: 5px"
+            src="https://static.vecteezy.com/system/resources/previews/024/108/111/non_2x/tasty-bbq-chicken-cheese-pizza-isolated-on-transparent-background-png.png"
+            alt=""
+          />
+        </div>
+
+        <div
+          style="
+            width: 420px;
+            height: 400px;
+            flex-direction: row;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #5f2484;
+            border-radius: 20px;
+          "
+        >
+          <h1 style="font-size: 200; margin-bottom: 3px; color: #000">
+            Meat Lovers
+          </h1>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 0px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            a hearty, Italian-American comfort dish combining
+          </h4>
+          <h4
+            style="
+              margin-bottom: 5px;
+              font-weight: normal;
+              font-size: small;
+              margin-top: 5px;
+            "
+          >
+            pizza dough, savory tomato sauce,
+          </h4>
+          <h4
+            style="
+              margin-top: 0;
+              margin-bottom: 10px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            mozzarella, and sliced or whole meatballs
+          </h4>
+          <img
+            style="
+              width: 180px;
+              height: 180px;
+              margin-top: 10px;
+              margin-bottom: 20px;
+            "
+            src="https://static.vecteezy.com/system/resources/previews/056/204/806/non_2x/a-pizza-with-meatballs-on-it-png.png"
+            alt=""
+          />
+
+          <div>
+            <button class="btn">ORDER NOW</button>
+            <button class="mnb">SIZE</button>
+          </div>
+        </div>
+
+        <div
+          style="
+            width: 420px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #5f2484;
+            flex-direction: column;
+            border-radius: 20px;
+          "
+        >
+          <h1 style="font-size: 200; margin-bottom: 3px; color: #000">Pesto</h1>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 0px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            a vibrant, herbaceous pizza
+          </h4>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 5px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            basil pesto as a base topped with mozzarella,
+          </h4>
+          <h4
+            style="
+              margin-top: 0px;
+              margin-bottom: 5px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            parmesan, cherry tomatoes, chicken, and ricotta
+          </h4>
+          <div style="margin-top: 8px">
+            <button class="btn">ORDER NOW</button>
+            <button class="mnb">SIZE</button>
+          </div>
+          <img
+            style="height: 200px; width: 220px; margin-top: 10px"
+            src="https://png.pngtree.com/png-clipart/20240323/original/pngtree-baked-frozen-pizza-with-cheese-and-pesto-png-image_14666658.png"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-evenly">
+        <div
+          style="
+            width: 420px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #5f2484;
+            flex-direction: column;
+            border-radius: 20px;
+          "
+        >
+          <h1 style="font-size: 200; margin-bottom: 3px; color: #000">
+            Hawaiian
+          </h1>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 15px;
+              font-weight: normal;
+              font-size: small;
+              margin-bottom: 0;
+            "
+          >
+            a sweet and savory combination
+          </h4>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 15px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            of bacon and pineapple chunks
+          </h4>
+          <div>
+            <button class="btn">ORDER NOW</button>
+            <button class="mnb">SIZE</button>
+          </div>
+          <img
+            style="height: 240px; width: 240px"
+            src="https://media.istockphoto.com/id/479293070/photo/pizza.jpg?s=612x612&w=0&k=20&c=6_FFHbieV8R1VPc7fehj5K6s3vlPt15xk6MeN6rSN_E="
+            alt=""
+          />
+        </div>
+
+        <div
+          style="
+            width: 420px;
+            height: 400px;
+            flex-direction: row;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #5f2484;
+
+            border-radius: 20px;
+          "
+        >
+          <h1 style="font-size: 200; margin-bottom: 3px; color: #000">
+            Veggie
+          </h1>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 0px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            a colorful mix of sliced vegetables
+          </h4>
+          <h4
+            style="
+              margin-bottom: 5px;
+              font-weight: normal;
+              font-size: small;
+              margin-top: 5px;
+            "
+          >
+            with marinara sauce, mozzarella cheese and butter
+          </h4>
+
+          <img
+            style="
+              width: 220px;
+              height: 220px;
+              margin-top: 0;
+              margin-bottom: 10px;
+            "
+            src="https://media.istockphoto.com/id/183273214/photo/pizza-from-the-top-vegetarian.jpg?s=612x612&w=0&k=20&c=AxcvTizCRPsPN3KsKq8GvAD7o6zUHBEDdJMOin0V31c="
+            alt=""
+          />
+
+          <div>
+            <button class="btn">ORDER NOW</button>
+            <button class="mnb">SIZE</button>
+          </div>
+        </div>
+
+        <div
+          style="
+            width: 420px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #5f2484;
+            flex-direction: column;
+            border-radius: 20px;
+          "
+        >
+          <h1 style="font-size: 200; margin-bottom: 3px; color: #000">
+            Mushroom Lovers
+          </h1>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 0px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            a classic, savory dish that pairs earthy mushrooms
+          </h4>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 5px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            with melted mozzarella, fontina and
+          </h4>
+          <h4
+            style="
+              margin-top: 0px;
+              margin-bottom: 5px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            taleggio on a crispy crust
+          </h4>
+          <div style="margin-top: 8px; margin-bottom: 0px">
+            <button class="btn">ORDER NOW</button>
+            <button class="mnb">SIZE</button>
+          </div>
+          <img
+            style="
+              height: 240px;
+              width: 260px;
+              margin-top: 0px;
+              margin-bottom: 5px;
+            "
+            src="https://static.vecteezy.com/system/resources/previews/060/465/942/non_2x/overhead-view-of-a-mushroom-pizza-with-cheese-and-a-golden-crust-on-a-transparent-background-isolated-png.png"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-evenly">
+        <div
+          style="
+            width: 420px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #5f2484;
+            flex-direction: column;
+            border-radius: 20px;
+          "
+        >
+          <h1 style="font-size: 200; margin-bottom: 3px; color: #000">
+            Buffalo chicken
+          </h1>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 15px;
+              font-weight: normal;
+              font-size: small;
+              margin-bottom: 0;
+            "
+          >
+            a savory pie with chicken tossed in buffalo
+          </h4>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 15px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            sauce, topped with mozzarella, and ranch dressing
+          </h4>
+          <div>
+            <button class="btn">ORDER NOW</button>
+            <button class="mnb">SIZE</button>
+          </div>
+          <img
+            style="height: 220px; width: 220px"
+            src="https://static.vecteezy.com/system/resources/thumbnails/052/644/642/small_2x/delicious-buffalo-chicken-pizza-for-casual-dining-or-events-on-transparent-background-png.png"
+            alt=""
+          />
+        </div>
+
+        <div
+          style="
+            width: 420px;
+            height: 400px;
+            flex-direction: row;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #5f2484;
+            border-radius: 20px;
+          "
+        >
+          <h1 style="font-size: 200; margin-bottom: 3px; color: #000">
+            Choco Pizza
+          </h1>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 0px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            a large shareable dessert
+          </h4>
+          <h4
+            style="
+              margin-bottom: 5px;
+              font-weight: normal;
+              font-size: small;
+              margin-top: 5px;
+            "
+          >
+            topped with buttercream, nutella,
+          </h4>
+          <h4
+            style="
+              margin-top: 0;
+              margin-bottom: 10px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            chocolate chips, and strawberries.
+          </h4>
+          <img
+            style="
+              width: 200px;
+              height: 200px;
+              margin-top: 0;
+              margin-bottom: 10px;
+            "
+            src="https://t4.ftcdn.net/jpg/08/65/14/55/360_F_865145556_l2JImx8vRwwQ54wyD7YoOzZTbunHaASs.jpg"
+            alt=""
+          />
+
+          <div>
+            <button class="btn">ORDER NOW</button>
+            <button class="mnb">SIZE</button>
+          </div>
+        </div>
+
+        <div
+          style="
+            width: 420px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #5f2484;
+            flex-direction: column;
+            border-radius: 20px;
+            margin-bottom: 130px;
+          "
+        >
+          <h1 style="font-size: 200; margin-bottom: 3px; color: #000">
+            Fruit Pizza
+          </h1>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 0px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            a colorful dessert topped with a creamy,
+          </h4>
+          <h4
+            style="
+              margin-top: 5px;
+              margin-bottom: 5px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            sweetened cream cheese frosting
+          </h4>
+          <h4
+            style="
+              margin-top: 0px;
+              margin-bottom: 5px;
+              font-weight: normal;
+              font-size: small;
+            "
+          >
+            and a vibrant arrangement of fresh fruits
+          </h4>
+          <div style="margin-top: 8px; margin-bottom: 0px">
+            <button class="btn">ORDER NOW</button>
+            <button class="mnb">SIZE</button>
+          </div>
+          <img
+            style="height: 220px; width: 220px; margin-top: 0px"
+            src="https://img.freepik.com/premium-photo/tasty-italian-classic-original-pepperoni-pizza-top-view-isolated-white_650227-179.jpg"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <footer
+      style="
+        display: flex;
+        flex-direction: column;
+
+        background-color: rgb(0, 0, 0);
+      "
+    >
+      <div class="content">
+        <div class="top">
+          <div class="logo-details">
+            <i class="fab fa-slack"></i>
+            <span class="logo_name"></span>
+          </div>
+          <div style="display: flex; flex-direction: column">
+            <div class="media-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div
+            class="link-boxes"
+            style="
+              display: flex;
+              justify-content: space-evenly;
+              margin-top: 20px;
+            "
+          >
+            <ul style="color: rgb(255, 255, 255)" class="box">
+              <li style="color: rgb(255, 255, 255)" class="link_name">
+                Company
+              </li>
+              <li><a style="color: white" href="#">Home</a></li>
+              <li><a style="color: white" href="#">Contact us</a></li>
+              <li><a style="color: white" href="#">About us</a></li>
+              <li><a style="color: white" href="#">Get started</a></li>
+            </ul>
+            <ul style="color: white" class="box">
+              <li class="link_name">Services</li>
+              <li><a style="color: white" href="#">App design</a></li>
+              <li><a style="color: white" href="#">Web design</a></li>
+              <li><a style="color: white" href="#">Logo design</a></li>
+              <li><a style="color: white" href="#">Banner design</a></li>
+            </ul>
+            <ul style="color: white" class="box">
+              <li style="color: white" class="link_name">Account</li>
+              <li><a style="color: white" href="#">Profile</a></li>
+              <li><a style="color: white" href="#">My account</a></li>
+              <li><a style="color: white" href="#">Prefrences</a></li>
+              <li><a style="color: white" href="#">Purchase</a></li>
+            </ul>
+            <ul style="color: white" class="box">
+              <li style="color: white" class="link_name">Courses</li>
+              <li><a style="color: white" href="#">HTML & CSS</a></li>
+              <li><a style="color: white" href="#">JavaScript</a></li>
+              <li><a style="color: white" href="#">Photography</a></li>
+              <li><a style="color: white" href="#">Photoshop</a></li>
+            </ul>
+            <ul>
+              <li style="margin-top: 20px; margin-bottom: 20px">
+                <input type="text" placeholder="Enter your email" />
+              </li>
+              <li
+                style="
+                  color: rgb(255, 255, 255);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <input
+                  style="color: rgb(0, 0, 0)"
+                  type="button"
+                  value="Subscribe"
+                />
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="bottom-details">
+          <div
+            style="display: flex; align-items: center; justify-content: center"
+            class="bottom_text"
+          >
+            <span
+              style="color: white; margin-bottom: 40px; margin-top: 30px"
+              class="copyright_text"
+              >Copyright ©2026 <a style="color: azure" href="#">Lions</a> All
+              rights reserved</span
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

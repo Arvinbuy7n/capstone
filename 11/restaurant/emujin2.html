@@ -1,0 +1,302 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desserts Menu</title>
+
+    <!-- ✅ ADDED: Google Fonts import so Tangerine actually loads -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .tangerine-regular {
+        font-family: "Tangerine", cursive;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .tangerine-bold {
+        font-family: "Tangerine", cursive;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: rgba(4, 7, 31, 0.849);
+        color: #e1e1ecec;
+        background-image: url(https://static.vecteezy.com/system/resources/previews/001/308/660/large_2x/chocolate-desserts-on-a-dark-background-free-photo.jpeg);
+        height: 100vh;
+        width: 100vw;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      header {
+        background: #0303053a;
+        color: rgb(240, 240, 245);
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      header h1 {
+        margin: 0;
+        /* ✅ FIXED: was "font: size 45px" which is invalid — corrected to font-size */
+        font-size: 45px;
+        font-family: "Tangerine", cursive;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      header p {
+        margin-top: 10px;
+        font-family: "Tangerine", cursive;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      .menu-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+        padding: 40px;
+      }
+
+      .dessert-card {
+        background: rgba(50, 47, 47, 0.596);
+        width: 300px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+        transition: transform 0.2s;
+        /* ✅ ADDED: position relative so the badge can anchor to the card */
+        position: relative;
+      }
+
+      .dessert-card:hover {
+        transform: scale(1.05);
+      }
+
+      .dessert-image {
+        width: 150%;
+        height: 250px;
+        object-fit: cover;
+      }
+
+      .dessert-content {
+        padding: 20px;
+      }
+
+      .dessert-name {
+        /* ✅ FIXED: was "font: size 21px" which is invalid */
+        font-size: 21px;
+        margin-bottom: 10px;
+        font-family: "Tangerine", cursive;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .dessert-description {
+        font-size: 15px;
+        line-height: 21px;
+        font-family: "Tangerine", cursive;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .dessert-price {
+        margin-top: 15px;
+        font-weight: bold;
+        color: #d8d3d3;
+        font-family: "Tangerine", cursive;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      /* ✅ ADDED: Chef's Pick badge — follows the card's dark/warm palette */
+      .badge-chef {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        background: rgba(53, 34, 8, 0.557);
+        color: #fff8ee;
+        font-family: "Tangerine", cursive;
+        font-weight: 700;
+        font-size: 18px;
+        padding: 3px 12px;
+        border-radius: 20px;
+        letter-spacing: 0.5px;
+        pointer-events: none;
+      }
+
+      /* ✅ ADDED: "Add to Order" button — styled to match the dark, elegant feel */
+      .order-btn {
+        display: block;
+        width: 100%;
+        margin-top: 18px;
+        padding: 9px 0;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        color: #d8d3d3;
+        font-family: "Tangerine", cursive;
+        font-weight: 700;
+        font-size: 20px;
+        cursor: pointer;
+        letter-spacing: 0.5px;
+        transition: background 0.2s, color 0.2s;
+        box-sizing: border-box;
+      }
+
+      .order-btn:hover {
+        background: rgba(255, 255, 255, 0.16);
+        color: #fff;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        background: #fffefe;
+        color: rgb(252, 251, 251);
+        font-family: "Tangerine", cursive;
+        font-weight: 700;
+        font-style: normal;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Desserts Menu</h1>
+      <p>Classic Italian desserts</p>
+    </header>
+
+    <div class="menu-container">
+
+      <!-- ✅ ADDED: alt text on all images for accessibility -->
+
+      <div class="dessert-card">
+        <span class="badge-chef">Chef's Pick</span>
+        <img
+          class="dessert-image"
+          src="https://img.freepik.com/premium-photo/dark-food-photography-desserts-table_245570-2558.jpg"
+          alt="Tiramisu"
+        />
+        <div class="dessert-content">
+          <div class="dessert-name">Tiramisu</div>
+          <div class="dessert-description">
+            A classic Italian dessert made with espresso-soaked ladyfingers,
+            mascarpone cream, and cocoa powder. Rich, creamy, and perfectly
+            balanced.
+          </div>
+          <div class="dessert-price">$15</div>
+          <button class="order-btn">Add to Order</button>
+        </div>
+      </div>
+
+      <div class="dessert-card">
+        <img
+          class="dessert-image"
+          src="https://img.freepik.com/premium-photo/delicious-cheesecake-dessert-dark-background_826582-349.jpg"
+          alt="Cheese Cake"
+        />
+        <div class="dessert-content">
+          <div class="dessert-name">Cheese cake</div>
+          <div class="dessert-description">
+            A classic dessert made with a creamy cream cheese filling on a
+            buttery biscuit crust. Smooth, rich, and perfectly indulgent.
+          </div>
+          <div class="dessert-price">$16</div>
+          <button class="order-btn">Add to Order</button>
+        </div>
+      </div>
+
+      <div class="dessert-card">
+        <img
+          class="dessert-image"
+          src="https://img.freepik.com/premium-photo/assortment-gourmet-desserts-dark-background_777078-123971.jpg"
+          alt="Gelato"
+        />
+        <div class="dessert-content">
+          <div class="dessert-name">Gelato</div>
+          <div class="dessert-description">
+            Mango Ice Cream A tropical ice cream made with ripe mangoes and
+            fresh cream.
+          </div>
+          <div class="dessert-price">$10</div>
+          <button class="order-btn">Add to Order</button>
+        </div>
+      </div>
+
+      <div class="dessert-card">
+        <span class="badge-chef">Chef's Pick</span>
+        <img
+          class="dessert-image"
+          src="https://wallpapercrafter.com/desktop/145-cake-dessert-strawberry-spoon-dark-4k.jpg"
+          alt="Sfogliatella"
+        />
+        <div class="dessert-content">
+          <div class="dessert-name">Sfogliatella</div>
+          <div class="dessert-description">
+            Classic Italian pastry originating from Naples, known for its
+            distinctive shell-like shape and delicate, flaky layers.
+          </div>
+          <div class="dessert-price">$11</div>
+          <button class="order-btn">Add to Order</button>
+        </div>
+      </div>
+
+      <!-- ✅ ADDED: Two new dessert cards following the exact same structure -->
+
+      <div class="dessert-card">
+        <img
+          class="dessert-image"
+          src="https://media.istockphoto.com/id/1177532123/photo/italian-cannoli-pastry.jpg?s=612x612&w=0&k=20&c=IocU-UHroG2IqEdKiWXR06mFHuuTNlHAuuUUrQ2xO-w="
+          alt="Cannoli"
+        />
+        <div class="dessert-content">
+          <div class="dessert-name">Cannoli</div>
+          <div class="dessert-description">
+            Crispy Sicilian pastry shells filled with sweet ricotta cream,
+            dotted with chocolate chips. A beloved Italian street classic.
+          </div>
+          <div class="dessert-price">$12</div>
+          <button class="order-btn">Add to Order</button>
+        </div>
+      </div>
+
+      <div class="dessert-card">
+        <img
+          class="dessert-image"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTQ-9KSI8YIRkWdvfrIkwZ08p1QTpR_ao4EQ&s"
+          alt="Panna Cotta"
+        />
+        <div class="dessert-content">
+          <div class="dessert-name">Panna Cotta</div>
+          <div class="dessert-description">
+            Silky Italian cooked cream set to a gentle wobble, served with a
+            glossy berry coulis. Delicate, light, and utterly refined.
+          </div>
+          <div class="dessert-price">$13</div>
+          <button class="order-btn">Add to Order</button>
+        </div>
+      </div>
+
+    </div>
+
+    <footer style="background-color: rgba(209, 196, 255, 0)">
+      <p style="color: rgb(228, 223, 223)">
+        End your dining experience with a touch of Italian sweetness—crafted
+        with tradition and passion.
+      </p>
+    </footer>
+  </body>
+</html>

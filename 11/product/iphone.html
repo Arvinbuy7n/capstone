@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Fashion</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HEADER */
+
+header{
+    background:white;
+    border-bottom:1px solid #ddd;
+}
+
+/* LOGO */
+
+.logo{
+    text-align:center;
+    font-size:32px;
+    letter-spacing:6px;
+    font-weight:bold;
+    padding:20px;
+}
+
+/* NAVIGATION */
+
+nav{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    padding-bottom:10px;
+}
+
+nav ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+nav li{
+    position:relative;
+    display:inline-block;
+}
+
+nav a{
+    text-decoration:none;
+    color:black;
+    padding:10px;
+    font-size:14px;
+}
+
+/* DROPDOWN */
+
+.dropdown{
+    display:none;
+    position:absolute;
+    top:35px;
+    left:0;
+    background:white;
+    border:1px solid #ddd;
+    width:180px;
+}
+
+.dropdown a{
+    display:block;
+    padding:10px;
+}
+
+.dropdown a:hover{
+    background:#f4f4f4;
+}
+
+/* SHOW DROPDOWN */
+
+nav li:hover .dropdown{
+    display:block;
+}
+
+/* HERO SECTION */
+
+.hero{
+    position:relative;
+}
+
+.hero img{
+    width:100%;
+    height:600px;
+    object-fit:cover;
+}
+
+/* HERO TEXT */
+
+.hero-text{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:white;
+    text-align:center;
+}
+
+.hero-text h1{
+    font-size:45px;
+    letter-spacing:4px;
+}
+
+.hero-text button{
+    padding:12px 25px;
+    border:none;
+    background:white;
+    cursor:pointer;
+}
+
+/* INFO SECTION */
+
+.section{
+    padding:60px;
+    text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">LUXE</div>
+
+<nav>
+<ul>
+
+<li>
+<a href="#">Fashion</a>
+<div class="dropdown">
+<a href="#">New Arrivals</a>
+<a href="#">Dresses</a>
+<a href="#">Jackets</a>
+<a href="#">Shoes</a>
+</div>
+</li>
+
+<li>
+<a href="#">Jewelry</a>
+<div class="dropdown">
+<a href="#">Necklaces</a>
+<a href="#">Bracelets</a>
+<a href="#">Rings</a>
+</div>
+</li>
+
+<li>
+<a href="#">Watches</a>
+<div class="dropdown">
+<a href="#">Luxury Watches</a>
+<a href="#">Classic Watches</a>
+</div>
+</li>
+
+<li>
+<a href="#">Fragrance</a>
+<div class="dropdown">
+<a href="#">Women</a>
+<a href="#">Men</a>
+</div>
+</li>
+
+<li>
+<a href="#">Makeup</a>
+<div class="dropdown">
+<a href="#">Lipstick</a>
+<a href="#">Foundation</a>
+<a href="#">Mascara</a>
+</div>
+</li>
+
+<li>
+<a href="#">Skincare</a>
+<div class="dropdown">
+<a href="#">Moisturizer</a>
+<a href="#">Serum</a>
+<a href="#">Cleanser</a>
+</div>
+</li>
+
+</ul>
+</nav>
+
+</header>
+
+<!-- HERO IMAGE -->
+
+<section class="hero">
+
+<img src="https://images.unsplash.com/photo-1520975922284-5f00a21c2a4b">
+
+<div class="hero-text">
+<h1>FALL WINTER 2026 SHOW</h1>
+<button>SEE MORE</button>
+</div>
+
+</section>
+
+<!-- INFO SECTION -->
+
+<section class="section">
+<h2>Luxury Fashion Collection</h2>
+<p>
+Discover the latest fashion, jewelry, watches, and beauty collections.
+Designed with elegance, inspired by modern style.
+</p>
+</section>
+
+</body>
+</html>

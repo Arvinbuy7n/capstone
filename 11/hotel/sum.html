@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Riverside Osaka Hotel</title>
+    <style>
+        /* Updated body to stack the nav and the content vertically */
+        body {
+            margin: 0;
+            background-image: url(https://konjakuso.jp/cp-bin/wordpress5/wp-content/uploads/2024/12/osaka_port_370.jpg);
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif; 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* New wrapper to keep the card perfectly centered in the remaining space */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: rgb(236, 180, 95);
+            padding: 30px;
+            border-radius: 15px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.2); 
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #bd9e72;
+            border-radius: 5px;
+            box-sizing: border-box; 
+        }
+
+        button {
+            width: 100%; 
+            background-color: #eb7e36; 
+            color: white; 
+            padding: 12px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+        }
+
+        .info { 
+            margin-top: 20px; 
+            font-size: 14px; 
+            color: #555; 
+            line-height: 1.6; 
+        }
+    </style>
+</head>
+<body>
+
+    <nav style="position:sticky;top:0;background:#000;z-index:100;padding:0 40px;display:flex;gap:32px;align-items:center;">
+        <a href="hotel.html" style="color:#fff;text-decoration:none;padding:18px 0;font-family:sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;">Home Page</a>
+        <a href="about.HTML" style="color:#fff;text-decoration:none;padding:18px 0;font-family:sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;">About</a>
+        <a href="yalla.HTML" style="color:#fff;text-decoration:none;padding:18px 0;font-family:sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;">Contact</a>
+        <a href="erkhes.HTML" style="color:#fff;text-decoration:none;padding:18px 0;font-family:sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;">Rooms&Service</a>
+        <a href="sum.html" style="color:#fff;text-decoration:none;padding:18px 0;font-family:sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;">Book Now</a>
+        <select style="margin-left:auto;background:#000;color:#fff;border:1px solid #444;font-family:sans-serif;font-size:13px;padding:6px 10px;cursor:pointer;">
+            <option>EN</option>
+            <option>JP</option>
+            <option>DE</option>
+            <option>KO</option>
+        </select>
+    </nav>
+
+    <div class="content-wrapper">
+        <div class="card">
+            <h1>Osaka Riverside Hotel</h1>
+            <p>リバーサイド大阪ホテル</p>
+
+            <form>
+                <input type="text" placeholder="Name">
+                <input type="date">
+                <select>
+                    <option>king size</option>
+                    <option>queen size</option>
+                </select>
+                <button type="submit">Book now</button>
+            </form>
+
+            <div class="info">
+                <hr>
+                <p>3.14159269</p>
+                <p>hotelriverside@gmail.com</p>
+                <p>next to the trainstation</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KingHotel - Simple Booking Site</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: whitesmoke;
+        padding: 0 20px;
+      }
+      nav {
+        display: flex;
+        gap: 20px;
+        font-size: 20px;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .right-section {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+      }
+      button {
+        color: black;
+        background-color: white;
+        border-radius: 2px;
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+      }
+      img {
+        border: 2px solid #333;
+        border-radius: 5px;
+      }
+      main {
+        padding: 20px;
+      }
+      .map {
+        margin: 20px auto;
+        max-width: 600px;
+      }
+      .features {
+        background-image: url("https://m.ahstatic.com/is/image/accorhotels/HCM_P_1319575:16by9?fmt=webp&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=793&hei=446&qlt=80");
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+      }
+
+      .about {
+        padding: 40px;
+        background-color: #f4f4f4;
+        text-align: center;
+      }
+      .about h2 {
+        color: #333;
+      }
+      .about p {
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+      footer ul {
+        list-style: none;
+        padding: 0;
+      }
+      footer li {
+        display: inline;
+        margin: 0 10px;
+      }
+      footer a {
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+  <header>
+    <h1><a href="Bookings.html" style="text-decoration:none;color:inherit;">KingHotel.com</a></h1>
+    <nav>
+      <a href="Bookings.html">Bookings</a>
+      <a href="Info.html">Info</a>
+      <a href="Attraction.html">Attraction</a>
+      <a href="Location.html">Location</a>
+      <a href="Checkout.html">Checkout</a>
+    </nav>
+    <div class="right-section">
+      <p>MNT</p>
+      <img
+        src="https://t3.ftcdn.net/jpg/11/91/83/34/360_F_1191833439_sBXI6p9sKU6Y8gVpObtRy8VCdjRpS6hQ.jpg"
+        alt="Mongolian Flag"
+        width="30"
+        height="20"
+      />
+      <button style="border-radius: 99px; background-color: black; color: white">Register</button>
+      <button style="border-radius: 99px; background-color: black; color: white">Sign in</button>
+    </div>
+  </header>
+    <main>
+      <section class="map">
+        <h2>Our Location</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2673.700941842927!2d106.84419986606142!3d47.922823730841685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9f510075f9dfc1%3A0x3e533505895efd78!2sSabubu%20lex!5e0!3m2!1smn!2smn!4v1774236191884!5m2!1smn!2smn"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
+      </section>
+
+      <section class="features">
+        <h2>Explore Amazing Places</h2>
+      </section>
+
+      <section class="about">
+        <h2>About KingHotel</h2>
+        <p>
+          KingHotel is your go-to place for booking the best hotels around the
+          world. We offer comfortable stays, great prices, and easy booking.
+          Whether you're traveling for business or pleasure, we have something
+          for everyone.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>2023 KingHotel. All rights reserved.</p>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: whitesmoke;
+        padding: 0 20px;
+      }
+      nav {
+        display: flex;
+        gap: 20px;
+        font-size: 20px;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .right-section {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+      }
+      button {
+        color: black;
+        background-color: white;
+        border-radius: 2px;
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+      }
+      img {
+        border: 2px solid #333;
+        border-radius: 5px;
+      }
+      main {
+        padding: 20px;
+      }
+      .map {
+        margin: 20px auto;
+        max-width: 600px;
+      }
+      .features {
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+      }
+      .about {
+        padding: 40px;
+        background-color: #f4f4f4;
+        text-align: center;
+      }
+      .about h2 {
+        color: #333;
+      }
+      .about p {
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+      footer ul {
+        list-style: none;
+        padding: 0;
+      }
+      footer li {
+        display: inline;
+        margin: 0 10px;
+      }
+      footer a {
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <a href="Bookings.html" style="text-decoration: none; color: inherit"
+          >KingHotel.com</a
+        >
+      </h1>
+      <nav>
+        <a href="Bookings.html">Bookings</a>
+        <a href="Info.html">Info</a>
+        <a href="Attraction.html">Attraction</a>
+        <a href="Location.html">Location</a>
+        <a href="Checkout.html">Checkout</a>
+      </nav>
+      <div class="right-section">
+        <p>MNT</p>
+        <img
+          src="https://t3.ftcdn.net/jpg/11/91/83/34/360_F_1191833439_sBXI6p9sKU6Y8gVpObtRy8VCdjRpS6hQ.jpg"
+          alt="Mongolian Flag"
+          width="30"
+          height="20"
+        />
+        <button
+          style="border-radius: 99px; background-color: black; color: white"
+        >
+          Register
+        </button>
+        <button
+          style="border-radius: 99px; background-color: black; color: white"
+        >
+          Sign in
+        </button>
+      </div>
+    </header>
+
+    <h1>Deals for the weekend</h1>
+    <p>Save on stays for May 22-May 24</p>
+    <div style="display: flex; gap: 30px">
+      <div style="display: flex; margin-left: 50px; margin-bottom: 50px">
+        <div
+          style="
+            border: solid 1px gray;
+            border-radius: 10px;
+            width: 300px;
+            padding: 15px;
+          "
+        >
+          <img
+            src="https://hoteldesigns.net/wp-content/uploads/2020/01/SB-Architects_Conrad-Playa-Mita_Terrace.jpg"
+            alt=""
+            style="width: 100%; height: 200px; border-radius: 11px"
+          />
+          <h1 style="margin: 0; font-size: 24px; margin-top: 15px">
+            Best Western Premier Tuushin hotel
+          </h1>
+          <p>Ulaanbaatar , Mongolia</p>
+          <p style="margin: 5px">Very Good</p>
+          <p style="margin: 5px">726 reviews</p>
+          <h3>MNT 1,355,676</h3>
+        </div>
+      </div>
+      <div style="display: flex; margin-left: 50px; margin-bottom: 50px">
+        <div
+          style="
+            border: solid 1px gray;
+            border-radius: 10px;
+            width: 300px;
+            padding: 15px;
+          "
+        >
+          <img
+            src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/571055900.jpg?k=83d9eb1b259ca9ae1de98dc84476db550a73d431425051ccaf01bb0d97cb93dd&o="
+            alt=""
+            style="width: 100%; height: 200px; border-radius: 11px"
+          />
+          <h1 style="margin: 0; font-size: 24px; margin-top: 15px">
+            Tanan Center Serviced Apartments
+          </h1>
+          <p>Ulaanbaatar , Mongolia</p>
+          <p style="margin: 5px">Wonderful</p>
+          <p style="margin: 5px">149 reviews</p>
+          <h3>MNT 429,966</h3>
+        </div>
+      </div>
+      <div style="display: flex; margin-left: 50px; margin-bottom: 50px">
+        <div
+          style="
+            border: solid 1px gray;
+            border-radius: 10px;
+            width: 300px;
+            padding: 15px;
+          "
+        >
+          <img
+            src="https://www.wyndhamhotels.com/content/dam/property-images/en-us/ra/in/others/new-delhi/47921/47921_exterior_view_2.jpg"
+            alt=""
+            style="width: 100%; height: 200px; border-radius: 11px"
+          />
+          <h1 style="margin: 0; font-size: 24px; margin-top: 15px">
+            Ramanda Ulaanbaatar City Hotel
+          </h1>
+          <p>Ulaanbaatar , Mongolia</p>
+          <p style="margin: 5px">Very Good</p>
+          <p style="margin: 5px">324 reviews</p>
+          <h3>MNT 902,161</h3>
+        </div>
+      </div>
+
+      <div style="display: flex; margin-left: 50px; margin-bottom: 50px">
+        <div
+          style="
+            border: solid 1px gray;
+            border-radius: 10px;
+            width: 300px;
+            padding: 15px;
+          "
+        >
+          <img
+            src="https://omrania.com/wp-content/uploads/Omrania-Hilton-Riyadh-Hotel-Residences-Saudi-Arabia-KSA-RUHCHHI0474.jpg"
+            alt=""
+            style="width: 100%; height: 200px; border-radius: 11px"
+          />
+          <h1 style="margin: 0; font-size: 24px; margin-top: 15px">
+            Danista Nomads Tour Hostel
+          </h1>
+          <p>Ulaanbaatar , Mongolia</p>
+          <p style="margin: 5px">Wonderful</p>
+          <p style="margin: 5px">634 reviews</p>
+          <h3>MNT 234,562</h3>
+        </div>
+      </div>
+      <div style="display: flex; margin-left: 50px; margin-bottom: 50px">
+        <div
+          style="
+            border: solid 1px gray;
+            border-radius: 10px;
+            width: 300px;
+            padding: 15px;
+          "
+        >
+          <img
+            src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/863822705.jpg?k=fb319c7d9e36deec1a8f2a70f74f667592424266e5b47e5f29e6df64985b3b15&o="
+            alt=""
+            style="width: 100%; height: 200px; border-radius: 11px"
+          />
+          <h1 style="margin: 0; font-size: 24px; margin-top: 15px">
+            Kempinski Hotel Khan Palace Ulaanbaatar
+          </h1>
+          <p>Ulaanbaatar , Mongolia</p>
+          <p style="margin: 5px">Wonderful</p>
+          <p style="margin: 5px">230 reviews</p>
+          <h3>MNT 376,568</h3>
+        </div>
+      </div>
+    </div>
+
+    <h1>Browse by property type</h1>
+    <div style="display: flex; margin-left: 30px; margin-bottom: 30px">
+      <div style="width: 410px; height: 300px; margin-left: 30px">
+        <div
+          style="
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO1HO_ZeXM6adj81Bk6NDZDjS8UsUl6UvT625eO_Q&s=0);
+            width: 410px;
+            height: 250px;
+            background-size: cover;
+
+            border-radius: 10px;
+          "
+        ></div>
+        <h1>Hotels</h1>
+      </div>
+
+      <div style="width: 410px; height: 300px; margin-left: 30px">
+        <div
+          style="
+            background-image: url(https://images.ctfassets.net/pg6xj64qk0kh/2r4QaBLvhQFH1mPGljSdR9/39b737d93854060282f6b4a9b9893202/camden-paces-apartments-buckhead-ga-terraces-living-room-with-den_1.jpg?w=960);
+            width: 410px;
+            height: 250px;
+            background-size: cover;
+
+            border-radius: 10px;
+          "
+        ></div>
+        <h1>Apartments</h1>
+      </div>
+      <div style="width: 410px; height: 300px; margin-left: 30px">
+        <div
+          style="
+            background-image: url(https://media-cdn.tripadvisor.com/media/photo-s/25/56/6b/bf/coorg-wilderness-resort.jpg);
+            width: 410px;
+            height: 250px;
+            background-size: cover;
+
+            border-radius: 10px;
+          "
+        ></div>
+        <h1>Resorts</h1>
+      </div>
+      <div style="width: 410px; height: 300px; margin-left: 30px">
+        <div
+          style="
+            background-image: url(https://plus.unsplash.com/premium_photo-1682377521753-58d1fd9fa5ce?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dmlsbGFzfGVufDB8fDB8fHww);
+            width: 410px;
+            height: 250px;
+            background-size: cover;
+
+            border-radius: 10px;
+          "
+        ></div>
+        <h1>Villas</h1>
+      </div>
+    </div>
+
+    <h1>Trending destinations</h1>
+    <p>Most popular choices for travelers from Mongolia</p>
+
+    <div style="display: flex; margin-left: 30px; margin-bottom: 30px">
+      <div
+        style="
+          background-image: url(https://www.advantour.com/img/japan/images/tokyo.jpg);
+          width: 910px;
+          height: 410px;
+          margin-left: 40px;
+          border-radius: 10px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          display: flex;
+          justify-content: end;
+          align-items: start;
+          flex-direction: column;
+        "
+      >
+        <p style="color: white; font-size: 25px; margin: 0px">Tokyo</p>
+      </div>
+
+      <div
+        style="
+          background-image: url(https://t4.ftcdn.net/jpg/02/58/00/87/360_F_258008704_rtbLWxLBUfMsryzYHEh7pfRkwEspn9XV.jpg);
+          width: 910px;
+          height: 410px;
+          margin-left: 40px;
+          border-radius: 10px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          display: flex;
+          justify-content: end;
+          align-items: start;
+          flex-direction: column;
+        "
+      >
+        <p style="color: white; font-size: 25px; margin: 0px">Seoul</p>
+      </div>
+      <div></div>
+    </div>
+    <div style="display: flex; margin-left: 30px">
+      <div
+        style="
+          background-image: url(https://media-cdn.tripadvisor.com/media/photo-s/1c/d4/fd/92/the-city-of-ulaanbaatar.jpg);
+          width: 550px;
+          height: 300px;
+          margin-left: 40px;
+          border-radius: 10px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          display: flex;
+          justify-content: end;
+          align-items: start;
+          flex-direction: column;
+        "
+      >
+        <p style="color: white; font-size: 25px; margin: 0px">Ulaanbaatar</p>
+      </div>
+      <div
+        style="
+          background-image: url(https://www.outlooktravelmag.com/media/vietnam-1-1611926800.profileImage.2x-jpg-webp.webp);
+          width: 550px;
+          height: 300px;
+          margin-left: 40px;
+          border-radius: 10px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          display: flex;
+          justify-content: end;
+          align-items: start;
+          flex-direction: column;
+        "
+      >
+        <p style="color: white; font-size: 25px; margin: 0px">Phu Quoc</p>
+      </div>
+      <div
+        style="
+          background-image: url(https://media.istockphoto.com/id/615705628/photo/frankfurt-am-main.jpg?s=612x612&w=0&k=20&c=f782uGET2mG7la3ofjCpfhgnmn-ZDwwHG67dq5NhRFs=);
+          width: 550px;
+          height: 300px;
+          margin-left: 40px;
+          border-radius: 10px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          display: flex;
+          justify-content: end;
+          align-items: start;
+          flex-direction: column;
+        "
+      >
+        <p style="color: white; font-size: 25px; margin: 0px">Frankfurt</p>
+      </div>
+    </div>
+
+    <h1>Travel more, spend less</h1>
+    <div
+      style="
+        border-radius: 15px;
+        background-color: white;
+        border: 1px solid black;
+        font-size: 25px;
+        width: fit-content;
+      "
+    >
+      <h3>Sign in, save money</h3>
+      <p>
+        Save 10% or more at participating properties – just look for the blue
+        Genius label
+      </p>
+      <button
+        style="
+          border: 5px blue solid;
+          border-radius: 10px;
+          background-color: blue;
+          color: white;
+          font-size: 17px;
+          width: fit-content;
+        "
+      >
+        Sign in
+      </button>
+      <button
+        style="
+          border: 5px white solid;
+          border-radius: 10px;
+          color: blue;
+          font-size: 17px;
+          width: fit-content;
+        "
+      >
+        Register
+      </button>
+    </div>
+    <h1>Popular with travelers from Mongolia</h1>
+    <div></div>
+
+    <div style="display: flex; gap: 30px">
+      <button
+        style="
+          border: 5px blue solid;
+          border-radius: 10px;
+          background-color: white;
+          color: blue;
+          font-size: 17px;
+          width: fit-content;
+        "
+      >
+        International cities
+      </button>
+      <h2>Countries</h2>
+      <h2>Places to stay</h2>
+    </div>
+    <div style="display: flex; gap: 30px">
+      <h3>Ankara hotels Turkey</h3>
+      <h3>Zhangjiajie hotels China</h3>
+      <h3>Shangri-la hotels Mongolia</h3>
+    </div>
+    <div>
+      <p>
+        Countries . Regions . Cities . Districts . Airpots . Hotels . Places of
+        interest . Vacation Homes . Apartments . Resorts . Villas . Hostels .
+        B&Bs . Guest Houses . Unique places to stay . All destinations . All
+        flight destinations . All car rental locations . All vacation
+        destinations . Guides . Discover . Discover monthly stays
+      </p>
+
+      <div
+        style="
+          display: flex;
+          justify-content: space-evenly;
+          background-color: rgb(239, 234, 234);
+          margin-top: 50px;
+        "
+      >
+        <div>
+          <h1>Support</h1>
+          <p>Manage your trips</p>
+          <p>Attractions help center</p>
+          <p>Safety Resource Center</p>
+        </div>
+
+        <div>
+          <h1>Discover</h1>
+          <p>Genius loyalty program</p>
+          <p>Seasonal and holiday deals</p>
+          <p>Travel articles</p>
+          <p>KingHotel.com for business</p>
+        </div>
+
+        <div>
+          <h1>Terms and Settings</h1>
+          <p>Privacy Notice</p>
+          <p>Terms of service</p>
+          <p>Accessibility Statement</p>
+          <p>Partner Dispute</p>
+          <p>Modern Slavery Statement</p>
+          <p>Human Rghts Statement</p>
+        </div>
+
+        <div>
+          <h1>Partners</h1>
+          <p>Extranet login</p>
+          <p>Partner help</p>
+          <p>List your property</p>
+          <p>Become an affiliate</p>
+        </div>
+
+        <div>
+          <h1>About KingHotel.com</h1>
+          <p>How We Work</p>
+          <p>Sustainability</p>
+          <p>Press center</p>
+          <p>Careers</p>
+          <p>Investor relations</p>
+          <p>Corporate contact</p>
+          <p>Contact guidelines and reporting</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

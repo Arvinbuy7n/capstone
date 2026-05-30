@@ -1,0 +1,542 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Italian Restaurant Drinks Menu</title>
+
+    <style>
+      .tangerine-regular {
+        font-family: "Tangerine", cursive;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .tangerine-bold {
+        font-family: "Tangerine", cursive;
+        font-weight: 700;
+        font-style: normal;
+      }
+      body {
+        font-family: Arial, sans-serif;
+
+        margin: 0;
+
+        background: #070707;
+        color: rgb(8, 0, 0);
+        background-image: url(https://png.pngtree.com/thumb_back/fw800/background/20251117/pngtree-elegant-and-modern-dark-themed-restaurant-interior-with-minimalist-decor-subtle-image_20333973.webp);
+        height: 100vh;
+        width: 100vw;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #692d2d;
+      }
+
+      header {
+        color: white;
+
+        text-align: center;
+
+        padding: 40px 20px;
+      }
+
+      header h1 {
+        margin: 0;
+
+        font: size 45px;
+      }
+
+      header p {
+        margin-top: 10px;
+      }
+
+      .menu-container {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 25px;
+
+        padding: 40px;
+      }
+
+      .drink-card {
+        background: rgba(37, 38, 54, 0);
+
+        width: 300px;
+
+        border-radius: 12px;
+
+        overflow: hidden;
+
+        box-shadow: 0 4px 12px rgb(12, 0, 0);
+
+        transition: transform 0.2s;
+      }
+
+      .drink-card:hover {
+        transform: scale(1.05);
+      }
+
+      .drink-image {
+        width: 100%;
+
+        height: 200px;
+
+        object-fit: cover;
+      }
+
+      .drink-content {
+        padding: 20px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 200px;
+      }
+
+      .drink-name {
+        font: size 21px;
+
+        margin-bottom: 10px;
+        font-family: "Tangerine", cursive;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .drink-description {
+        font-size: 15px;
+
+        line-height: 19px;
+        font-family: "Tangerine", cursive;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .drink-price {
+        margin-top: 15px;
+
+        font-weight: bold;
+
+        color: #8d5252;
+        font-family: "Tangerine", cursive;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      footer {
+        text-align: center;
+
+        padding: 20px;
+
+        color: white;
+        font-family: "Tangerine", cursive;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Italian Restaurant Appetizer Menu</h1>
+
+      <p>Classic Italian appetizers</p>
+    </header>
+
+    <div class="menu-container">
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://assets.epicurious.com/photos/5bc4da228b762a2d0a11dc63/1:1/w_2048%2Cc_limit/broccoli-and-garlic-ricotta-toasts-with-hot-honey-recipe-BA-101518.jpg"
+        />
+        <div
+          class="drink-content"
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          "
+        >
+          <div class="drink-name">
+            Broccoli and Garlic-Ricotta Toasts With Hot Honey
+          </div>
+
+          <div class="drink-description">
+            A light meal featuring roasted, charred broccoli florets and creamy,
+            garlic-infused ricotta on crusty bread.
+          </div>
+
+          <div class="drink-price">$13</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://assets.epicurious.com/photos/5b64a0b22aacad525f0f0983/1:1/w_2048%2Cc_limit/Oregano-Marinated-Tomato-Salad-01082018.jpg"
+        />
+
+        <div class="drink-content">
+          <div class="drink-name">Oregano-Marinated Tomato Salad</div>
+
+          <div class="drink-description">
+            A Mediterranean dish featuring ripe, sliced tomatoes (often
+            heirlooms) tossed in extra-virgin olive oil, salt, black pepper, and
+            fragrant oregano.
+          </div>
+
+          <div class="drink-price">$14</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://assets.epicurious.com/photos/5ad78635606edf380124bb14/1:1/w_2048%2Cc_limit/sea-bream-crudo-with-lemon-and-olives-recipe-BA-041818.jpg"
+        />
+
+        <div class="drink-content">
+          <div class="drink-name">Sea Bream Crudo with Lemon and Olives</div>
+
+          <div class="drink-description">
+            A raw fish dish featuring thinly sliced, mild-flavored sea bream
+            drizzled with high-quality olive oil and sharp lemon juice.
+          </div>
+
+          <div class="drink-price">$10</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://assets.epicurious.com/photos/5b3a9439cc69d03ee4abad92/1:1/w_2048%2Cc_limit/flatbread-caprese-recipe-HC-070218.jpg"
+        />
+
+        <div class="drink-content">
+          <div class="drink-name">Flatbread Caprese</div>
+
+          <div class="drink-description">
+            Crust topped with melted mozzarella cheese, fresh tomatoes, basil,
+            and a finishing drizzle of balsamic glaze.
+          </div>
+
+          <div class="drink-price">$11</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://assets.epicurious.com/photos/5de56a5a320765000847b407/1:1/w_2048%2Cc_limit/ClamsCasino_RECIPE_Props_112019_17252.jpg"
+        />
+
+        <div class="drink-content">
+          <div class="drink-name">Clams Casino With Bacon and Bell Pepper</div>
+
+          <div class="drink-description">
+            Baked littleneck clams on the half-shell, topped with a savory
+            mixture of crispy bacon, sautéed diced bell peppers (usually red),
+            garlic, breadcrumbs, and butter.
+          </div>
+
+          <div class="drink-price">$11</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://eatingeuropean.com/wp-content/uploads/2018/12/Pizzette-Garlic-Shrimp-Roasted-Peppers-Pesto-1.jpg"
+        />
+        <div class="drink-content">
+          <div class="drink-name">
+            Pizzette with Garlic Shrimp & Roasted Red Pepper Pesto
+          </div>
+
+          <div class="drink-description">
+            A sophisticated, appetizer-sized pizza featuring a smoky red pepper
+            pesto base topped with garlic-sautéed shrimp and a sprinkle of
+            smoked paprika.
+          </div>
+
+          <div class="drink-price">$20</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://themodernnonna.com/wp-content/uploads/2022/02/Garlic-Parmesan-Chicken-Wings-PNG.jpg"
+        />
+
+        <div class="drink-content">
+          <div class="drink-name">Garlic Parmesan Chicken Wings</div>
+
+          <div class="drink-description">
+            Crispy, cooked chicken wing segments coated in a savory sauce made
+            of melted butter, minced garlic, and grated Parmesan cheese.
+          </div>
+
+          <div class="drink-price">$17</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://wips.plug.it/cips/buonissimo.org/cms/2022/08/crespelle-alla-valdostana.jpg?w=713&a=c&h=407"
+        />
+
+        <div class="drink-content">
+          <div class="drink-name">Crespelle alla Valdostana</div>
+
+          <div class="drink-description">
+            Savory, thin pancakes (crespelle) filled with cooked ham and Fontina
+            cheese, covered in béchamel sauce.
+          </div>
+
+          <div class="drink-price">$19</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://simply-delicious-food.com/wp-content/uploads/2023/06/Fritto-Misto3.jpg"
+        />
+
+        <div class="drink-content">
+          <div class="drink-name">Fritto misto</div>
+
+          <div class="drink-description">
+            A dish consisting of various small pieces of seafood, meat, or
+            vegetables that are lightly floured or battered and deep-fried until
+            golden and crispy.
+          </div>
+
+          <div class="drink-price">$17</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://www.stefanofaita.com/wp-content/uploads/2024/10/Stefano-Faita_Polpette-melanzane-alla-Norma-1078x1350.jpg"
+        />
+
+        <div class="drink-content">
+          <div class="drink-name">Polpette</div>
+
+          <div class="drink-description">
+            Traditional Italian meatballs, made from a mix of ground meat (beef,
+            pork, or veal), breadcrumbs, eggs, cheese, and herbs.
+          </div>
+
+          <div class="drink-price">$21</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://www.cucchiaio.it/content/dam/cucchiaio/it/ricette/2009/11/ricetta-mozzarelline-fritte/mozzarelline-fritte-ante.jpg"
+        />
+        <div class="drink-content">
+          <div class="drink-name">Mozzarelline fritte</div>
+
+          <div class="drink-description">
+            Italian bite-sized mozzarella balls that are breaded and deep-fried
+            until golden and crispy.
+          </div>
+
+          <div class="drink-price">$12</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://www.buttalapasta.it/wp-content/uploads/2020/07/Cozze-alla-tarantina-31072023-buttalapasta.it_.jpg"
+        />
+
+        <div class="drink-content">
+          <div class="drink-name">Cozze alla Tarantina</div>
+
+          <div class="drink-description">
+            Fresh black mussels cooked in a spicy tomato and white wine sauce.
+          </div>
+
+          <div class="drink-price">$24</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://www.tasteatlas.com/images/dishes/89e445946d0b43ae9858b1b7610f59fb.jpg?mw=1300"
+        />
+
+        <div class="drink-content">
+          <div class="drink-name">Deviled Eggs</div>
+
+          <div class="drink-description">
+            Hard-boiled egg halves filled with a whipped, creamy yolk mixture
+            seasoned with mustard, mayonnaise, and vinegar
+          </div>
+
+          <div class="drink-price">$10</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://mangiarebene.s3.amazonaws.com/uploads/recipe/image/9881/mb_asset.jpg"
+        />
+
+        <div class="drink-content">
+          <div class="drink-name">Concia di zucchine</div>
+
+          <div class="drink-description">
+            Thinly sliced, deep-fried zucchini marinated in white wine vinegar,
+            garlic, and fresh herbs.
+          </div>
+
+          <div class="drink-price">$11</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbmp1L_2kfJRlyTSzy9BOVf_ZFAW9nA5wsbg&s"
+        />
+
+        <div class="drink-content">
+          <div class="drink-name">Clams Casino With Bacon and Bell Pepper</div>
+
+          <div class="drink-description">
+            Baked littleneck clams on the half-shell, topped with a savory
+            mixture of crispy bacon, sautéed diced bell peppers (usually red),
+            garlic, breadcrumbs, and butter.
+          </div>
+
+          <div class="drink-price">$11</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://www.cakenknife.com/wp-content/uploads/2025/07/prosciutto-wrapped-mozzarella-14-768x1151.jpg"
+        />
+        <div class="drink-content">
+          <div class="drink-name">
+            Broccoli and Garlic-Ricotta Toasts With Hot Honey
+          </div>
+
+          <div class="drink-description">
+            A light meal featuring roasted, charred broccoli florets and creamy,
+            garlic-infused ricotta on crusty bread.
+          </div>
+
+          <div class="drink-price">$13</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://www.theseasonedmom.com/wp-content/uploads/2021/08/italian-pinwheels-appetizers-17.jpg"
+        />
+
+        <div class="drink-content">
+          <div class="drink-name">Oregano-Marinated Tomato Salad</div>
+
+          <div class="drink-description">
+            A Mediterranean dish featuring ripe, sliced tomatoes (often
+            heirlooms) tossed in extra-virgin olive oil, salt, black pepper, and
+            fragrant oregano.
+          </div>
+
+          <div class="drink-price">$14</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://www.shelovesbiscotti.com/wp-content/uploads/2019/01/marinated-mozzarella-balls-5.jpg"
+        />
+
+        <div class="drink-content">
+          <div class="drink-name">Sea Bream Crudo with Lemon and Olives</div>
+
+          <div class="drink-description">
+            A raw fish dish featuring thinly sliced, mild-flavored sea bream
+            drizzled with high-quality olive oil and sharp lemon juice.
+          </div>
+
+          <div class="drink-price">$10</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://coleycooks.com/wp-content/uploads/2025/04/arancini-3-768x1155.jpg"
+        />
+
+        <div class="drink-content">
+          <div class="drink-name">Flatbread Caprese</div>
+
+          <div class="drink-description">
+            Crust topped with melted mozzarella cheese, fresh tomatoes, basil,
+            and a finishing drizzle of balsamic glaze.
+          </div>
+
+          <div class="drink-price">$11</div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <img
+          class="drink-image"
+          src="https://www.foodandwine.com/thmb/cg_58nm0NPHgQnBL8K2T80fhA-8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/lobster-stuffed-zucchini-blossoms-xl-recipe0618_1-f9decdd88d8443018afe2031c24c6098.jpg"
+        />
+
+        <div class="drink-content">
+          <div class="drink-name">Clams Casino With Bacon and Bell Pepper</div>
+
+          <div class="drink-description">
+            Baked littleneck clams on the half-shell, topped with a savory
+            mixture of crispy bacon, sautéed diced bell peppers (usually red),
+            garlic, breadcrumbs, and butter.
+          </div>
+
+          <div class="drink-price">$11</div>
+        </div>
+      </div>
+      <div>
+        <img
+          src="https://png.pngtree.com/background/20250123/original/pngtree-restaurant-blur-dark-background-picture-image_15366949.jpg"
+          alt=""
+          width="1600px"
+          height="600px"
+        />
+
+        />
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2026 Italian Restaurant</p>
+    </footer>
+  </body>
+</html>

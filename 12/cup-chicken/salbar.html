@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cup Chicken</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #000000;
+        color: #e8e8e8;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 30px;
+        background: #000000;
+        border-bottom: 1px solid #000000;
+      }
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+      }
+      nav li {
+        cursor: pointer;
+        color: #000000;
+      }
+      nav li:hover {
+        color: #fff;
+      }
+      header {
+        text-align: center;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, #000000, #000000);
+        border-bottom: 1px solid #000000;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 48px;
+      }
+      header p {
+        color: #000000;
+      }
+      .section-title {
+        max-width: 1200px;
+        margin: 20px auto 0;
+        padding: 0 20px;
+        font-size: 26px;
+        color: rgb(255, 206, 107);
+      }
+      .menu {
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 25px;
+      }
+      .card {
+        background: #000000;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        transition: 0.25s;
+        border: 1px solid #2a2a2e;
+        position: relative;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7);
+      }
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: 0.3s;
+      }
+      .card:hover img {
+        transform: scale(1.05);
+      }
+      .badge {
+        position: absolute;
+        background: rgb(255, 206, 107);
+        color: black;
+        padding: 5px 10px;
+        font-size: 12px;
+        top: 10px;
+        left: 10px;
+        border-radius: 6px;
+      }
+      .content {
+        padding: 18px;
+      }
+      .title {
+        font-size: 22px;
+      }
+      .desc {
+        font-size: 15px;
+        color: #bdbdbd;
+        margin-top: 6px;
+      }
+      .rating {
+        color: rgb(255, 206, 107);
+        font-size: 14px;
+        margin-top: 5px;
+      }
+      .price {
+        margin-top: 10px;
+        font-weight: bold;
+        color: rgb(255, 206, 107);
+      }
+      .order-btn {
+        margin-top: 10px;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background: rgb(255, 206, 107);
+        color: black;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .order-btn:hover {
+        background: rgb(255, 206, 107);
+      }
+      footer {
+        text-align: center;
+        padding: 25px;
+        color: #000000;
+        border-top: 1px solid #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        background-color: rgb(235, 191, 124);
+        height: 70px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      "
+    >
+      <a href="/CupChicken.html"
+        ><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-IYLxJ2dW2-BxwyIlh_-g-0zmzh9_h3DSaw&s"
+          style="height: 70px"
+      /></a>
+      <a
+        href="/zahialgiinyavts.html"
+        style="text-decoration: none; color: brown"
+        ><h1>Захиалгын явц</h1></a
+      >
+      <a href="salbar.html" style="text-decoration: none; color: brown"
+        ><h1>Салбаруудын мэдээлэл</h1></a
+      >
+
+      <a href="/ajliinbair.html" style="text-decoration: none; color: brown"
+        ><h1>Ажлын байр</h1></a
+      >
+      <a href="bidniituhai.html" style="text-decoration: none; color: brown"
+        ><h1>Бидний тухай</h1></a
+      >
+      <a href="/nevtreh.html" style="text-decoration: none; color: brown"
+        ><h1>Нэвтрэх</h1></a
+      >
+    </div>
+    <nav>
+      <div>Cup Chicken 🍗</div>
+    </nav>
+       <div
+      style="
+        background: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 700px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        background-position: center;
+      "
+    >
+    <div class="embed-map-fixed">
+      <div class="embed-map-container">
+        <iframe
+          class="embed-map-frame"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+          src="https://maps.google.com/maps?width=600&height=400&hl=en&q=cup%20chicken&t=&z=12&ie=UTF8&iwloc=B&output=embed"
+        ></iframe>
+      </div>
+      <style>
+        .embed-map-fixed {
+          position: relative;
+          text-align: right;
+          width: 600px;
+          height: 400px;
+        }
+        .embed-map-container {
+          overflow: hidden;
+          background: none !important;
+          width: 600px;
+          height: 400px;
+        }
+        .embed-map-frame {
+          width: 600px !important;
+          height: 400px !important;
+          border-radius: 16px;
+        }
+      </style>
+    </div>
+    <header>
+      <h1>Салбаруудын мэдээлэл</h1>
+    </header>
+    <h2 class="section-title">Салбарууд</h2>
+    <section class="menu">
+      <div class="card">
+        <img
+          src="https://i.ibb.co/tP4ct0dW/Screenshot-2026-05-13-135621.png"
+        />
+        <div class="content">
+          <div class="title">Seoul St Building Салбар</div>
+          <div class="desc">10:00 – 00:00</div>
+          <div class="price">
+            • Seoul St Building, СБД - 4 хороо, Улаанбаатар
+          </div>
+          <button class="order-btn">Харах</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://i.ibb.co/5XBGQ0Gd/Screenshot-2026-04-22-141112.png" />
+        <div class="content">
+          <div class="title">Akoya Mall Салбар</div>
+          <div class="desc">10:00 – 22:00</div>
+          <div class="price">
+            • Нийслэл хүрээ өргөн чөлөө, ХУД - 18 хороо, Улаанбаатар 17013
+          </div>
+          <button class="order-btn">Харах</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://i.ibb.co/v4bJHvXc/Screenshot-2026-04-22-141601.png" />
+        <div class="content">
+          <div class="title">БЗД - 3 хороо Салбар</div>
+          <div class="desc">10:00 – 23:00</div>
+          <div class="price">• БЗД - 3 хороо, Улаанбаатар 13381</div>
+          <button class="order-btn">Харах</button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

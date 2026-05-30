@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overworld</title>
+    <style>
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#111;
+    overflow-x:hidden;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero{
+    position:relative;
+    height:100vh;
+
+    background-image:url(https://staticg.sportskeeda.com/editor/2021/12/99ed2-16385997961818.png?w=720);
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    animation:fadeIn 1.5s ease;
+}
+
+/* DARK OVERLAY */
+
+.hero::before,
+.section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.35),
+        rgba(0,0,0,0.75)
+    );
+}
+
+/* LOGO */
+
+.logo{
+    position:absolute;
+    top:30px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:2;
+}
+
+.logo img{
+    width:350px;
+}
+
+/* =========================
+   TEXT CARD
+========================= */
+
+.card{
+    position:relative;
+    z-index:2;
+
+    width:430px;
+    padding:35px;
+
+    background:rgba(35, 70, 20, 0.88);
+
+    border:3px solid #9d9d9d;
+    border-radius:25px;
+
+    text-align:center;
+    color:white;
+
+    backdrop-filter:blur(5px);
+
+    box-shadow:
+    0 0 20px rgba(0,0,0,0.6),
+    0 0 40px rgba(0,0,0,0.3);
+
+    transition:0.5s ease;
+}
+
+.card:hover{
+    transform:scale(1.04);
+}
+
+.card h1,
+.card h2{
+    color:#9cff67;
+    margin-bottom:18px;
+}
+
+.card p{
+    font-size:15px;
+    line-height:1.8;
+}
+
+/* =========================
+   IMAGE SECTIONS
+========================= */
+
+.section{
+    position:relative;
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    overflow:hidden;
+
+    animation:fadeIn 1.5s ease;
+
+    transition:background-size 2s ease;
+}
+
+.section:hover{
+    background-size:105%;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#0a0a0a;
+    color:gray;
+    text-align:center;
+    padding:25px;
+    font-size:14px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+  
+    @font-face {
+        font-family: 'MyMinecraft'; 
+        src: url('./fonts/1_MinecraftRegular1.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;} 
+        * {font-family: 'MyMinecraft', sans-serif;}
+    </style>
+    
+</head>
+
+<body style="padding: 0px; margin: 0px; background-color: black; overflow-x: hidden;">
+    <div
+        style="background-image: url(https://scontent.fuln6-3.fna.fbcdn.net/v/t39.30808-6/658455522_1255103693494112_2689731783291360441_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=WxXGGPKGDXEQ7kNvwF-t_tF&_nc_oc=AdpGV2oe4L-6FdjdbP6KM692BUTLYu4iDJ8b3MAn1bzDxYJzrh8BadNmhEjrGB9W358FKeiVfx-H4LO2i4mtVZdF&_nc_zt=23&_nc_ht=scontent.fuln6-3.fna&_nc_gid=vgsKqXsqhgcrmdcEsR-8Eg&_nc_ss=7b2a8&oh=00_Af7apT3Qb2QzMkGHDzYFWmOss9oMs6bc6F58d1Sz8ulJDw&oe=6A1BB12F); aspect-ratio: 1920/479;  background-size: contain; background-repeat: repeat-x;  margin-bottom: 0px; width: 100vw; height: 105px; position: fixed; top: 0; z-index: 9999;">
+        <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 0px;">
+            <p><img src= "photos/logo.png " alt="" style="aspect-ratio: 800/205; height: 70px;"></p>
+  
+        </div>
+    </div>
+    
+
+<section class="hero">
+
+
+
+    <!-- CARD -->
+    <div class="card">
+
+        <h1>Overworld</h1>
+
+        <p>
+            The Overworld is the primary dimension in Minecraft where players
+            begin their journey. It contains diverse biomes, villages,
+            structures, weather systems, mobs, and endless opportunities
+            for exploration and survival.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     CAVES
+========================= -->
+
+<section class="section"
+style="background-image:url(https://i.pinimg.com/originals/c6/b3/5d/c6b35ddadb27a6fba399ecf110a3bffa.jpg);">
+
+    <div class="card">
+
+        <h2>Caves</h2>
+
+        <p>
+            Minecraft caves are massive underground systems filled with ores,
+            lava, water, hidden treasures, and hostile mobs. They provide
+            players with exciting opportunities for mining and exploration.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     PLAINS
+========================= -->
+
+<section class="section"
+style="background-image:url(https://wallpaperaccess.com/full/8377031.jpg);">
+
+    <div class="card">
+
+        <h2>Plains Biome</h2>
+
+        <p>
+            The plains biome is one of the safest and most beginner-friendly
+            areas in Minecraft. Its flat grassy terrain makes building easy,
+            while villages and passive mobs provide useful resources.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     UNDERGROUND
+========================= -->
+
+<section class="section"
+style="background-image:url(https://staticg.sportskeeda.com/editor/2022/07/a5c32-16576959198911-1920.jpg);">
+
+    <div class="card">
+
+        <h2>Underground Adventure</h2>
+
+        <p>
+            Deep underground, players can discover giant caverns, dripstone
+            formations, rare ores, and dangerous enemies. Exploration in these
+            areas is both risky and rewarding.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+
+
+    <div style="background-image: url(https://i.redd.it/9ra517ybxow21.png); height: 200px; background-repeat: repeat-x;  width: 100%; display: flex; justify-content: center; align-items: center;">
+<a href="minecraftintroduction.html">
+    <button style="
+    width: 520px; 
+    height: 50px;
+    background-image: url('https://f000.backblazeb2.com/file/jpgshared/phujohTA');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    color: white;
+    cursor: pointer;border-style: ridge;border-color: black;border-width: 5px;font-size:20px ;
+    opacity: 100%;
+    ">
+   Save and Quit to Title
+    </button>
+    </a>
+    </div>
+
+</body>
+</html>
+
+

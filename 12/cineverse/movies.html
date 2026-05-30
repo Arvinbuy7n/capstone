@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineVerse Movies</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0;
+        font-family: Georgia;
+      }
+      .movies {
+        font-size: 20px;
+        color: #99aabb;
+        margin: 2px 0;
+      }
+       .nav-links {
+    display: flex;
+    gap: 25px;
+  }
+      .big {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        background-color: #15181d;
+        padding: 10px 0;
+      }
+      .cineverse {
+        color: white;
+        font-size: 24px;
+        margin: 0;
+      }
+      .reviews {
+        color: #99aabb;
+        margin: 0;
+      }
+      .search {
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+      }
+      h1 {
+        color: #99aabb;
+        margin: 10px 0 5px 0;
+        font-family: Georgia;
+      }
+      .last {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 350px;
+        background-color: #15181d;
+        gap: 5px;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; background: #0f1115; border-bottom: 1px solid rgba(255,255,255,0.08); position: sticky; top: 0; z-index: 100; gap: 24px; flex-wrap: wrap;">
+      <a href="./homepage.html" style="font-size: 26px; font-weight: 700; color: white; text-decoration: none; letter-spacing: 0.3px;">CineVerse</a>
+      <nav style="display: flex; gap: 4px; align-items: center;">
+        <a href="./homepage.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Home</a>
+        <a href="./movies.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Movies</a>
+        <a href="./shows.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Series</a>
+        <a href="./cineverse.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Reviews</a>
+        <a href="./card.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">Account</a>
+        <a href="./aboutus2.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">About</a>
+      </nav>
+      <input type="text" placeholder="Search films, directors..." style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: white; padding: 9px 16px; border-radius: 8px; font-size: 13px; width: 240px; outline: none; font-family: inherit;" />
+    </div>
+
+    <div style="display: flex; gap: 7px; margin-top: 10px">
+      <div
+        style="
+          background-image: url(https://media.themoviedb.org/t/p/w440_and_h660_face/g96wHxU7EnoIFwemb2RgohIXrgW.jpg);
+          height: 600px;
+          width: 700px;
+          background-position: center;
+          background-size: cover;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://s3.amazonaws.com/nightjarprod/content/uploads/sites/193/2026/02/09112829/lYWEXbQgRTR4ZQleSXAgRbxAjvq-scaled.jpg);
+          height: 600px;
+          width: 700px;
+          background-position: center;
+          background-size: cover;
+        "
+      ></div>
+      <div
+        style="
+          background-image: url(https://m.media-amazon.com/images/M/MV5BMGFlMTVkMDktZGMzMC00Yjk4LWFmNzEtNTFmMzM2YzM3MWFkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg);
+          height: 600px;
+          width: 700px;
+          background-position: center;
+          background-size: cover;
+        "
+      ></div>
+    </div>
+
+    <div style="margin-top: 10px; width: 100%; ">                                                                                                                                                                                                          
+      <h1>Romcom</h1>
+      <div style="display: flex; flex-direction: row; gap: 10px">
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://img.cnmhstng.com/promohd/2024/lg/Challengers256.jpg);
+              height: 200px;
+              width: 100%;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">Challengers</p>
+          <p class="movies">Directed by Luca Guadagnino</p>
+          <p class="movies">Released in 2024</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://newsroompost.com/wp-content/uploads/2024/04/idea-of-you-1.jpg);
+              height: 200px;
+              width: 100%;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">The Idea of You</p>
+          <p class="movies">Directed by Michael Showalter</p>
+          <p class="movies">Released in 2024</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://i.ytimg.com/vi/nBv1WSne_FU/maxresdefault.jpg);
+              height: 200px;
+              width: 100%;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">10 Things I Hate About You</p>
+          <p class="movies">Gil Junger</p>
+          <p class="movies">Released in 1999</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://www.sirler.com/wp-content/uploads/2024/04/How-to-Lose-a-Guy-in-10-Days-Dress1.jpeg);
+              height: 200px;
+              width: 100%;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">How to Lose a Guy in 10 Days</p>
+          <p class="movies">Directed by Donald Petrie</p>
+          <p class="movies">Released in 2003</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://i.ytimg.com/vi/Jbt85ftYLDI/maxresdefault.jpg);
+              height: 200px;
+              width: 100%;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">Leap Year</p>
+          <p class="movies">Directed by Anand Tucker</p>
+          <p class="movies">Released in 2010</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 10px; width: 100%">
+      <h1>Crime</h1>
+      <div style="display: flex; flex-direction: row; gap: 10px">
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://tse1.mm.bing.net/th/id/OIP.cmGSTjE_9Bm-dp_5uvrmIwHaD4?rs=1&pid=ImgDetMain&o=7&rm=3);
+              height: 200px;
+              width: 100%;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">The Godfather</p>
+          <p class="movies">Directed by Francis Coppola</p>
+          <p class="movies">Released in 1972</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://cdn.shopify.com/s/files/1/1288/8361/files/GoodFellas_Banner.jpg?v=1586289795);
+              height: 200px;
+              width: 100%;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">Goodfellas</p>
+          <p class="movies">Directed by Martin Scorsese</p>
+          <p class="movies">Released in 1990</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://image.tmdb.org/t/p/original/mGcRgFTFoD9qf7eXUXqgSRew4n7.jpg);
+              height: 200px;
+              width: 100%;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">Chinatown</p>
+          <p class="movies">Directed by Roman Polanski</p>
+          <p class="movies">Released in 1974</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://m.media-amazon.com/images/S/pv-target-images/4fadcec3544c68030a3ec0cdb81fc1432eaa8495e5728ad85b4096198945a151.jpg);
+              height: 200px;
+              width: 100%;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">The Debt</p>
+          <p class="movies">Directed by John Madden</p>
+          <p class="movies">Released in 2010</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://image.tmdb.org/t/p/original/VGfgcxCXMKN2Utipks4bAkR036.jpg);
+              height: 200px;
+              width: 100%;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">True Crime</p>
+          <p class="movies">Directed by Clint Eastwood</p>
+          <p class="movies">Released in 1999</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 10px; width: 100%">
+      <h1>Comedy</h1>
+      <div style="display: flex; flex-direction: row; gap: 10px">
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://i.pinimg.com/originals/cc/5c/4b/cc5c4be9126d510ce74fd440458bea9e.jpg);
+              height: 200px;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">Deadpool & Wolverine</p>
+          <p class="movies">Directed by Shawn Lewy</p>
+          <p class="movies">Released in 1999</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://wallpapers.com/images/featured/home-alone-z6f6eew6ygqs3stx.jpg);
+              height: 200px;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">Home Alone</p>
+          <p class="movies">Directed by Chris Columbus</p>
+          <p class="movies">Released in 1990</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://xstreamcp-assets-msp.streamready.in/assets/SONYLIV_VOD/MOVIE/6485903382488153bfe3e3b6/images/6027168953001.jpg);
+              height: 200px;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">Men in Black 3</p>
+          <p class="movies">Directed by Barry Sonnenfield</p>
+          <p class="movies">Released in 2012</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://image.tmdb.org/t/p/original/gghCiBhPt5AImIJkQz0fPR0C1cL.jpg);
+              height: 200px;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">White Chicks</p>
+          <p class="movies">Directed by Keenen Ivory Wayans</p>
+          <p class="movies">Released in 2004</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://tse1.mm.bing.net/th/id/OIP.DRI5tQl2S02sjCW4g1VH5gHaEK?rs=1&pid=ImgDetMain&o=7&rm=3);
+              height: 200px;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">We're the Millers</p>
+          <p class="movies">Directed by Rawson Marshall Thurber</p>
+          <p class="movies">Released in 2013</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 10px; width: 100%">
+      <h1>Action</h1>
+      <div style="display: flex; flex-direction: row; gap: 10px">
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://nerdreactor.com/wp-content/uploads/2025/01/kill-bill-vol-1.jpg);
+              height: 200px;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">Kill Bill</p>
+          <p class="movies">Directed by Quentin Tarantino</p>
+          <p class="movies">Released in 2003</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/20847a13-2273-4802-8e09-e8a56946f48d/new-poster-for-george-millers-furiosa-a-mad-max-saga.jpg);
+              height: 200px;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">Furiosa: A Mad Max Saga</p>
+          <p class="movies">Directed by George Miller</p>
+          <p class="movies">Released in 2024</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://tse4.mm.bing.net/th/id/OIP.PFnOjj6IMb88McqTc2Ad7AHaEo?rs=1&pid=ImgDetMain&o=7&rm=3);
+              height: 200px;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">Inglorious Basterds</p>
+          <p class="movies">Directed by Quentin Tarantino</p>
+          <p class="movies">Released in 2009</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://tse3.mm.bing.net/th/id/OIP.mTF8U5GoBYK25F9-AMOwlQHaDt?w=600&h=300&rs=1&pid=ImgDetMain&o=7&rm=3);
+              height: 200px;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">Matrix</p>
+          <p class="movies">Directed by Lana Wachowski</p>
+          <p class="movies">Released in 1999</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://tse1.mm.bing.net/th/id/OIP.1mPNJlEQX14c6Q4UwDDZUQHaEo?rs=1&pid=ImgDetMain&o=7&rm=3);
+              height: 200px;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">Django</p>
+          <p class="movies">Directed by Quentin Tarantino</p>
+          <p class="movies">Released in 2012</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 10px; width: 100%">
+      <h1>Horror</h1>
+      <div style="display: flex; flex-direction: row; gap: 10px">
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://ik.imagekit.io/shortpedia/Voices/wp-content/uploads/2022/08/The-wailing-horror-1200x900@flickside.jpg);
+              height: 200px;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">The Wailing</p>
+          <p class="movies">Directed by Na Hong-Jin</p>
+          <p class="movies">Released in 2016</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://tse1.mm.bing.net/th/id/OIP.dwnVSTjHPoX9sfIOn9-QdAHaDt?rs=1&pid=ImgDetMain&o=7&rm=3);
+              height: 200px;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">Get Out</p>
+          <p class="movies">Directed by Jordan Peele</p>
+          <p class="movies">Released in 2017</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://static1.srcdn.com/wordpress/wp-content/uploads/2019/06/Us-banner-with-Winston-Duke-and-Lupita-Nyongo.jpg);
+              height: 200px;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">Us</p>
+          <p class="movies">Directed by Jordan Peele</p>
+          <p class="movies">Released in 2019</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://th.bing.com/th/id/R.d8a687b68c9438add4a4cec76bd4a9da?rik=hwNQuhQuWjwsEA&pid=ImgRaw&r=0);
+              height: 200px;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">Don't Breathe</p>
+          <p class="movies">Directed by Feda Alvarez</p>
+          <p class="movies">Released in 2016</p>
+        </div>
+        <div
+          style="width: 20%; display: flex; flex-direction: column; gap: 5px"
+        >
+          <div
+            style="
+              background-image: url(https://4kwallpapers.com/images/wallpapers/final-destination-2880x1800-22358.jpg);
+              height: 200px;
+              background-position: center;
+              background-size: cover;
+            "
+          ></div>
+          <p class="movies">Final Destination Bloodlines</p>
+          <p class="movies">Directed by Adam Stein</p>
+          <p class="movies">Released in 2025</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="last">                                                                                                                                                                                        
+      <div
+        style="
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          align-items: center;
+          height: 270px;
+          gap: 80px;
+ 
+       
+        "
+      >
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            align-items: flex-start;
+            margin-top: -40px;
+            justify-content: space-around;
+          "
+        >
+          <p style="font-size: 25px; color: whitesmoke">
+            <strong>Stay in the Loop</strong>
+          </p>
+          <p style="font-size: 16px; color: whitesmoke">
+            Receive weekly cinematic updates directly in your inbox.
+          </p>
+        </div>
+        <div
+          style="
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            margin-left: 15px;
+            justify-content: space-between;
+          "
+        >
+          <input class="search" type="text" placeholder="Your email address" />
+
+          <button
+            style="
+              background-color: rgb(251, 140, 5);
+              color: whitesmoke;
+              border: transparent;
+              height: 45px;
+              width: 155px;
+              border-radius: 14px;
+              font-size: 13px;
+            "
+          >
+            Subscribe Now
+          </button>
+        </div>
+      </div>
+      <hr
+        style="width: 1100px; border: 1px solid whitesmoke; margin-top: -60px"            
+      />
+   <div
+        style="
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          gap: 150px;
+        "
+      >
+        <p style="font-size: 22px; color: whitesmoke">
+          <strong>CineVerse</strong>
+        </p>
+        <p style="font-size: 14px; color: whitesmoke">
+          Policy Terms of Service Contact
+        </p>
+        <p style="font-size: 14px; color: whitesmoke">
+          Ⓒ 2024 CineVerse Inc. All cinematic rights reserved.
+           
+        </p>
+      </div>
+      </div>
+    </div>
+  </body>
+</html>

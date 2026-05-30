@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rennsport</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anta&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --bg-dark-red: #4a0b0b;
+        --bg-card-red: #2a0505;
+        --bg-black: #000000;
+        --text-white: #ffffff;
+        --text-gray: #b3b3b3;
+        --accent-glow: #ff4d4d;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg-dark-red);
+        color: var(--text-white);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+      h1,
+      h2,
+      h3,
+      .accent-font,
+      .btn {
+        font-family: "Anta", sans-serif;
+      }
+      .site-header {
+        position: relative;
+        background-color: var(--bg-black);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        height: 60px;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+      }
+      .back-arrow {
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        color: white;
+        transition: transform 0.2s;
+      }
+      .back-arrow:hover {
+        transform: translateX(-3px);
+      }
+      .hero-container {
+        position: relative;
+        width: 100%;
+        height: 70vh;
+        min-height: 400px;
+      }
+      .hero-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        mask-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 1) 75%,
+          rgba(0, 0, 0, 0) 100%
+        );
+      }
+      .product-main {
+        max-width: 1200px;
+        margin: -50px auto 40px;
+        padding: 0 20px;
+        position: relative;
+        z-index: 5;
+      }
+
+      .fire-title {
+        font-size: clamp(3.5rem, 8vw, 5.5rem);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        line-height: 0.9;
+        margin-bottom: 5px;
+        text-shadow: 0 0 20px #fefcc9, 5px -5px 15px #feec85,
+          -10px -10px 25px #ffae34, 10px -20px 35px #ec760c;
+        animation: flicker 0.15s infinite alternate;
+      }
+      @keyframes flicker {
+        0% {
+          transform: skewX(0.5deg);
+          opacity: 0.97;
+        }
+        100% {
+          transform: skewX(-0.5deg);
+          opacity: 1;
+        }
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        font-weight: 300;
+        color: var(--text-gray);
+        margin-bottom: 25px;
+      }
+      .action-panel {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        align-items: center;
+        margin-bottom: 35px;
+      }
+      .btn {
+        padding: 12px 28px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-transform: uppercase;
+      }
+      .btn-primary {
+        background-color: var(--text-white);
+        color: var(--bg-black);
+        font-weight: 600;
+      }
+      .btn-primary:hover {
+        background-color: var(--accent-glow);
+        color: var(--text-white);
+        box-shadow: 0 0 15px var(--accent-glow);
+      }
+      .btn-secondary {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: var(--text-white);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .btn-secondary:hover {
+        background-color: var(--text-white);
+        color: var(--bg-black);
+      }
+      .description-section {
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 30px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        margin-bottom: 5px;
+      }
+      .description-section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 5px;
+      }
+      .description-text {
+        color: #e0e0e0;
+        margin-bottom: 20px;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+      .feature-card h4 {
+        color: var(--accent-glow);
+        margin-bottom: 5px;
+      }
+      .feature-card p {
+        font-size: 0.95rem;
+        color: var(--text-gray);
+      }
+      .sub-nav {
+        background-color: var(--bg-black);
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        padding: 20px;
+        overflow-x: auto;
+      }
+      .sub-nav a {
+        color: var(--text-gray);
+        text-decoration: none;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        white-space: nowrap;
+        transition: color 0.2s;
+      }
+      .sub-nav a:hover,
+      .sub-nav a.active {
+        color: var(--text-white);
+      }
+      .comments-section {
+        background-color: var(--bg-black);
+        padding: 40px 20px;
+      }
+      .comments-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: var(--bg-card-red);
+        border-radius: 20px;
+        padding: 30px;
+      }
+      .comment-row {
+        display: grid;
+        grid-template-columns: 180px 1fr 80px;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        gap: 15px;
+      }
+      .comment-row:last-child {
+        border-bottom: none;
+      }
+      .username {
+        font-weight: 600;
+        color: var(--accent-glow);
+        word-break: break-all;
+      }
+      .comment-text {
+        color: #e0e0e0;
+      }
+      .likes-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 6px;
+      }
+      .heart-icon {
+        width: 18px;
+        height: 18px;
+      }
+      .like-count {
+        font-size: 0.9rem;
+        min-width: 20px;
+        text-align: left;
+      }
+      @media (max-width: 768px) {
+        .comment-row {
+          grid-template-columns: 1fr;
+          gap: 5px;
+          padding: 20px 0;
+        }
+        .likes-container {
+          justify-content: flex-start;
+          margin-top: 5px;
+        }
+        .sub-nav {
+          justify-content: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="back-arrow" href="homepage.html">
+        <img
+          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXhCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE5IDEyaC0xNE0xMiA1bC03IDcgNyA3Ii8+PC9zdmY+"
+          alt="Back"
+        />
+      </a>
+    </header>
+
+    <main>
+      <section class="hero-container">
+        <img
+          class="hero-img"
+          src="https://www.rennsport.gg/wp-content/uploads/2025/08/250806-2-Base_Key_Artwork-scaled.png"
+          alt="Rennsport Artwork"
+        />
+      </section>
+
+      <section class="product-main">
+        <h1 class="fire-title">Rennsport</h1>
+        <p class="subtitle">Drive like you have never before</p>
+
+        <div class="action-panel">
+          <audio
+            id="engineSound"
+            src="dragon-studio-car-engine-372477.mp3"
+            preload="auto"
+          ></audio>
+          <button
+            class="btn btn-secondary accent-font"
+            onclick="document.getElementById('engineSound').play()"
+          >
+            🔊 Rev Engine
+          </button>
+
+          <button class="btn btn-secondary">Add to Cart</button>
+          <button class="btn btn-primary">Purchase</button>
+        </div>
+
+        <div class="description-section">
+          <h3>Description</h3>
+          <p class="description-text">
+            RENNSPORT is a high-performance racing simulation game developed by
+            Competition Company and Teyon. Designed as a photo-realistic
+            "playground" for car enthusiasts, it focuses heavily on
+            professional-grade driving dynamics and esports competition.
+          </p>
+
+          <div class="features-grid">
+            <div class="feature-card">
+              <h4>Release & Platforms</h4>
+              <p>Officially released for PC, PS5, and Xbox Series X|S.</p>
+            </div>
+            <div class="feature-card">
+              <h4>Engine & Visuals</h4>
+              <p>
+                Utilizes Unreal Engine 5 for ultra-high-fidelity visuals
+                alongside laser-scanned accurate tracks.
+              </p>
+            </div>
+            <div class="feature-card">
+              <h4>Esports & Realism</h4>
+              <p>
+                Features competitive multiplayer networks (ESL R1) designed
+                explicitly alongside input from pro drivers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <nav class="sub-nav">
+        <a href="#" class="active">Comments</a>
+        <a href="#">Info</a>
+        <a href="#">Achievements</a>
+        <a href="#">Updates</a>
+        <a href="#">More Like This</a>
+      </nav>
+
+      <section class="comments-section">
+        <div class="comments-container">
+          <div class="comment-row">
+            <div class="username">individualdartboard</div>
+            <div class="comment-text">I will download it!</div>
+            <div class="likes-container">
+              <img
+                class="heart-icon"
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXhCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xMiAyMS4zNWwtMS40NS0xLjMyQzUuNCAxNS4zNiAyIDEyLjI4IDIgOC41IDIgNS40MiA0LjQyIDMgNy41IDNDOS4yOCAzIDExIDQuMDYgMTIgNS40N2ExLjc4IDEuNzggMCAwIDUgLTIuNTNDMTkuNTggMyAyMiA1LjQyIDIyIDguNWMwIDMuNzgtMy40IDYuODYtOC41NSAxMS41NEwxMiAyMS4zNXoiLz48L3N2Zz4="
+                alt="Heart"
+              />
+              <span class="like-count">12</span>
+            </div>
+          </div>
+          <div class="comment-row">
+            <div class="username">thanksbolt</div>
+            <div class="comment-text">how do i get past the last part?</div>
+            <div class="likes-container">
+              <img
+                class="heart-icon"
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXhCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xMiAyMS4zNWwtMS40NS0xLjMyQzUuNCAxNS4zNiAyIDEyLjI4IDIgOC41IDIgNS40MiA0LjQyIDMgNy41IDNDOS4yOCAzIDExIDQuMDYgMTIgNS40N2ExLjc4IDEuNzggMCAwIDUgLTIuNTNDMTkuNTggMyAyMiA1LjQyIDIyIDguNWMwIDMuNzgtMy40IDYuODYtOC41NSAxMS41NEwxMiAyMS4zNXoiLz48L3N2Zz4="
+                alt="Heart"
+              />
+              <span class="like-count">2</span>
+            </div>
+          </div>
+          <div class="comment-row">
+            <div class="username">worrisomeimp</div>
+            <div class="comment-text">🥰🥰🥰</div>
+            <div class="likes-container">
+              <img
+                class="heart-icon"
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXhCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xMiAyMS4zNWwtMS40NS0xLjMyQzUuNCAxNS4zNiAyIDEyLjI4IDIgOC41IDIgNS40MiA0LjQyIDMgNy41IDNDOS4yOCAzIDExIDQuMDYgMTIgNS40N2ExLjc4IDEuNzggMCAwIDUgLTIuNTNDMTkuNTggMyAyMiA1LjQyIDIyIDguNWMwIDMuNzgtMy40IDYuODYtOC41NSAxMS41NEwxMiAyMS4zNXoiLz48L3N2Zz4="
+                alt="Heart"
+              />
+              <span class="like-count">0</span>
+            </div>
+          </div>
+          <div class="comment-row">
+            <div class="username">dimcost</div>
+            <div class="comment-text">Realest experience</div>
+            <div class="likes-container">
+              <img
+                class="heart-icon"
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXhCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xMiAyMS4zNWwtMS40NS0xLjMyQzUuNCAxNS4zNiAyIDEyLjI4IDIgOC41IDIgNS40MiA0LjQyIDMgNy41IDNDOS4yOCAzIDExIDQuMDYgMTIgNS40N2ExLjc4IDEuNzggMCAwIDUgLTIuNTNDMTkuNTggMyAyMiA1LjQyIDIyIDguNWMwIDMuNzgtMy40IDYuODYtOC41NSAxMS41NEwxMiAyMS4zNXoiLz48L3N2Zz4="
+                alt="Heart"
+              />
+              <span class="like-count">47</span>
+            </div>
+          </div>
+          <div class="comment-row">
+            <div class="username">doutgarnish</div>
+            <div class="comment-text">I am global 1</div>
+            <div class="likes-container">
+              <img
+                class="heart-icon"
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXhCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xMiAyMS4zNWwtMS40NS0xLjMyQzUuNCAxNS4zNiAyIDEyLjI4IDIgOC41IDIgNS40MiA0LjQyIDMgNy41IDNDOS4yOCAzIDExIDQuMDYgMTIgNS40N2ExLjc4IDEuNzggMCAwIDUgLTIuNTNDMTkuNTggMyAyMiA1LjQyIDIyIDguNWMwIDMuNzgtMy40IDYuODYtOC41NSAxMS41NEwxMiAyMS4zNXoiLz48L3N2Zz4="
+                alt="Heart"
+              />
+              <span class="like-count">294</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

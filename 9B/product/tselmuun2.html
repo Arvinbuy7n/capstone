@@ -1,0 +1,686 @@
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+<style>
+.cake:hover {
+transform: scale(1.1);
+transition: 1s; 
+}
+
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+
+<title>Cupcake Factory</title>
+
+<style>
+
+body{
+
+margin:0;
+
+background-color:antiquewhite;
+
+font-family:Arial;
+
+overflow-x:hidden;
+
+}
+
+.navbar{
+
+height:100px;
+
+background:pink;
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+font-size:45px;
+
+color:#db7093;
+
+}
+
+.sign{
+
+padding:10px 25px;
+
+background:lightpink;
+
+border:2px solid #5a3e3e;
+
+border-radius:8px;
+
+font-size:18px;
+
+cursor:pointer;
+
+}
+
+.menu{
+
+height:45px;
+
+background:lightblue;
+
+display:flex;
+
+justify-content:space-evenly;
+
+align-items:center;
+
+font-size:20px;
+
+color:#5a3e3e;
+
+}
+
+.hero{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:90px;
+
+gap:80px;
+
+}
+
+.hero-text{
+
+width:550px;
+
+}
+
+.hero-text h1{
+
+font-size:70px;
+
+color:#5a3e3e;
+
+margin:0;
+
+}
+
+.hero-text p{
+
+font-size:22px;
+
+line-height:1.8;
+
+color:#5a3e3e;
+
+}
+
+.hero-btn{
+
+padding:18px 35px;
+
+background:pink;
+
+border:none;
+
+font-size:20px;
+
+border-radius:15px;
+
+margin-top:20px;
+
+cursor:pointer;
+
+transition:.5s;
+
+}
+
+.hero-btn:hover{
+
+transform:scale(1.1);
+
+}
+
+.hero-img{
+
+width:500px;
+
+height:500px;
+
+border-radius:30px;
+
+border:6px double lightpink;
+
+background-image:url("cupcake.png");
+
+background-size:cover;
+
+background-position:center;
+
+}
+
+.about{
+
+padding:100px;
+
+text-align:center;
+
+}
+
+.about h2{
+
+font-size:50px;
+
+color:#5a3e3e;
+
+}
+
+.about p{
+
+font-size:22px;
+
+max-width:900px;
+
+margin:auto;
+
+line-height:1.8;
+
+color:#5a3e3e;
+
+}
+
+.cards{
+
+display:flex;
+
+justify-content:center;
+
+gap:40px;
+
+padding-bottom:100px;
+
+flex-wrap:wrap;
+
+}
+
+.card{
+
+width:280px;
+
+height:250px;
+
+background:pink;
+
+border-radius:25px;
+
+padding:30px;
+
+color:#5a3e3e;
+
+transition:.5s;
+
+}
+
+.card:hover{
+
+transform:translateY(-15px);
+
+}
+
+.stats{
+
+display:flex;
+
+justify-content:space-evenly;
+
+padding:80px;
+
+background:lightblue;
+
+flex-wrap:wrap;
+
+}
+
+.number{
+
+font-size:60px;
+
+font-weight:bold;
+
+color:#db7093;
+
+}
+
+.label{
+
+font-size:24px;
+
+color:#5a3e3e;
+
+}
+
+.cta{
+
+padding:120px;
+
+text-align:center;
+
+}
+
+.cta h1{
+
+font-size:60px;
+
+color:#5a3e3e;
+
+}
+
+.cta button{
+
+padding:20px 45px;
+
+font-size:24px;
+
+border:none;
+
+background:pink;
+
+border-radius:15px;
+
+cursor:pointer;
+
+transition:.5s;
+
+}
+
+.cta button:hover{
+
+transform:scale(1.1);
+
+}
+
+footer{
+
+padding:60px;
+
+background:#ffdfdd;
+
+text-align:center;
+
+color:#5a3e3e;
+
+font-size:20px;
+
+}
+
+</style>
+
+</head>
+
+<body style="background-color: antiquewhite; margin: 0px">
+<div class="navbar"
+style="
+height: 100px;
+width: 100%;
+background-color: pink;
+font-size: 50px;
+display: flex;
+align-items: center;
+justify-content: space-around;
+font-family:
+Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;
+"
+>
+<div style="color: #5a3e3e;">
+<img
+src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWluc3RhZ3JhbS1pY29uIGx1Y2lkZS1pbnN0YWdyYW0iPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgeD0iMiIgeT0iMiIgcng9IjUiIHJ5PSI1Ii8+PHBhdGggZD0iTTE2IDExLjM3QTQgNCAwIDEgMSAxMi42MyA4IDQgNCAwIDAgMSAxNiAxMS4zN3oiLz48bGluZSB4MT0iMTcuNSIgeDI9IjE3LjUxIiB5MT0iNi41IiB5Mj0iNi41Ii8+PC9zdmc+"
+alt=""
+/>
+<img
+src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWZhY2Vib29rLWljb24gbHVjaWRlLWZhY2Vib29rIj48cGF0aCBkPSJNMTggMmgtM2E1IDUgMCAwIDAtNSA1djNIN3Y0aDN2OGg0di04aDNsMS00aC00VjdhMSAxIDAgMCAxIDEtMWgzeiIvPjwvc3ZnPg=="
+alt=""
+/>
+<img
+src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXR3aXR0ZXItaWNvbiBsdWNpZGUtdHdpdHRlciI+PHBhdGggZD0iTTIyIDRzLS43IDIuMS0yIDMuNGMxLjYgMTAtOS40IDE3LjMtMTggMTEuNiAyLjIuMSA0LjQtLjYgNi0yQzMgMTUuNS41IDkuNiAzIDVjMi4yIDIuNiA1LjYgNC4xIDkgNC0uOS00LjIgNC02LjYgNy0zLjggMS4xIDAgMy0xLjIgMy0xLjJ6Ii8+PC9zdmc+"
+alt=""
+/>
+</div>
+
+<div style="display: flex; align-items: center; color: #db7093;">Cupcake Factory</div>
+
+<button
+style="
+background-color: lightpink;
+border: solid 2px;
+border-color: #5a3e3e;
+font-size: 17px;
+border-radius: 5px;
+color: #5a3e3e;
+"
+>
+Sign in
+</button>
+</div>
+
+
+
+<div class="menu">
+
+<a href="khulan.html">  <div
+    style="
+    font-size: 20px;
+    font-family:
+    Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;
+    "
+    >
+    Introduction
+    </div></a>
+
+<a href="ninjin 1.html"><div
+style="
+font-size: 20px;
+font-family:
+Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;
+"
+>
+Products
+</div></a>
+<a href="sayangua.html"><div
+style="
+font-size: 20px;
+font-family:
+Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;
+"
+>
+Bonus
+</div></a>
+<a href="tselmuun2.html"><div
+style="
+font-size: 20px;
+font-family:
+Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;
+"
+>
+News
+</div></a>
+<a href="ravjaa.html"><div
+style="
+font-size: 20px;
+font-family:
+Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;
+"
+>
+Locations
+</div></a>
+<a href="tselmuun4.html"><div
+style="
+font-size: 20px;
+font-family:
+Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;
+"
+>
+Gallery
+</div></a>
+
+
+</div>
+
+
+<div class="hero">
+
+<div class="hero-text">
+
+<h1 style="color: #db7093;">
+
+Sweet Moments Begin Here
+
+</h1>
+
+<p>
+
+We create cupcakes, cakes, and desserts that turn ordinary days into unforgettable memories. Fresh ingredients, creative recipes, and lots of love go into every dessert.
+
+</p>
+
+
+
+</div>
+
+<div class="hero-img"><img style="width: 100%; height: 100%; border: 1px; border-radius: 26px;" src="https://i.pinimg.com/1200x/a4/e1/e6/a4e1e65a5ac99d0a8eacdbea479fb632.jpg" alt="shsh"></div>
+
+</div>
+
+
+<div class="about">
+
+<h2 style="color: #db7093;">
+
+Who Are We?
+
+</h2>
+
+<p>
+
+Cupcake Factory started with one simple goal — create desserts that make people smile. From classic cupcakes to custom creations, we believe every dessert should look beautiful and taste even better.
+
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+
+<h2>
+
+Fresh Daily
+
+</h2>
+
+<img style="width: 220px; height: 200px;border-radius: 10px;" src="https://vanfoodies.com/wp-content/uploads/2010/11/img_1554.jpg" alt="">
+
+</div>
+
+<div class="card">
+
+<h2>
+
+Premium Quality
+
+</h2>
+
+<img style="width: 220px; height: 200px;border-radius: 10px" src="https://sallysbakingaddiction.com/wp-content/uploads/2022/10/apple-spice-cupcakes-with-caramel-frosting-3.jpg" alt="">
+
+</div>
+
+<div class="card">
+
+<h2>
+
+Custom Orders
+
+</h2>
+
+<img style="width: 300px;height: 200px;border-radius: 10px"  src="https://images.squarespace-cdn.com/content/v1/602480efa59854097a5b59b3/1728275156531-13ZI52P386PX66H9SUP8/20240321_131744.jpg" alt="">
+
+</div>
+
+</div>
+
+
+<div class="stats">
+
+<div>
+
+<div class="number">
+
+500+
+
+</div>
+
+<div class="label">
+
+Cupcakes Daily
+
+</div>
+
+</div>
+
+
+<div>
+
+<div class="number">
+
+20+
+
+</div>
+
+<div class="label">
+
+Flavors
+
+</div>
+
+</div>
+
+
+<div>
+
+<div class="number">
+
+10k+
+
+</div>
+
+<div class="label">
+
+Happy Customers
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="cta">
+
+<h1>
+
+Ready For Something Sweet?
+
+</h1>
+
+<button>
+
+Order Now
+
+</button>
+
+</div>
+
+
+<footer
+style="
+background-color: #ffdfdd;
+color: #5a3e3e;
+padding: 60px 20px;
+font-family: &quot;Segoe UI&quot;, Tahoma, Geneva, Verdana, sans-serif;
+border-top: 5px solid #e38aae;
+margin-top: 45px;
+width: 100%;
+"
+>
+<div
+style="
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+gap: 40px;
+"
+>
+<div style="min-width: 200px; flex: 1">
+<h3 style="color: #db7093; margin-bottom: 20px; font-size: 1.2rem">
+Main Information
+</h3>
+<p style="margin: 8px 0">Sydney, NSW, Australia</p>
+<p style="margin: 8px 0">info@cupcakefactory.au</p>
+<p style="margin: 8px 0">+61 2 9876 5432</p>
+</div>
+
+<div style="min-width: 200px; flex: 1">
+<h3 style="color: #db7093; margin-bottom: 20px; font-size: 1.2rem">
+Locations
+</h3>
+<p style="margin: 8px 0; font-size: 0.9rem">
+Dulles Town Cir, Dulles, VA
+</p>
+<p style="margin: 8px 0; font-size: 0.9rem">
+Fair Oaks Mall, Fairfax, VA
+</p>
+<p style="margin: 8px 0; font-size: 0.9rem">
+Westfield Sydney, Sydney, NSW
+</p>
+</div>
+
+<div style="min-width: 200px; flex: 1">
+<h3 style="color: #db7093; margin-bottom: 20px; font-size: 1.2rem">
+Customer Support
+</h3>
+<p style="margin: 8px 0; font-size: 0.9rem">+61 2 9123 4567</p>
+<p style="margin: 8px 0; font-size: 0.9rem">+61 2 8765 4321</p>
+</div>
+
+<div style="min-width: 150px; flex: 1">
+<h3 style="color: #db7093; margin-bottom: 20px; font-size: 1.2rem">
+Quick Links
+</h3>
+<ul style="list-style: none; padding: 0">
+<li style="margin-bottom: 10px">
+<a
+href="ravjaa.html"
+style="text-decoration: none; color: #5a3e3e; transition: 0.3s"
+>Home</a
+>
+</li>
+<li style="margin-bottom: 10px">
+<a
+href="#"
+style="text-decoration: none; color: #5a3e3e; transition: 0.3s"
+>Contact Us</a
+>
+</li>
+<li style="margin-bottom: 10px">
+<a
+href="#"
+style="text-decoration: none; color: #5a3e3e; transition: 0.3s"
+>Our Menu</a
+>
+</li>
+</ul>
+</div>
+</div>
+
+<div
+style="
+text-align: center;
+margin-top: 50px;
+padding-top: 20px;
+border-top: 1px solid rgba(255, 77, 109, 0.2);
+font-size: 0.85rem;
+opacity: 0.8;
+"
+>
+© 2026 Cupcake Factory. Baked with love.
+</div>
+</footer>
+</body>
